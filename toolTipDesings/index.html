@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>...</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="sidebar">
+        <ul>
+            <li class="icon">
+                <img src="https://www.svgrepo.com/show/525381/home.svg" alt="">
+                <div class="tooltip">Home</div>
+            </li>
+            <li class="icon">
+                <img src="https://www.svgrepo.com/show/526106/play.svg" alt="">
+                <div class="tooltip">Play</div>
+            </li>
+            <li class="icon">
+                <img src="https://www.svgrepo.com/show/431699/grid-2.svg" alt="">
+                <div class="tooltip">movie</div>
+            </li>
+            <li class="icon">
+                <img src="https://www.svgrepo.com/show/526219/settings-minimalistic.svg" alt="">
+                <div class="tooltip">Settings</div>
+            </li>
+            <li class="icon">
+                <img src="https://www.svgrepo.com/show/525415/logout-2.svg" alt="">
+                <div class="tooltip">logout</div>
+            </li>
+            <li class="icon active" id="lastAc">
+                <img src="https://www.svgrepo.com/show/525975/letter-unread.svg" alt="">
+                <div class="tooltip active">original</div>
+            </li>
+        </ul>
+
+    </div>
+    <div class="default">
+        <div class="close"><img src="https://www.svgrepo.com/show/522388/close.svg" alt=""></div>
+        <div class="w">
+            <div class="de-card">
+                <h1>RP</h1>
+                <div class="pop-default ">
+                    <p>Are you sure you would like to add this memener to this event?</p>
+                    <div class="btn-grp">
+                        <button>Yes</button>
+                        <button>No</button>
+                    </div>
+                </div>
+            </div>
+            <div class="de-card"></div>
+            <div class="de-card"></div>
+        </div>
+    </div>
+    <div class="container">
+        <h2>Types Of ToolTips</h2>
+        <div class="wrapper  scrollX">
+            <div class="card ">
+                <div class="tooltip classic">
+                    <h1>Classic Tooltip</h1>
+                </div>
+                <h1>Tool Tip <div class=" design">design 1</div>
+                </h1>
+            </div>
+            <div class="card">
+                <div class="tooltip">
+                    <h1>Hello There!</h1>
+                </div>
+                <h1>Tool Tip <div class=" design">design 2</div>
+                </h1>
+            </div>
+            <div class="card">
+                <div class="tooltip">
+                    <h1>Are you sure you would like to add this member to this event?</h1>
+                    <div class="btn-grp">
+                        <button>Yes</button>
+                        <button>No</button>
+                    </div>
+                </div>
+                <h1>Ruby Powell <div class=" design">design 3</div>
+                </h1>
+            </div>
+            <div class="card">
+                <div class="tooltip really">
+                    <h1>Really</h1>
+                </div>
+                <h1>Tool Tip <div class=" design">design 4</div>
+                </h1>
+            </div>
+            <div class="card">
+                <div class="tooltip steps">
+                    <h1>Settings</h1>
+                    <p>Customiz your account and manage <br> your Prefrence with the settings</p>
+                    <div class="btn-grp">
+                        <button class="circle"></button>
+                        <button class="circle"></button>
+                        <button class="circle"></button>
+                        <button class="circle"></button>
+                        <button>next</button>
+                    </div>
+                </div>
+                <h1>Tool Tip <div class=" design">design 5</div>
+                </h1>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const lastAc = document.getElementById('lastAc');
+        const defaultt = document.querySelector('.default');
+        const iconMsg = document.querySelector('.sidebar ul .icon:last-child');
+        const iconMsgTooltip = document.querySelector('.sidebar ul .icon:last-child .tooltip');
+        const closee = document.querySelector('.close');
+        lastAc.addEventListener('click', () => {
+            defaultt.style.top = '0';
+            iconMsg.classList.remove('active')
+            iconMsgTooltip.classList.remove('active')
+        })
+        closee.addEventListener('click', () => {
+            defaultt.style.top = '-100%';
+        })
+    </script>
+</body>
+
+</html>

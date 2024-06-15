@@ -1,0 +1,503 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+:root {
+  /* FONTS */
+  --heading: "Montserrat", sans-serif;
+  --normal: "Roboto", sans-serif;
+  /* COLOR */
+  --primaryColor1: #5c8374;
+  --primaryColor: #1c274c;
+  --secondryColor: #363f4c;
+  --barcolor: #15191e;
+  --white: #f2f2f2;
+
+  /* Animation */
+  --appear: appear 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.scrollX::-webkit-scrollbar {
+  height: 5px;
+  background-color: transparent;
+  border-radius: 50em;
+}
+
+.scrollX::-webkit-scrollbar-thumb {
+  border-radius: 50em;
+  height: 100%;
+  background-color: var(--primaryColor);
+}
+button {
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
+.tooltip {
+  text-transform: capitalize;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes appear {
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background-color: black;
+  display: grid;
+  place-items: center;
+  padding: 0em 1em;
+}
+/* ORIGINAL */
+.default {
+  position: fixed;
+  top: -100%;
+  background-color: rgb(228, 228, 228);
+  height: 100%;
+  width: 100%;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  transition: 250ms ease top;
+}
+.default .w {
+  height: 7em;
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  justify-content: center;
+}
+.default .close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 30px;
+  aspect-ratio: 1;
+  text-align: center;
+}
+.default .close img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+.default .close:hover {
+  filter: invert(1);
+  cursor: pointer;
+}
+.default .w .de-card {
+  background: white;
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+  height: 100%;
+  border-radius: 0.5em;
+  width: 250px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.default .w .de-card h1 {
+  border: 2px solid black;
+  height: 100px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  font-family: var(--normal);
+  text-align: center;
+  line-height: 3;
+}
+.de-card:nth-child(2) {
+  scale: 0.95;
+  opacity: 0.5;
+}
+.de-card:nth-child(3) {
+  scale: 0.9;
+  position: relative;
+  left: -2%;
+  opacity: 0.25;
+}
+.pop-default {
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  position: absolute;
+  top: -110%;
+  border-radius: inherit;
+  padding: 0.5em;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+.pop-default p {
+  font-family: var(--normal);
+  text-align: center;
+  font-size: 12px;
+}
+.pop-default .btn-grp button:first-child {
+  background: rgb(3, 212, 3);
+  margin-top: 2em;
+}
+.pop-default .btn-grp button:last-child {
+  margin-top: 2em;
+  background: whitesmoke;
+  border: 1.4px solid rgb(213, 213, 213);
+}
+.pop-default::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 45%;
+  transform: translate(-0%, -0%);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  rotate: 180deg;
+  background-color: white;
+  height: 10px;
+  width: 20px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px;
+}
+/* === */
+.sidebar {
+  background-color: var(--secondryColor);
+  border-radius: 50em;
+  height: fit-content;
+  padding: 0.5em;
+  width: 50px;
+  position: fixed;
+  top: 50%;
+  left: 10px;
+  transform: translate(-0%, -50%);
+}
+.sidebar ul {
+  height: 100%;
+  width: 100%;
+  border-radius: inherit;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1em;
+}
+.sidebar ul .icon {
+  border-radius: inherit;
+  background-color: var(--barcolor);
+  height: 40px;
+  aspect-ratio: 1;
+  cursor: pointer;
+  position: relative;
+  animation: var(--appear);
+  top: 15px;
+  opacity: 0;
+  z-index: 100;
+}
+.sidebar ul .icon.active {
+  background-color: var(--primaryColor);
+}
+
+.sidebar ul .icon .tooltip {
+  z-index: 100;
+  opacity: 0;
+  left: 0px;
+  visibility: hidden;
+
+  color: var(--white);
+  border-radius: inherit;
+  padding: 0.25em 0.75em;
+  z-index: 1;
+  background-color: var(--secondryColor);
+  font-family: var(--heading);
+  height: fit-content;
+  width: fit-content;
+}
+.sidebar ul .icon:hover .tooltip {
+  transition: 250ms left cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    250ms opacity cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  left: 90px;
+  opacity: 1;
+  visibility: visible;
+}
+.sidebar ul .icon img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  padding: 0.5em;
+  filter: invert(1) hue-rotate(160deg);
+}
+.sidebar ul .icon:hover {
+  background: var(--primaryColor);
+}
+.sidebar ul .icon .tooltip.active {
+  visibility: visible;
+  opacity: 1;
+  left: 90px;
+}
+.container {
+  height: fit-content;
+  justify-self: end;
+  width: calc(100% - 140px);
+  overflow: hidden;
+}
+.container h2 {
+  font-family: var(--heading);
+  place-self: 0.5em;
+  font-size: 2em;
+
+  color: var(--white);
+  position: relative;
+  animation: var(--appear);
+  top: 15px;
+  opacity: 0;
+}
+.wrapper.scrollX {
+  padding-bottom: 0.5em;
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  justify-content: start;
+  overflow-x: scroll;
+  overflow-y: hidden;
+
+  scroll-snap-type: x mandatory;
+}
+.wrapper {
+  padding-top: 8em;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+/* CARD */
+.card {
+  cursor: pointer;
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  --sizeOFLine: 15px;
+  height: 10rem;
+  width: 400px;
+  border-radius: 1em;
+  background: var(--barcolor);
+  position: relative;
+  padding: calc(var(--sizeOFLine) + 10px);
+  z-index: 1;
+
+  transition: 250ms ease background;
+
+  top: 15px;
+  opacity: 0;
+  animation: var(--appear);
+}
+.card:hover {
+  background: #2b323d;
+}
+.card:hover::before {
+  width: 35%;
+  z-index: -1;
+}
+.card::before {
+  transition: 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275) width;
+  border-top-left-radius: inherit;
+  border-bottom-left-radius: inherit;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--primaryColor);
+  height: 100%;
+  width: var(--sizeOFLine);
+  filter: invert(1) hue-rotate(160deg);
+}
+.card h1 {
+  color: #ffffff;
+  font-family: var(--heading);
+  width: 100%;
+  mix-blend-mode: difference;
+  transition: all 150ms ease;
+}
+.card:hover h1 {
+  color: #7b7b7b;
+  filter: invert(1);
+}
+.card h1 .design {
+  text-transform: uppercase;
+  background: var(--secondryColor);
+  border-radius: 50em;
+  width: fit-content;
+  font-size: 14px;
+  padding: 0.5em 1em;
+  margin-top: 0.5em;
+  transition: all 150ms ease;
+}
+
+/* CARD TOOLTIP */
+.card > .tooltip {
+  filter: invert(0) hue-rotate(0deg);
+  background-color: var(--secondryColor);
+  border-radius: 1em;
+  z-index: -1;
+
+  padding: 0.5em 0.75em;
+  width: 100%;
+  color: white;
+  height: fit-content;
+  width: fit-content;
+
+  top: 0%;
+  visibility: hidden;
+  opacity: 0;
+  transition: 150ms cubic-bezier(0.175, 0.885, 0.32, 1.275) top;
+  text-align: center;
+}
+.card .tooltip h1 {
+  font-size: 15px;
+  color: saddlebrown;
+}
+.card:hover > .tooltip {
+  visibility: visible;
+  opacity: 1;
+  top: -20%;
+}
+.card:nth-child(3) .tooltip {
+  visibility: visible;
+  width: 80%;
+}
+.card:nth-child(3):hover .tooltip {
+  visibility: visible;
+  width: 80%;
+  top: -32%;
+}
+.btn-grp {
+  height: 2.5em;
+  margin-top: 0.5em;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  border-radius: inherit;
+}
+.btn-grp button {
+  flex: 1;
+  height: 100%;
+  border-radius: inherit;
+}
+.btn-grp button:first-child {
+  background: rgb(138, 255, 138);
+  color: var(--white);
+}
+
+/* ==ToolTip's== */
+
+/* REALLY */
+.tooltip.really {
+  top: -20%;
+}
+.tooltip.really::before {
+  content: "";
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  transform: translate(-50%, -0%);
+  clip-path: polygon(15% 1%, 84% 0, 64% 43%, 65% 100%, 33% 100%, 33% 43%);
+  background-color: var(--secondryColor);
+  height: 15px;
+  width: 15px;
+}
+
+/* STEPS */
+.tooltip.steps {
+  top: -40%;
+  width: 80%;
+  text-align: left;
+  transition: 250ms ease opacity;
+}
+.card:hover .tooltip.steps {
+  top: -35%;
+}
+.tooltip p {
+  font-family: var(--normal);
+  font-size: 12px;
+}
+.tooltip.steps .circle {
+  height: 10px;
+  flex: 0.076;
+}
+.tooltip.steps .circle:hover {
+  background: var(--primaryColor1);
+}
+.tooltip button:hover {
+  filter: contrast(80%);
+}
+
+.tooltip.tooltip.steps button:last-of-type {
+  margin-left: 5em;
+  background: black;
+  color: var(--white);
+}
+
+/* CLASSIC */
+.tooltip.classic::before {
+  content: "";
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  transform: translate(-50%, -0%);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  rotate: 180deg;
+  background-color: var(--secondryColor);
+  height: 15px;
+  width: 15px;
+}
+
+.card:nth-child(1) {
+  animation-delay: 50ms;
+}
+.card:nth-child(2) {
+  animation-delay: 100ms;
+}
+.card:nth-child(3) {
+  animation-delay: 150ms;
+}
+.card:nth-child(4) {
+  animation-delay: 200ms;
+}
+.card:nth-child(5) {
+  animation-delay: 250ms;
+}
+.card:nth-child(6) {
+  animation-delay: 300ms;
+}
+.sidebar ul .icon:nth-child(1) {
+  animation-delay: 50ms;
+}
+.sidebar ul .icon:nth-child(2) {
+  animation-delay: 100ms;
+}
+.sidebar ul .icon:nth-child(3) {
+  animation-delay: 150ms;
+}
+.sidebar ul .icon:nth-child(4) {
+  animation-delay: 200ms;
+}
+.sidebar ul .icon:nth-child(5) {
+  animation-delay: 250ms;
+}
+
+@media (max-width: 400px) {
+  .container {
+    justify-self: end;
+    width: calc(100% - 60px);
+  }
+  .card {
+    width: 300px;
+  }
+}

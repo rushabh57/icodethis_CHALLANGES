@@ -1,0 +1,200 @@
+/* Add CSS here */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --borderRadius: 0.5em;
+  /* animation & transitions */
+  --appear: appear 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+@keyframes appear {
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
+body {
+  height: 100vh;
+  background: whitesmoke;
+  display: grid;
+  place-items: center;
+  font-family: "Poppins", sans-serif;
+}
+.changeBtn {
+  z-index: 10;
+  height: 3em;
+  width: 3em;
+  background: white;
+  border: 0em;
+  outline: 0em;
+  border-radius: var(--borderRadius);
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  transition: 250ms all cubic-bezier(0.165, 0.84, 0.44, 1);
+  padding: 0.5em;
+}
+.popOver {
+  background: black;
+  color: white;
+  padding: 0.5em;
+  position: fixed;
+  top: 10px;
+  z-index: 5;
+  border-radius: var(--borderRadius);
+  right: 3.5em;
+  background: linear-gradient(-45deg, #58a399, #76abae, #8cb9bd, #638889);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.changeBtn:hover {
+  backdrop-filter: blur(200px);
+  background: #58a399;
+}
+.changeBtn:hover svg {
+  filter: invert(1);
+}
+.changeBtn svg {
+  height: 100%;
+  width: 100%;
+}
+.profileCard {
+  margin-block: 2.5em;
+  position: relative;
+  top: 15px;
+  opacity: 0;
+  animation: var(--appear);
+  background: white;
+  padding: 1em;
+  height: 250px;
+  width: 300px;
+  border-radius: var(--borderRadius);
+  transition: 250ms all cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: rgba(148, 148, 157, 0.2) 0px 7px 29px 0px;
+}
+.profile {
+  height: fit-content;
+  width: 100%;
+  position: relative;
+  border-radius: inherit;
+  text-align: center;
+}
+.profile .profile-image {
+  height: 6em;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  transition: 250ms all cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.profile .username {
+  color: #252525;
+  margin-top: 0.5em;
+  position: relative;
+  top: 15px;
+  opacity: 0;
+  animation: var(--appear);
+  animation-delay: 100ms;
+}
+.profile .userId {
+  line-height: 1;
+  color: rgb(214, 214, 214);
+  position: relative;
+  top: 15px;
+  opacity: 0;
+  animation: var(--appear);
+  animation-delay: 150ms;
+}
+
+.detail {
+  display: none;
+  margin-top: 1em;
+  height: fit-content;
+}
+.detail > p {
+  width: 50%;
+  font-size: 14px;
+  position: relative;
+  top: 15px;
+  opacity: 0;
+  animation: var(--appear);
+  animation-delay: 200ms;
+}
+.detail .other-detail {
+  margin-top: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5em;
+}
+.other-detail span {
+  position: relative;
+  top: 15px;
+  opacity: 0;
+  animation: var(--appear);
+  height: 5px;
+  aspect-ratio: 1;
+  background: rgb(214, 214, 214);
+  border-radius: 50%;
+}
+.other-detail .box {
+  position: relative;
+  top: 15px;
+  opacity: 0;
+  animation: var(--appear);
+}
+.other-detail .box:nth-child(1) {
+  animation-delay: 50ms;
+}
+.other-detail .box:nth-child(3) {
+  animation-delay: 150ms;
+}
+.other-detail .box:nth-child(5) {
+  animation-delay: 250ms;
+}
+.other-detail span:nth-child(2) {
+  animation-delay: 100ms;
+}
+.other-detail span:nth-child(4) {
+  animation-delay: 200ms;
+}
+.other-detail .box {
+  color: rgb(214, 214, 214);
+  font-size: 14px;
+}
+.centerB {
+  text-align: center;
+  height: fit-content;
+  width: fit-content;
+  margin: 1em auto;
+}
+.followBtn {
+  background-color: transparent;
+  border: 1.4px solid rgb(214, 214, 214);
+  cursor: pointer;
+  border-radius: 5em;
+  width: 120px;
+  height: 2.5em;
+  font-size: 14px;
+  transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 250ms;
+}
+.followBtn:hover {
+  filter: contrast(80%);
+}

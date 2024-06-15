@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="copyright" content="Rushabh" />
+    <title>I CODE THIS CHALLANGE 542</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="form-container">
+
+        <div class="lf-side col">
+            <div class="logo">
+                <div class="squre">
+                    <h1>b</h1> <span>.</span>
+                </div>
+                <h5 id="logoName">boardme</h5>
+            </div>
+            <h2>Implement user <span class="decor">onboarding</span> experiences with just a few clicks</h2>
+            <p>Guide your customers on a fantastic journey within your web app.</p>
+        </div>
+        <div class="rt-side col">
+            <div class="heading-line">
+                <button class="backbtn">
+                    <img src="https://www.svgrepo.com/show/510826/arrow-undo-up-left.svg" alt="">
+                </button>
+                <div>
+                    <h2 class="heading">Get Started</h2>
+                    <h2 class="heading">Create your <br> account</h2>
+                </div>
+            </div>
+            <form action="" id="form">
+
+                <div class="signup" id='signup'>
+                    <button class="easySignupBtn">
+                        <img src="https://www.svgrepo.com/show/502648/email.svg" alt="">
+                        <p>Sign up with email</p>
+                    </button>
+                    <button class="easySignupBtn">
+                        <img src="https://www.svgrepo.com/show/475689/twitter-color.svg" alt="">
+                        <p>Sign up with Twitter</p>
+                    </button>
+                    <button class="easySignupBtn">
+                        <img src="https://www.svgrepo.com/show/354981/facebook-option.svg" alt="">
+                        <p>Sign up with Signup with Facebook</p>
+                    </button>
+                    <p>Already have an account? <span id="loginTo">Log in</span></p>
+
+                </div>
+                <div class="login" id="login">
+                    <div class="input-grp">
+                        <p>Name</p>
+                        <input type="text">
+                    </div>
+                    <div class="input-grp">
+                        <p>Email</p>
+                        <input type="email">
+                    </div>
+                    <div class="input-grp">
+                        <p>Password</p>
+                        <input type="password">
+                    </div>
+                    <button type="submit">Sign up</button>
+                </div>
+
+            </form>
+            <p class="HelpingLink">Having Trouble? <span>Get help</span></p>
+        </div>
+    </div>
+
+    <script>
+        const signupContainer = document.getElementById('signup');
+        const loginContainer = document.getElementById('login');
+        const loginTo = document.getElementById('loginTo');
+        const form = document.getElementById('form');
+        const heading = document.querySelectorAll('.heading');
+        const backbtn = document.querySelector('.backbtn')
+
+        loginTo.addEventListener('click', () => {
+            signupContainer.style.transform = 'translateX(-100%)';
+            loginContainer.style.transform = 'translateX(-100%)';
+
+            heading[0].style.transform = 'translateY(-100%)';
+            heading[1].style.transform = 'translateY(-100%)';
+
+            backbtn.style.transform = 'translateY(-0%)';
+            backbtn.style.opacity = '1';
+        })
+        backbtn.addEventListener('click', () => {
+            signupContainer.style.transform = 'translateX(0%)';
+            loginContainer.style.transform = 'translateX(0%)';
+
+            heading[0].style.transform = 'translateY(0%)';
+            heading[1].style.transform = 'translateY(0%)';
+
+            backbtn.style.transform = 'translateY(-150%)';
+            backbtn.style.opacity = '0';
+
+        })
+
+        const logoName = document.getElementById('logoName');
+        const text = logoName.textContent;
+        let delay = 50;
+        let animationDelay = 0;
+
+        const spanText = text.split('').map(letter => {
+            animationDelay += delay;
+            const spanElement = `<span style='animation-delay:${animationDelay}ms;' class='reveal'>${letter}</span>`;
+            return spanElement;
+        }).join('');
+
+        logoName.innerHTML = spanText;
+    </script>
+</body>
+
+</html>

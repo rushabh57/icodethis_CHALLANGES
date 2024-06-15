@@ -1,0 +1,264 @@
+/* Write your CSS code here */
+@import url("https://fonts.googleapis.com/css2?family=Italiana&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Italiana&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --normal: "Poppins", sans-serif;
+  --heading: "Montserrat", sans-serif;
+  --space: 0.25em;
+
+  --primary: 64, 165, 120;
+  --primaryHover: 157, 222, 139;
+  --defaultRadius: 0.5em;
+
+  --heightCard: calc(4em + (var(--space) * 1.25));
+
+  /* animation & transitions */
+}
+
+.more::-webkit-scrollbar {
+  width: 2px;
+  background-color: transparent;
+  border-radius: var(--defaultRadius);
+}
+
+.more::-webkit-scrollbar-thumb {
+  width: 100%;
+  background-color: rgb(var(--primary));
+  border-radius: var(--defaultRadius);
+}
+
+.boxs::-webkit-scrollbar {
+  height: 5px;
+  background-color: transparent;
+  border-radius: var(--defaultRadius);
+}
+
+.boxs::-webkit-scrollbar-thumb {
+  height: 2px;
+  background-color: #240750;
+  border-radius: var(--defaultRadius);
+}
+
+@keyframes appear {
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #240750;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background-color: #f9f9f9;
+}
+
+.calendar {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 20px 15px hsl(242.61deg 40.35% 88.82%);
+  width: fit-content;
+  height: fit-content;
+  position: relative;
+  left: -200px;
+  transition: 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+  z-index: 1;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+}
+.header #month-year {
+  font-family: var(--heading);
+  font-weight: bolder;
+  font-size: 1.5em;
+}
+.header > .btn-grp button {
+  height: 35px;
+  aspect-ratio: 1;
+  border: 0;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: calc(var(--defaultRadius) * 50);
+}
+.header button img {
+  padding: 0.5em;
+  mix-blend-mode: difference;
+  filter: invert(1);
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: calc(var(--defaultRadius) * 50);
+}
+
+table {
+  width: 380px;
+  margin: 10px auto;
+  height: 280px;
+  padding-inline: 10px;
+  transition: 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+}
+.active {
+  background: pink;
+}
+
+th,
+td {
+  text-align: center;
+}
+th {
+  font-family: var(--heading);
+  font-size: 13px;
+}
+td {
+  cursor: pointer;
+  border-radius: calc(var(--defaultRadius) * 50);
+  width: 35px;
+  height: 35px;
+  font-family: var(--normal);
+  padding: 10px;
+  scale: 0.9;
+}
+tr:nth-child(4) td:nth-child(6) {
+  background-color: hsl(253deg 100% 64.71%);
+  color: white;
+}
+tr:nth-child(2) td:first-child {
+  background-color: hsl(346.59deg 100% 64.9%);
+  color: white;
+}
+tr:nth-child(3) td:nth-child(3) {
+  background-color: hsl(31.61deg 95.73% 54.12%);
+  color: white;
+}
+
+td:hover:not(.active) {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.schedule {
+  margin-top: 20px;
+  background: white;
+  border-radius: var(--defaultRadius);
+  box-shadow: 0 20px 15px hsl(242.61deg 40.35% 88.82%);
+  z-index: 2;
+  position: absolute;
+  left: 85%;
+  bottom: -10px;
+  height: fit-content;
+  width: 280px;
+  border-radius: var(--defaultRadius);
+  overflow: hidden;
+  padding: 1em;
+}
+.upper {
+  height: 40%;
+  display: flex;
+  gap: calc(var(--space) * 5);
+  align-items: center;
+  justify-content: start;
+  padding: var(--space);
+}
+.upper h1 {
+  font-size: 22px;
+  font-family: var(--heading);
+  line-height: 1;
+  align-self: center;
+  text-align: center;
+}
+.upper h1::first-line {
+  font-size: 14px;
+}
+
+.upper .vertical-line {
+  height: 100%;
+  width: 1px;
+  background-color: rgb(238, 238, 238);
+}
+.upper .title {
+  font-family: var(--heading);
+}
+
+.title h2 {
+  font-size: 20px;
+}
+.title > p {
+  font-size: 13px;
+  color: rgb(200, 198, 215);
+}
+.person {
+  height: 35px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  margin: var(--space);
+  background-color: rgb(200, 198, 215);
+}
+.persons {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: var(--space);
+}
+.persons .plusPeron {
+  text-align: center;
+  line-height: 2.5;
+  font-family: var(--normal);
+  background-color: transparent;
+  border: 2px solid hsl(253deg 100% 64.71%);
+  font-size: 13px;
+  font-weight: bold;
+  color: hsl(253deg 100% 64.71%);
+}
+
+.timeTable {
+  height: 200px;
+  background-color: white;
+  box-shadow: 0 20px 15px hsl(242.61deg 40.35% 88.82%);
+  position: absolute;
+  left: 120%;
+  top: 15%;
+  z-index: -1;
+  width: 200px;
+  border-radius: var(--defaultRadius);
+  text-align: center;
+  padding-inline: calc(var(--defaultRadius) * 2);
+  padding-block: calc(var(--defaultRadius) * 4);
+}
+.timeTable > p {
+  height: 2.5em;
+  width: 90%;
+  margin: var(--space) auto;
+  border-radius: calc(var(--defaultRadius) * 50);
+  line-height: 2.5;
+  font-family: var(--heading);
+  cursor: pointer;
+}
+.timeTable > p:nth-child(2) {
+  background: hsl(253deg 100% 64.71%);
+  color: white;
+}
+
+@media (max-width: 750px) {
+  .calendar {
+    left: 0;
+  }
+  .schedule {
+    position: unset;
+    margin: 0.5em auto;
+  }
+  .timeTable {
+    position: unset;
+    margin: 0.5em auto;
+  }
+}

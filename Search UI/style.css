@@ -1,0 +1,253 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+:root {
+  --bodyColor: hsl(261.82deg 100% 97.84%);
+  --primary: hsl(250.59deg 80.95% 95.88%);
+  --light: hsl(0deg 0% 100%);
+  --dark: hsl(254.44deg 50.94% 20.78%);
+  --border: 1.4px solid hsl(250deg 19.35% 87.84%);
+  --shadow: hsla(254, 33%, 85%, 0.422) 0px 7px 29px 0px;
+  --radius: 0.5em;
+  --secondry: hsl(250.59deg 80.95% 95.88%);
+  --space: 0.25em;
+  --padding: calc(var(--space) * 3);
+  --appear: appear 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes appear {
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes animaion1 {
+  0%,
+  100% {
+    transform: translateY(-0%);
+    rotate: 0deg;
+  }
+  50% {
+    transform: translateY(-10%);
+    rotate: -5deg;
+  }
+}
+@keyframes Go {
+  0%,
+  100% {
+    opacity: 1;
+    transform: translateX(-0%);
+  }
+  50% {
+    opacity: 0;
+    transform: translateX(30%);
+  }
+  60% {
+    opacity: 0;
+    transform: translateX(-30%);
+  }
+  90% {
+    opacity: 0.5;
+    transform: translateX(-1%);
+  }
+}
+
+@keyframes dimdom {
+  100% {
+    stroke: hsl(254, 55%, 46%);
+  }
+}
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: var(--bodyColor);
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+.container {
+  height: 370px;
+  background: var(--light);
+  width: 100%;
+  max-width: 550px;
+  border-radius: calc(var(--radius) * 2);
+  box-shadow: var(--shadow);
+  padding: calc(var(--padding) * 2);
+  position: relative;
+}
+
+.container::before {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 80%;
+  background: var(--secondry);
+  z-index: -1;
+  inset: 50%;
+  transform: translate(-50%, -50%) rotate(90deg);
+  border-radius: inherit;
+}
+.searchComps {
+  height: 4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space);
+}
+.searchComps .input-grp {
+  height: 2.5em;
+  width: 100%;
+  border: var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  position: relative;
+}
+.input-grp img {
+  height: 35px;
+  aspect-ratio: 1;
+  object-fit: contain;
+  position: absolute;
+  padding: calc(var(--space) * 2);
+  filter: invert(0.765) grayscale(1);
+  top: 2%;
+}
+.input-grp input {
+  height: 100%;
+  width: 100%;
+  border: 0;
+  outline: 0;
+  padding-left: 40px;
+  font-size: 14px;
+}
+
+.searchComps button {
+  background: var(--dark);
+  color: var(--light);
+  width: 30%;
+  max-width: 140px;
+  height: 3em;
+  border: 0;
+  outline: 0;
+  border-radius: var(--radius);
+  cursor: pointer;
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space);
+  border: 1.4px solid transparent;
+  transition: 250ms ease all;
+}
+
+.searchComps button img {
+  height: 20px;
+  aspect-ratio: 1;
+  filter: invert(1);
+  object-fit: contain;
+  transition: 250ms ease all;
+}
+.searchComps button:hover {
+  background: hsla(254, 55%, 46%, 0.27);
+  border: var(--border);
+  color: var(--dark);
+}
+.searchComps button:hover img {
+  filter: invert(0);
+}
+.card-container {
+  height: calc(100% - 4em);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
+  gap: var(--space);
+}
+.card {
+  height: 100%;
+  border: 1.4px solid transparent;
+  width: 100%;
+  background-color: var(--secondry);
+  border-radius: var(--radius);
+  cursor: pointer;
+
+  display: grid;
+  place-content: center;
+  text-align: center;
+
+  position: relative;
+  top: 15px;
+  opacity: 0;
+  animation: var(--appear);
+}
+.card img,
+.card svg {
+  height: 70px;
+  width: 70px;
+  padding: var(--padding);
+  margin: auto;
+}
+.card svg {
+  transition: cubic-be zier(0.175, 0.885, 0.32, 1.275) 250ms all;
+}
+.card:hover p {
+  letter-spacing: 1px;
+  font-weight: 550;
+}
+.card p {
+  font-size: 14px;
+  transition: all cubic-bezier(0.175, 0.885, 0.32, 1.275) 250ms;
+}
+
+.card:hover .dimDom {
+  animation: dimdom 700ms cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+
+.card:hover .dimDom:nth-child(1) {
+  animation-delay: 25ms;
+}
+
+.card:hover .dimDom:nth-child(2) {
+  animation-delay: 50ms;
+}
+
+.card:hover .dimDom:nth-child(3) {
+  animation-delay: 75ms;
+}
+.card:hover .dimDom:nth-child(4) {
+  animation-delay: 100ms;
+}
+
+.card:hover .dimDom:nth-child(5) {
+  animation-delay: 125ms;
+}
+
+.card:hover .dimDom:nth-child(6) {
+  animation-delay: 150ms;
+}
+
+.card:hover:nth-child(1) svg,
+.card:hover:nth-child(2) svg,
+.card:hover:nth-child(7) svg,
+.card:hover:nth-child(8) svg {
+  animation: animaion1 cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards 700ms;
+}
+
+.card:hover:nth-child(4) svg,
+.card:hover:nth-child(5) svg,
+.card:hover:nth-child(6) svg {
+  animation: Go linear forwards 700ms;
+}
+
+@media (max-width: 550px) {
+  .container {
+    height: 100%;
+  }
+
+  .searchComps button p {
+    display: none;
+  }
+  .container::before {
+    display: none;
+  }
+}

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="phone">
+
+        <div class="upbar">
+            <div class="left">
+                <p class="time">2:13 PM</p>
+            </div>
+            <div class="right">
+                <svg class="Tower2 upper-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <path d="M4 20V19M8 20V16M12 20V12M16 20V8" stroke="#000000" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round"></path>
+                    </g>
+                </svg>
+                <svg class="battery upper-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <path stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 10.5v3M6 17h10a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2Z">
+                        </path>
+                        <path fill="#000000" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" d="M11 10H7v4h4v-4Z"></path>
+                    </g>
+                </svg>
+            </div>
+        </div>
+        <div class="iland"></div>
+
+        <div class="slideBoxContainer">
+            <div class="heading">
+                <button class="bacBtn" id="backSettings">
+                    <img src="https://www.svgrepo.com/show/524256/arrow-left.svg" alt="">
+                </button>
+                <h3 class="title">Error</h3>
+
+            </div>
+            <div class="wrapper">
+                <h2 class="errorMsg">Click On back <br> to go back</h2>
+            </div>
+        </div>
+        <div class="settings">
+            <div class="heading">
+                <button class="bacBtn">
+                    <img src="https://www.svgrepo.com/show/524256/arrow-left.svg" alt="">
+                </button>
+                <h3 class="title">Sound settings</h3>
+            </div>
+            <div class="wrapper">
+                <section>
+                    <h4 class="section-heading">ADJUST VOLUME</h4>
+                    <div class="cover-sounds" id="mediaSound">
+                        <div class="title-sounds">
+                            <img src="https://www.svgrepo.com/show/526059/music-note.svg" alt="">
+                            <p>Media</p>
+                        </div>
+                        <div class="bar">
+                            <div class="inner-bar"></div>
+                        </div>
+                    </div>
+                    <div class="cover-sounds" id="ringtoneSound">
+                        <div class="title-sounds">
+                            <img src="https://www.svgrepo.com/show/525248/bell.svg" alt="">
+                            <p>Ringtone</p>
+                        </div>
+                        <div class="bar">
+                            <div class="inner-bar"></div>
+                        </div>
+                    </div>
+                    <div class="cover-sounds" id="alarmSound">
+                        <div class="title-sounds">
+                            <img src="https://www.svgrepo.com/show/525622/alarm.svg" alt="">
+                            <p>Alarm</p>
+                        </div>
+                        <div class="bar">
+                            <div class="inner-bar"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="line"></div>
+
+                <section>
+                    <h4 class="section-heading">Ringtone & Notification sounds</h4>
+
+                    <div class="title-sounds slideBoxs">
+                        <p class="title">Ringtone</p>
+                        <div class="shows">
+                            <div class="name">Light Steps</div>
+                            <img src="https://www.svgrepo.com/show/533659/chevron-left.svg" class="arrow" />
+                        </div>
+                    </div>
+                    <div class="title-sounds slideBoxs">
+                        <p class="title">Notification</p>
+                        <div class="shows">
+                            <div class="name">Droplets</div>
+                            <img src="https://www.svgrepo.com/show/533659/chevron-left.svg" class="arrow" />
+                        </div>
+                    </div>
+                    <div class="title-sounds slideBoxs">
+                        <p class="title">Message</p>
+                        <div class="shows">
+                            <div class="name">Bamboo</div>
+                            <img src="https://www.svgrepo.com/show/533659/chevron-left.svg" class="arrow" />
+                        </div>
+                    </div>
+                </section>
+
+                <div class="line"></div>
+
+                <section>
+                    <h4 class="section-heading">Sound & Vibrate</h4>
+
+                    <div class="title-sounds">
+                        <p class="title">Vibrate for calls</p>
+                        <label for="vibration">
+                            <input type="checkbox" id="vibration" name="vibration" />
+                            <div class="toggleBar">
+                                <div class="circle"></div>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="title-sounds">
+                        <p class="title">silent mode</p>
+                        <label for="vibration1">
+                            <input type="checkbox" id="vibration1" name="vibration" />
+                            <div class="toggleBar">
+                                <div class="circle"></div>
+                            </div>
+                        </label>
+                    </div>
+                </section>
+
+                <div class="line"></div>
+
+                <section>
+                    <div class="btn-grp">
+                        <button>Cancle</button>
+                        <button>Save</button>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        const innerBars = document.querySelectorAll('.cover-sounds .inner-bar');
+        const bellSound = document.querySelector('#ringtoneSound img');
+        const slideBoxs = document.querySelectorAll('.slideBoxs');
+        const slideBoxContainer = document.querySelector('.slideBoxContainer');
+        const settings = document.querySelector('.settings');
+        const backSettings = document.getElementById('backSettings');
+
+        slideBoxs.forEach(box => {
+            let isClick = false;
+            box.addEventListener('click', () => {
+                if (!isClick) {
+                    slideBoxContainer.style.right = '0';
+                    settings.style.left = '-100%';
+                    settings.style.opacity = '0';
+                    isClick = true;
+                    console.log(1);
+                } else {
+                    slideBoxContainer.style.right = '-100%';
+                    settings.style.left = '0%';
+                    settings.style.opacity = '1';
+                    isClick = false;
+                    console.log(0);
+                }
+            });
+        });
+
+        backSettings.addEventListener('click', () => {
+            slideBoxContainer.style.right = '-100%';
+            settings.style.left = '0%';
+            settings.style.opacity = '1';
+        });
+
+
+        const bar = document.querySelectorAll('.bar');
+        innerBars.forEach(innerBar => {
+            innerBar.parentElement.addEventListener('mousemove', (e) => {
+                bar.forEach(bar => {
+                    const rect = bar.getBoundingClientRect();
+                    const mouseX = e.clientX - rect.left;
+                    const width = Math.min(Math.max(mouseX, 0), rect.width);
+                    innerBar.style.width = width + 'px';
+                })
+            });
+
+            innerBar.parentElement.addEventListener('mouseleave', (e) => {
+                bar.forEach(bar => {
+                    const rect = bar.getBoundingClientRect();
+                    const mouseX = e.clientX - rect.left;
+                    const width = Math.min(Math.max(mouseX, 0), rect.width);
+                    innerBar.style.width = width + 'px';
+                })
+            });
+        });
+
+
+    </script>
+</body>
+
+</html>

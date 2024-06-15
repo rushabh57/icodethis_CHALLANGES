@@ -1,0 +1,384 @@
+/* Write your CSS code here */
+@import url("https://fonts.googleapis.com/css2?family=Italiana&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Italiana&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --normal: "Poppins", sans-serif;
+  --heading: "Montserrat", sans-serif;
+  --space: 0.25em;
+
+  --primary: 64, 165, 120;
+  --primaryHover: 157, 222, 139;
+  --defaultRadius: 0.5em;
+
+  --heightCard: calc(4em + (var(--space) * 1.25));
+
+  /* animation & transitions */
+  --appear: appear 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  --shadow: #b0ebb461 0px 7px 29px 0px;
+}
+
+.more::-webkit-scrollbar {
+  width: 2px;
+  background-color: transparent;
+  border-radius: var(--defaultRadius);
+}
+
+.more::-webkit-scrollbar-thumb {
+  width: 100%;
+  background-color: rgb(var(--primary));
+  border-radius: var(--defaultRadius);
+}
+
+.boxs::-webkit-scrollbar {
+  height: 5px;
+  background-color: transparent;
+  border-radius: var(--defaultRadius);
+}
+
+.boxs::-webkit-scrollbar-thumb {
+  height: 2px;
+  background-color: #240750;
+  border-radius: var(--defaultRadius);
+}
+
+@keyframes appear {
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #240750;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  background: white;
+  height: 100vh;
+}
+
+.container {
+  background: whitesmoke;
+  position: relative;
+  height: 400px;
+  width: 98%;
+  max-width: 700px;
+  border-radius: var(--defaultRadius);
+  padding: calc(var(--space) * 2);
+  display: grid;
+  gap: var(--space);
+  grid-template-columns: repeat(2, 1fr);
+  overflow: hidden;
+  animation: var(--appear);
+  position: relative;
+  top: 15px;
+  opacity: 0;
+}
+
+.selecteText {
+  height: 100%;
+  width: 100%;
+  border-radius: inherit;
+  overflow: hidden;
+  position: relative;
+  /* box-shadow: var(--shadow); */
+  padding: calc(var(--space) * 2);
+}
+
+.selecteText h1 {
+  font-family: var(--heading);
+  width: 100%;
+  font-size: 2em;
+  padding-top: 2em;
+  animation: var(--appear);
+  position: relative;
+  top: 15px;
+  opacity: 0;
+  animation-delay: 50ms;
+}
+
+.selecteText svg {
+  animation: var(--appear);
+  opacity: 1;
+  animation-delay: 100ms;
+}
+
+.selection {
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  border-radius: inherit;
+  /* box-shadow: var(--shadow); */
+  padding: calc(var(--space) * 2);
+
+  animation: var(--appear);
+  position: relative;
+  top: 15px;
+  opacity: 0;
+  animation-delay: 100ms;
+}
+
+.selection .head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--heading);
+  animation: var(--appear);
+}
+
+.head h4 {
+  font-size: 1.2em;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+}
+
+.head p {
+  color: rgb(39, 122, 255);
+  font-family: var(--normal);
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.options {
+  --showingCard: 3;
+  height: calc(var(--heightCard) * var(--showingCard));
+  margin-top: 0.5em;
+  width: 100%;
+  overflow-y: hidden;
+  transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) height 250ms;
+}
+
+.options.more {
+  overflow-y: scroll;
+  height: calc(var(--heightCard) * 4.5);
+}
+
+.options .o-card {
+  position: relative;
+  top: 15px;
+  opacity: 0;
+  animation: var(--appear);
+  height: 4em;
+  width: 100%;
+  background: white;
+  border-radius: var(--defaultRadius);
+  margin-block: var(--space);
+  padding: var(--space);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--space);
+  cursor: pointer;
+  background: rgba(var(--primaryHover), 0.5);
+  transition: 250ms ease background;
+}
+
+.o-card:nth-child(1) {
+  animation-delay: 150ms;
+}
+
+.o-card:nth-child(2) {
+  animation-delay: 200ms;
+}
+
+.o-card:nth-child(3) {
+  animation-delay: 250ms;
+}
+
+.o-card:nth-child(4) {
+  animation-delay: 300ms;
+}
+
+.o-card:hover {
+  background: rgba(var(--primaryHover));
+}
+
+.o-card.active {
+  background: rgba(var(--primaryHover));
+}
+
+.o-card img {
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50em;
+  background-color: grey;
+  object-fit: cover;
+}
+
+.detail .name {
+  font-family: var(--heading);
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.detail .ocupation {
+  font-family: var(--normal);
+  font-size: 12px;
+  color: grey;
+  line-height: 1;
+  padding-bottom: 0.5em;
+}
+
+.selected {
+  z-index: 1;
+  padding: calc(var(--space) * 2);
+  height: 100%;
+  width: 100%;
+  border-radius: inherit;
+  position: absolute;
+  top: 100%;
+  left: 0%;
+  opacity: 0;
+  transition: 250ms ease opacity;
+  background: linear-gradient(
+    80deg,
+    rgb(var(--primary)),
+    rgb(var(--primaryHover)),
+    rgb(var(--primary))
+  );
+}
+
+.selected .s-head {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: calc(var(--space) * 3);
+  height: 10rem;
+}
+
+.selected .detail {
+  flex: 1;
+  padding-top: calc(var(--space) * 3);
+}
+
+.selected .detail .name {
+  font-size: 2em;
+  font-family: var(--heading);
+}
+
+.selected .detail .ocupation {
+  font-size: 1em;
+  font-family: var(--normal);
+}
+
+.selected .link {
+  cursor: pointer;
+  height: 50px;
+  aspect-ratio: 1;
+  border-radius: 50em;
+  padding: 0.5em;
+}
+
+.link img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.selected .userImg {
+  height: 60%;
+  aspect-ratio: 1;
+  background-color: green;
+  border-radius: 50em;
+}
+
+.boxs {
+  height: 100px;
+  width: 100%;
+  min-height: fit-content;
+  border-radius: var(--defaultRadius);
+  margin-top: 0.5em;
+  font-family: var(--normal);
+
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 0.5em;
+
+  overflow-x: scroll;
+}
+.boxs a {
+  scroll-snap-type: x mandatory;
+  border-radius: var(--defaultRadius);
+  background: grey;
+  width: 90px;
+  aspect-ratio: 1;
+  overflow: hidden;
+}
+.boxs a img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+#signout {
+  height: 3em;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  background: black;
+  color: white;
+  margin-block: 1em;
+  width: 100%;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: var(--defaultRadius);
+  font-family: var(--normal);
+}
+
+#signout:hover {
+  background: rgb(var(--primaryHover));
+  color: #240750;
+}
+.p-t {
+  font-family: var(--heading);
+}
+.userSignIn {
+  height: 100%;
+  width: 100%;
+}
+
+@media (max-width: 670px) {
+  .container {
+    height: 98%;
+    grid-template-columns: 1fr;
+    display: block;
+  }
+
+  .selecteText {
+    height: 10em;
+    background: white;
+    border-radius: unset;
+  }
+
+  .selecteText h1 {
+    padding-top: 0;
+    font-size: 1em;
+  }
+
+  .selecteText svg {
+    z-index: 1;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    height: 100%;
+  }
+
+  .options.more {
+    border-radius: unset;
+    overflow-y: scroll;
+    height: calc(var(--heightCard) * 3.5);
+  }
+}
+
+@media (max-width: 340px) {
+  .selecteText svg {
+    height: 30%;
+  }
+}

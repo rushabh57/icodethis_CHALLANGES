@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Not much creativity or no interactions this time  :) -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <div class="container">
+        <div class="btn-grp">
+            <button>
+                <p>Impressions</p>
+                <h3>383</h3>
+            </button>
+            <button class="active">
+                <p>click-hthrough rate</p>
+                <h3>9.1%</h3>
+            </button>
+            <button>
+                <p>views</p>
+                <h3>97</h3>
+            </button>
+            <button>
+                <p>unique viewers</p>
+                <h3>54</h3>
+            </button>
+        </div>
+        <main>
+            <canvas id="myLineChart" width="400" height="200"></canvas>
+        </main>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const color = 'hsl(200deg 3.23% 81.76%)';
+
+            var ctx = document.getElementById('myLineChart').getContext('2d');
+            var myLineChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: [0, 166, 332, 498, 664, 830, 996],
+                    datasets: [{
+                        label: false,
+                        data: [225, 150, 150, 75, 200, 50, 0], // Example data points
+                        fill: false,
+                        borderColor: 'hsl(237.39deg 79.31% 71.57%',
+                        backgroundColor: 'hsl(237.39deg 79.31% 71.57%',
+                        borderWidth: 2,
+                        tension: 0.1,
+                        pointRadius: 0,
+                        pointHoverRadius: 6,
+                        pointBackgroundColor: 'hsl(237.39deg 79.31% 71.57%',
+                        pointHoverBackgroundColor: 'hsl(237.39deg 79.31% 71.57%'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                display: true,
+                            },
+                            border: {
+                                display: false
+                            },
+                            ticks: {
+                                color: color,
+                                font: {
+                                    family: 'Poppins'
+                                },
+                                callback: function (value) {
+                                    return value + '%';
+                                }
+                            },
+                            title: {
+                                display: true,
+                            },
+                        },
+                        x: {
+                            ticks: {
+                                color: color,
+                                font: {
+                                    family: 'Poppins'
+                                },
+                            },
+                            grid: {
+                                display: false,
+                            },
+                            border: {
+                                display: false
+                            },
+
+                            title: {
+                                display: true,
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            backgroundColor: 'hsl(241deg 66.67% 17.65%)',
+                            titleColor: 'white',
+                            bodyColor: 'white',
+                            borderColor: '#252525',
+                            borderWidth: 1,
+                            usePointStyle: true,
+                            boxHeight: 8,
+                            boxWidth: 15,
+                            titleFont: {
+                                family: 'Montserrat',
+                                size: 15,
+                                weight: 'bold'
+                            },
+                            bodyFont: {
+                                family: 'Poppins',
+                                size: 10
+                            },
+
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>

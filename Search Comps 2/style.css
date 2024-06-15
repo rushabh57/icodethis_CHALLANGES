@@ -1,0 +1,415 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+:root {
+  /* PMWH.. */
+  --padding: 0.5em;
+  --widthContainer: 800px;
+  --heading: "Montserrat", sans-serif;
+  --normal: "Roboto", sans-serif;
+  --space: 0.25em;
+  --sec: hsl(215.45deg 16.92% 25.49%);
+  --shadow: hsla(234, 18%, 77%, 0.14) 0px 10px 29px 1px;
+  --border: 1.4px solid rgba(var(--offGrey), 0.75);
+
+  /* colors */
+  --primaryColor: 254, 146, 96;
+  --light: hsl(0, 0%, 100%);
+  --black: hsl(255.71deg 72.41% 11.37%);
+  --offGrey: 213, 213, 213;
+  --b_color: hsl(0deg 0% 94.51%);
+
+  --gredient1: linear-gradient(
+    118deg,
+    hsl(13.45deg 100% 67.65%),
+    hsl(15.75deg 100% 68.63%),
+    hsl(19.62deg 98.73% 69.02%)
+  );
+
+  --gradient: linear-gradient(
+    -90deg,
+    hsl(224.19deg 98.67% 70.59%),
+    hsl(212.64deg 98.43% 75.1%)
+  );
+
+  /* animation & transitions */
+  --appear: appear 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+input::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@keyframes appear {
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  background: var(--b_color);
+}
+
+.popup {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(var(--offGrey), 0.25);
+  backdrop-filter: blur(2px);
+  display: grid;
+  place-items: center;
+  transition: opacity 250ms ease;
+}
+.popup .inner {
+  height: 350px;
+  aspect-ratio: 1;
+  border-radius: var(--space);
+  padding: var(--padding);
+  background: var(--sec);
+  color: var(--light);
+  text-align: center;
+}
+.inner h1 {
+  font-family: var(--heading);
+  font-size: 1.4em;
+  margin-block: 1em;
+}
+.inner p {
+  font-family: var(--normal);
+  font-size: 13px;
+  margin-bottom: 4em;
+}
+.inner input,
+.inner button {
+  border: 0;
+  outline: 0;
+  height: 3em;
+  display: block;
+  width: 90%;
+  margin: 0.5em auto;
+  border-radius: var(--space);
+}
+.inner input {
+  border: var(--border);
+  padding-left: var(--padding);
+  font-family: var(--normal);
+}
+
+.inner button {
+  background: var(--gredient1);
+  color: var(--light);
+  font-family: var(--heading);
+  font-weight: 550;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+.inner button:last-child {
+  background: var(--gradient);
+}
+nav {
+  background: var(--sec);
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space);
+
+  position: relative;
+  top: 15px;
+  opacity: 0;
+  animation: var(--appear);
+}
+nav input {
+  border-radius: calc(var(--space) * 2);
+  border: var(--border);
+  font-family: var(--heading);
+  width: 100%;
+  height: 100%;
+  padding-left: 40px;
+  outline: 0;
+}
+nav svg,
+nav img {
+  height: 35px;
+  aspect-ratio: 1;
+  border-radius: 50em;
+  position: absolute;
+  top: 6px;
+  filter: invert(0.75) grayscale(1);
+  left: 6px;
+  padding: var(--padding);
+  z-index: 1;
+}
+.input-grp {
+  position: relative;
+  max-width: 300px;
+  height: 3em;
+  flex-shrink: 0;
+}
+#browser {
+  position: relative;
+  transition: outline cubic-bezier(0.175, 0.885, 0.32, 1.275) 250ms;
+}
+#browser:active,
+#browser:focus {
+  outline: 1.4px solid rgb(var(--primaryColor));
+  border: 0;
+}
+.list-city {
+  position: absolute;
+  top: 102%;
+  background: var(--light);
+  width: 100%;
+  border-radius: var(--space);
+  padding: var(--space);
+  display: none;
+  z-index: 2;
+}
+.list-city > div {
+  height: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  cursor: pointer;
+  font-family: var(--heading);
+  border-radius: inherit;
+  margin-block: var(--space);
+  transition: 250ms ease background;
+  position: relative;
+  top: 5px;
+  opacity: 0;
+  animation: var(--appear);
+}
+.list-city > div:nth-child(1) {
+  animation-delay: 25ms;
+}
+.list-city > div:nth-child(2) {
+  animation-delay: 50ms;
+}
+.list-city > div:nth-child(3) {
+  animation-delay: 75ms;
+}
+.list-city > div:nth-child(4) {
+  animation-delay: 100ms;
+}
+.list-city > div:hover {
+  background: rgba(var(--offGrey), 0.25);
+}
+.list-city > div img {
+  position: unset;
+  height: 35px;
+  aspect-ratio: 1;
+  border-radius: 50em;
+  filter: invert(0.75) grayscale(1);
+}
+.list-city > div p {
+  padding-left: 10px;
+}
+nav button {
+  height: 3.56em;
+  width: 120px;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  color: var(--light);
+  font-family: var(--heading);
+  border-radius: calc(var(--space) * 2);
+  background: var(--gredient1);
+}
+.key-word-list {
+  height: 3em;
+  background: var(--sec);
+  border-top: 1px solid rgba(var(--offGrey), 0.25);
+  border-bottom: 1px solid rgba(var(--offGrey), 0.25);
+
+  position: relative;
+  top: 15px;
+  opacity: 0;
+  animation: var(--appear);
+  animation-delay: 25ms;
+}
+
+.whatYouNeedBox {
+  background: var(--sec);
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
+  margin-block: 0.5em;
+  text-align: center;
+  border-radius: var(--space);
+  padding: var(--padding);
+
+  position: relative;
+  top: 15px;
+  opacity: 0;
+  animation: var(--appear);
+  animation-delay: 50ms;
+}
+.whatYouNeedBox h1 {
+  font-family: var(--heading);
+  color: var(--light);
+  font-size: 1.4em;
+  margin-block: 1em;
+}
+.whatYouNeedBox button {
+  width: 150px;
+  height: 3em;
+  margin-block: 1em;
+  background: var(--gredient1);
+  border-radius: var(--space);
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  color: var(--light);
+  font-family: var(--normal);
+}
+.whatYouNeedBox button:last-child {
+  background: transparent;
+  border: var(--border);
+}
+
+.card-container {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 23rem), 1fr));
+  gap: var(--space);
+}
+
+.card {
+  z-index: 1;
+  height: 300px;
+  width: 100%;
+  border-radius: var(--space);
+  border: var(--border);
+  background-color: var(--light);
+  padding: var(--padding);
+
+  position: relative;
+  top: 15px;
+  opacity: 0;
+  animation: var(--appear);
+}
+.card .profile {
+  height: 80px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: calc(var(--space) * 4);
+  position: relative;
+}
+.profile img {
+  height: 50px;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50em;
+}
+.profile > button {
+  height: 40px;
+  aspect-ratio: 1;
+  border-radius: calc(var(--space) * 3);
+  background: var(--light);
+  border: var(--border);
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+  transition: 250ms ease background;
+}
+.profile button:hover {
+  background: rgba(var(--offGrey), 0.75);
+}
+.profile > button img {
+  height: 100%;
+  width: 100%;
+  padding: var(--padding);
+  object-fit: cover;
+}
+
+.detail h2 {
+  font-family: var(--heading);
+  font-size: 20px;
+}
+.detail p {
+  color: rgba(var(--offGrey), 0.75);
+  font-family: var(--normal);
+  font-size: 14px;
+  line-height: 1;
+}
+
+.projetcs {
+  height: calc(100% - 80px);
+  border-radius: inherit;
+  width: 100%;
+  display: grid;
+  gap: var(--space);
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+.projetcs img {
+  border: var(--border);
+  border-radius: inherit;
+  object-fit: cover;
+  position: relative;
+  background-color: rgba(var(--offGrey), 0.15);
+}
+@keyframes loadSkl {
+  100% {
+    left: 100%;
+  }
+}
+.projetcs img::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgb(0, 0, 0, 0.115),
+    transparent
+  );
+  animation: loadSkl 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite;
+}
+
+.projetcs img:nth-child(1) {
+  grid-area: 1 / 1 / 5 / 3;
+}
+.projetcs img:nth-child(2) {
+  grid-area: 1 / 3 / 3 / 5;
+}
+.projetcs img:nth-child(3) {
+  grid-area: 3 / 3 / 5 / 5;
+}
+
+button {
+  transition: 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275) letter-spacing;
+}
+button:hover {
+  letter-spacing: 1px;
+}
+@media (max-width: 490px) {
+  .list-city > div {
+    height: fit-content;
+  }
+  nav {
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: fit-content;
+  }
+  .input-grp {
+    max-width: 100%;
+  }
+}

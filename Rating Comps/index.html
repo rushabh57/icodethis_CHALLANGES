@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+    <main>
+
+
+        <div class="card lg-rect">
+            <div class="sideImg">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a3/Venom_The_Last_Dance_Poster.jpg" alt="">
+                <div class="genra">
+                    <p id="type"> Action/Sci-fi
+                    </p>
+                    <span></span>
+                    <p id="year">2024</p>
+                </div>
+            </div>
+            <div class="sideDetial">
+
+                <div class="upperNameORSo">
+                    <h1 id="movieName">Venom: The Last Dance</h1>
+                    <svg id="heart" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path
+                                d="M15.7 4C18.87 4 21 6.98 21 9.76C21 15.39 12.16 20 12 20C11.84 20 3 15.39 3 9.76C3 6.98 5.13 4 8.3 4C10.12 4 11.31 4.91 12 5.71C12.69 4.91 13.88 4 15.7 4Z"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                        </g>
+                    </svg>
+                </div>
+                <div class="genra">
+                    <p id="type"> Action/Sci-fi
+                    </p>
+                    <span></span>
+                    <p id="year">2024</p>
+                </div>
+                <p class="details">Venom: The Last Dance is an upcoming American superhero film featuring the Marvel
+                    Comics character Venom, produced by Columbia Pictures in association with Marvel, and distributed by
+                    Sony Pictures Releasing.</p>
+                <button id="getReviews">Get</button>
+                <button class="seeMore">
+                    <p>Get system requirements</p>
+                    <img src="https://www.svgrepo.com/show/533661/chevron-right.svg" alt="">
+                </button>
+
+
+                <div class="crictes-reiveiws">
+
+                    <div class="card md-rect">
+                        <div class="count">
+                            <span id="count">230</span>reviews
+                        </div>
+                        <div class="rating-bars">
+                            <div class="bar">
+                                <p>5 <img src="https://www.svgrepo.com/show/525539/star.svg" alt=""></p>
+                                <div class="rate">
+                                    <div class="progress"></div>
+                                </div>
+                                <div class="percentage">
+                                    <span class="percentageCount">28</span>%
+                                </div>
+                            </div>
+                            <div class="bar">
+                                <p>4 <img src="https://www.svgrepo.com/show/525539/star.svg" alt=""></p>
+                                <div class="rate">
+                                    <div style="width: 0%;" class="progress"></div>
+                                </div>
+                                <div class="percentage">
+                                    <span class="percentageCount">0</span>%
+                                </div>
+                            </div>
+                            <div class="bar">
+                                <p>3 <img src="https://www.svgrepo.com/show/525539/star.svg" alt=""></p>
+                                <div class="rate">
+                                    <div style="width: 14%;" class="progress"></div>
+                                </div>
+                                <div class="percentage">
+                                    <span class="percentageCount">14</span>%
+                                </div>
+                            </div>
+                            <div class="bar">
+                                <p>2 <img src="https://www.svgrepo.com/show/525539/star.svg" alt=""></p>
+                                <div class="rate">
+                                    <div class="progress"></div>
+                                </div>
+                                <div class="percentage">
+                                    <span class="percentageCount">28</span>%
+                                </div>
+                            </div>
+                            <div class="bar">
+                                <p>1 <img style="margin-left: .25em;" src="https://www.svgrepo.com/show/525539/star.svg"
+                                        alt=""></p>
+                                <div class="rate">
+                                    <div class="progress"></div>
+                                </div>
+                                <div class="percentage">
+                                    <span class="percentageCount">28</span>%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card sm-rect">
+                        <h1 id="countsm-rect">2.7</h1>
+                        <div class="starts">
+                            <div class="star">★</div>
+                            <div class="star">★</div>
+                            <div class="star">☆</div>
+                            <div class="star">☆</div>
+                            <div class="star">☆</div>
+                        </div>
+                        <button id="signIn">sign in</button>
+                        <p>To rate and reivew please sign in</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="outerLayerPopup">
+            <div class="popup">
+                <h1>Give Rating</h1>
+                <button class="starRating">1</button>
+                <button class="starRating">2</button>
+                <button class="starRating">3</button>
+                <button class="starRating">4</button>
+                <button class="starRating">5</button>
+
+
+                <button id="done">done</button>
+            </div>
+        </div>
+
+
+    </main>
+
+    <script>
+        const crictesReiveiws = document.querySelector('.crictes-reiveiws');
+        const sideImgGenra = document.querySelector('.sideImg .genra');
+        const getReviews = document.getElementById('getReviews');
+        const signIn = document.getElementById('signIn');
+        const percentageCount = document.querySelectorAll('.percentageCount')
+        const percentageCountProgress = document.querySelectorAll('.progress');
+        const outerLayerPopup = document.querySelector('.outerLayerPopup');
+        const starRating = document.querySelectorAll('.starRating');
+        const startStar = document.querySelectorAll('.starts .star');
+        const done = document.getElementById('done');
+        const countsmRect = document.getElementById('countsm-rect');
+        const heart = document.getElementById('heart');
+
+        heart.addEventListener('click', () => {
+            heart.classList.toggle('active')
+        });
+
+        const fullStar = '★';
+        const emptyStar = '☆';
+        let isClick = false;
+        getReviews.addEventListener('click', () => {
+            crictesReiveiws.style.display = 'flex';
+            sideImgGenra.style.bottom = '-10%';
+        })
+
+        signIn.addEventListener('click', () => {
+            if (!isClick) {
+                isClick = true;
+                signIn.innerText = 'sign out';
+                outerLayerPopup.style.zIndex = '1';
+                outerLayerPopup.style.opacity = '1';
+
+                starRating.forEach(star => star.classList.remove('m_Rate'));
+
+                starRating.forEach((star, index) => {
+                    star.addEventListener('click', () => {
+                        star.classList.add('m_Rate');
+
+                        const clickedIndex = index;
+                        for (let i = clickedIndex + 1; i < starRating.length; i++) {
+                            starRating[i].classList.remove('m_Rate');
+                        }
+
+
+                        done.addEventListener('click', () => {
+                            countsmRect.innerText = (clickedIndex + 1).toString(); // Convert to string
+                            outerLayerPopup.style.zIndex = '-1';
+                            outerLayerPopup.style.opacity = '0';
+
+
+
+
+                        });
+                    });
+                });
+            } else {
+                isClick = false;
+                outerLayerPopup.style.zIndex = '-1';
+                outerLayerPopup.style.opacity = '0';
+                crictesReiveiws.style.display = 'none';
+                sideImgGenra.style.bottom = '10%';
+                signIn.innerText = 'sign in';
+            }
+        });
+
+
+
+
+    </script>
+</body>
+
+</html>

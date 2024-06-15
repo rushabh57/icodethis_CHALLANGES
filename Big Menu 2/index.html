@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+    <!-- Flip Plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/Flip.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <ul class="multiple-links">
+            <li>
+                <p> Furniture </p>
+                <div class="active"></div>
+            </li>
+            <li>
+                <p> Lighting </p>
+            </li>
+            <li>
+                <p> Decor </p>
+            </li>
+            <li>
+                <p> Serving & Tablewave </p>
+            </li>
+            <li>
+                <p> Textlies & Carpets </p>
+            </li>
+            <li>
+                <p> Jewlery & Accessories </p>
+            </li>
+            <li>
+                <p> Outdoor enviroment </p>
+            </li>
+        </ul>
+        <div class="flexy">
+            <div class="menu-link-container">
+                <ul>
+                    <h3>Decoration</h3>
+                    <li>Vases</li>
+                    <li>Jars</li>
+                    <li>Poster</li>
+                    <li>Photo frames</li>
+                    <li>Sculptures</li>
+                    <li>Wall</li>
+                    <li>Bordur</li>
+                    <li>Alarm clocks</li>
+                    <li>Pictures</li>
+                    <li>Picture frames</li>
+                </ul>
+                <ul>
+                    <h3>Office & small Storage</h3>
+                    <li>Boxes</li>
+                    <li>Door Stoppers</li>
+                    <li>Curves</li>
+                    <li>Weekly magazine Storage</li>
+                    <li>Wood storage</li>
+                    <li>Umbreall stand</li>
+                    <li>Key cabinet</li>
+                </ul>
+                <ul>
+                    <h3>Bathroom fittings</h3>
+                    <li>Scented candles</li>
+                    <li>Candlesticks</li>
+                    <li>Lanterns</li>
+                    <li>Candelabra</li>
+                    <li>Kerosene & Oil Lamps</li>
+                    <li>Laundry baskets</li>
+                    <li>Accessories</li>
+                </ul>
+                <ul>
+                    <h3>Bathroom fittings</h3>
+                    <li>Toothbrush holders</li>
+                    <li>Toilet roll holders</li>
+                    <li>Toilet brushes</li>
+                    <li>Soap pumps</li>
+                    <li>Soap cups</li>
+                    <li>Towel rails</li>
+                </ul>
+            </div>
+            <div class="menu-link-container"></div>
+            <div class="menu-link-container"></div>
+            <div class="menu-link-container"></div>
+            <div class="menu-link-container"></div>
+            <div class="menu-link-container"></div>
+            <div class="menu-link-container"></div>
+        </div>
+    </div>
+    <script>
+        gsap.registerPlugin(Flip);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const links = document.querySelectorAll('.multiple-links li');
+            const activeNav = document.querySelector('.multiple-links .active');
+            const menuLinksContainer = document.querySelectorAll('.menu-link-container');
+
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+
+                    // Capture the current state of the active indicator
+                    const state = Flip.getState(activeNav);
+
+                    // Remove active class from all items
+                    links.forEach(item => item.classList.remove('active'));
+
+                    // Append the active indicator to the clicked item
+                    link.classList.add('active');
+                    link.appendChild(activeNav);
+
+                    // Animate the change using Flip
+                    Flip.from(state, {
+                        duration: 1.25,
+                        absolute: true,
+                        ease: 'elastic.out(1, 0.9)',
+                    });
+                });
+            });
+
+            gsap.to('.multiple-links li', {
+                y: 0,
+                stagger: .125,
+                ease: 'power.Out',
+                opacity: 1
+            });
+            gsap.to('.menu-link-container ul', {
+                duration: .5,
+                y: 0,
+                stagger: .25,
+                ease: 'power.Out',
+                opacity: 1
+            });
+        });
+
+
+    </script>
+</body>
+
+</html>

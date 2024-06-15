@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+audio {
+  position: absolute;
+  top: 10px;
+}
+.soundComponent {
+  position: fixed;
+  top: 50%;
+  right: 0%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.124);
+  height: 200px;
+  width: 100px;
+}
+#audioAdjuster {
+  rotate: -90deg;
+  position: absolute;
+  top: 50%;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 120px;
+  height: 20px;
+  background-color: red;
+  border-radius: 20em;
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Track */
+/* input[type="range"]::-webkit-slider-runnable-track {
+  width: 200px;
+  height: 1em !important;
+  cursor: pointer;
+  background: #0000ff;
+  border-radius: 20em;
+}
+
+input[type="range"]::-moz-range-track {
+  width: 200px;
+  height: 1em !important;
+  cursor: pointer;
+  background: #2196f3;
+  border-radius: 20em;
+}
+
+input[type="range"]::-ms-track {
+  width: 200px;
+  height: 1em !important;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+  border-radius: 20em;
+} */
+
+/* Thumb */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1.5em;
+  aspect-ratio: 1;
+  background: #fff;
+  border: 2px solid #2196f3;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: -5px; /* Adjust to align thumb vertically */
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #fff;
+  border: 2px solid #2196f3;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+input[type="range"]::-ms-thumb {
+  width: 25px;
+  height: 25px;
+  background: #fff;
+  border: 2px solid #2196f3;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Focus */
+input[type="range"]:focus::-webkit-slider-runnable-track {
+  background: #2196f3;
+}
+
+input[type="range"]:focus::-moz-range-track {
+  background: #2196f3;
+}
+
+input[type="range"]:focus::-ms-fill-lower {
+  background: #2196f3;
+}
+
+input[type="range"]:focus::-ms-fill-upper {
+  background: #2196f3;
+}

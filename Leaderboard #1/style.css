@@ -1,0 +1,221 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+:root {
+  --offGrey: 217, 217, 217;
+  --white: rgb(255, 255, 255);
+}
+body {
+  /* animation & transitions */
+  --appear: appear 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+
+  height: 100vh;
+  background: rgba(var(--offGrey), 0.45);
+  display: grid;
+  place-items: center;
+}
+@keyframes appear {
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
+.container {
+  max-width: 600px;
+  width: 100%;
+  height: 500px;
+  background: var(--white);
+  border-radius: 0.5em;
+  text-align: center;
+  padding: 0.5em;
+  position: relative;
+  top: 15px;
+  opacity: 0;
+  animation: var(--appear);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.container h2 {
+  font-weight: 250;
+}
+.btn-grp {
+  background: rgba(var(--offGrey), 0.356);
+  width: fit-content;
+  margin: 0.25em auto;
+  padding: 0.5em;
+  border-radius: 50em;
+  position: relative;
+}
+.btn-grp button {
+  height: 3em;
+  width: 120px;
+  border-radius: inherit;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  background-color: transparent;
+  z-index: 1;
+  position: relative;
+  /* transition: 250ms cubic-bezier(0.075, 0.82, 0.165, 1) left; */
+  /* background: var(--white); */
+}
+.active {
+  background: var(--white);
+  height: 3em;
+  width: 120px;
+  border-radius: inherit;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  position: absolute;
+  left: calc(0% + 0.5em);
+  transition: left 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
+  z-index: 1;
+  top: 6%;
+  /* transition: 250ms cubic-bezier(0.075, 0.82, 0.165, 1) left; */
+}
+.wrap {
+  height: calc(100% - (3em + 110px));
+  width: 100%;
+  margin-top: 0.5em;
+  border-radius: inherit;
+}
+.container > button {
+  height: 3em;
+  width: 200px;
+  background: black;
+  color: var(--white);
+  font-size: 15px;
+  border-radius: 0.5em;
+  border: 0;
+  overflow: unset;
+  margin-top: 0.25em;
+  cursor: pointer;
+  position: relative;
+  top: 15px;
+  opacity: 0;
+  animation: var(--appear);
+  animation-delay: 250ms;
+  overflow: hidden;
+  z-index: 1;
+}
+.container > button::before {
+  position: absolute;
+  top: -20%;
+  left: -10%;
+  content: "";
+  background-color: #74747472;
+  box-shadow: #a4a4a4 0px;
+  height: 200%;
+  width: 10px;
+  transform: rotate(-15deg);
+  z-index: -1;
+}
+.container > button:hover {
+  background-color: #252525;
+}
+.container > button:hover::before {
+  transition: 350ms ease left;
+  left: 110%;
+}
+.wrap .card {
+  overflow: hidden;
+  height: 4em;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+  border-radius: 50em;
+
+  margin-block: 0.15em;
+  padding-inline: 0.6em;
+  position: relative;
+  top: 15px;
+  opacity: 0;
+  animation: var(--appear);
+}
+.card:nth-child(1) {
+  animation-delay: 50ms;
+}
+.card:nth-child(2) {
+  animation-delay: 100ms;
+}
+.card:nth-child(3) {
+  animation-delay: 150ms;
+}
+.card:nth-child(4) {
+  animation-delay: 200ms;
+}
+.card:nth-child(5) {
+  animation-delay: 250ms;
+}
+.card:hover .rankImg {
+  scale: 1.1;
+}
+.card .flex {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 0.5em;
+  height: 100%;
+  flex: 1;
+}
+
+.card .profile {
+  border: 1px solid rgb(var(--offGrey));
+  border-radius: 5em;
+  height: 80%;
+  width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5em;
+  padding: 0.15em;
+}
+.card:hover {
+  background: rgb(var(--offGrey), 0.155);
+  cursor: pointer;
+}
+.profile .rank {
+  font-size: 16px;
+  padding-left: 0.5em;
+}
+.profile .img {
+  height: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+.img img {
+  height: 100%;
+  width: 100%;
+  border-radius: inherit;
+  object-fit: cover;
+}
+.card .detail {
+  text-align: left;
+}
+.card h2 {
+  font-size: 14px;
+  font-weight: bolder;
+}
+.card p {
+  font-size: 12px;
+  color: rgba(var(--offGrey));
+  line-height: 1;
+}
+.card .rankImg {
+  height: 100%;
+  width: 50px;
+  overflow: hidden;
+  padding: 0.5em;
+}
+
+.rankImg img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}

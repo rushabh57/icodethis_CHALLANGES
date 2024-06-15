@@ -1,0 +1,510 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --heading: "Montserrat", sans-serif;
+  --normal: "Poppins", sans-serif;
+  --default_Radius: 0.5em;
+  --space: 0.25em;
+
+  --primary: hsl(155.84deg 53.85% 28.04%);
+  --primaryHover: hsl(152.09deg 27.39% 30.78%);
+  --clr1: hsl(51.43deg 21.21% 87.06%);
+  --clr1Hover: hsl(36.32deg 37.25% 80%);
+
+  --white: #fff;
+  --whitsmoke: rgb(239, 239, 239);
+  --whitsmoke1: whitesmoke;
+  --blk: black;
+  --range: rgb(231, 231, 231);
+
+  /* animation & transitions */
+  --ease: cubic-bezier(0.175, 0.885, 0.32, 1.275) 250ms all;
+  --appear: appear 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+@keyframes appear {
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.wrapper::-webkit-scrollbar {
+  width: 8px;
+  background: transparent;
+}
+.wrapper::-webkit-scrollbar-thumb {
+  width: 100%;
+  background: var(--blk);
+  border-radius: 50em;
+}
+body {
+  background-color: var(--white);
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+.change {
+  height: 2em;
+  width: 60px;
+  border-radius: var(--default_Radius);
+  position: fixed;
+  top: 5px;
+  left: 5px;
+  background: rgb(239, 239, 239);
+  cursor: pointer;
+}
+.change input {
+  display: none;
+}
+.change input:checked + label .ball {
+  left: 45px;
+}
+.change input:checked {
+  --white: #111;
+  --whitsmoke: rgb(21, 21, 21);
+  --whitsmoke1: rgb(38, 38, 38);
+  --blk: #fff;
+  --range: rgb(0, 0, 0);
+}
+.change label {
+  height: 2em;
+  width: 60px;
+  padding: var(--space);
+  border-radius: var(--default_Radius);
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  position: relative;
+}
+.change label .ball {
+  transition: var(--ease);
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translate(-50%, -50%);
+  height: 1.5em;
+  aspect-ratio: 1;
+  background-color: var(--primary);
+  border-radius: var(--default_Radius);
+}
+.container {
+  height: 450px;
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+  background: var(--whitsmoke);
+  border-radius: var(--default_Radius);
+  overflow: hidden;
+}
+.wrapper {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(19rem, 100%), 1fr));
+  gap: var(--space);
+  padding: var(--space);
+  overflow-y: scroll;
+}
+.box {
+  width: 100%;
+  height: 20rem;
+  /* border: 2px solid black; */
+  background-color: var(--whitsmoke1);
+  border-radius: var(--default_Radius);
+  display: grid;
+  place-items: center;
+  position: relative;
+  top: 15px;
+  opacity: 0;
+  animation: var(--appear);
+  overflow: hidden;
+  cursor: pointer;
+}
+.box:nth-child(1) {
+  animation-delay: 50ms;
+}
+.box:nth-child(2) {
+  animation-delay: 100ms;
+}
+.box:nth-child(3) {
+  animation-delay: 150ms;
+}
+.box:nth-child(4) {
+  animation-delay: 200ms;
+}
+.box:hover .headingBox {
+  opacity: 1;
+}
+.box .headingBox {
+  position: absolute;
+  top: 5px;
+  opacity: 0;
+  left: 5px;
+  color: var(--blk);
+  width: fit-content;
+  height: fit-content;
+  font-family: var(--heading);
+  font-size: 16px;
+  padding: 0.15em 0.25em;
+  border-radius: inherit;
+  transition: var(--ease);
+}
+.box:hover .card {
+  transform: scale(1.05);
+}
+
+.card {
+  transition: var(--ease);
+  height: 250px;
+  width: 60%;
+  max-width: 200px;
+  background-color: var(--white);
+  border-radius: var(--default_Radius);
+  text-align: center;
+  position: relative;
+  top: 15px;
+  opacity: 0;
+  animation: var(--appear);
+  animation-duration: 50ms;
+  overflow: hidden;
+}
+.card-img {
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  inset: 0;
+  transition: 50ms ease filter;
+}
+.card:hover .card-img {
+  filter: brightness(80%) hue-rotate(450deg);
+}
+.card-img img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: var(--default_Radius);
+}
+
+.card:hover .card-detail {
+  height: 60%;
+  transition-duration: 300ms;
+}
+.card:hover .card-detail > p {
+  font-size: 14px;
+}
+.card:hover .card-detail > h4 {
+  font-size: 18px;
+}
+.card-detail {
+  height: 100px;
+  font-family: var(--normal);
+  z-index: 2;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(20, 20, 20, 0.038),
+    rgba(20, 20, 20, 0.238),
+    rgba(0, 0, 0, 0.456)
+  );
+  transition: var(--ease);
+}
+.card-detail > p {
+  font-size: 12px;
+  color: green;
+  position: relative;
+  top: 20px;
+  /* transition: 250ms ease-in-out font-size; */
+}
+.card-detail h4 {
+  /* transition: 250ms ease-in-out font-size; */
+  font-size: 14px;
+  font-weight: normal;
+  position: relative;
+  top: 20px;
+  color: white;
+}
+.card-detail .price {
+  font-size: 13px;
+  vertical-align: middle;
+  font-weight: 550;
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  color: var(--blk);
+}
+.price span {
+  font-size: 10px;
+  text-decoration: line-through;
+  color: rgb(210, 210, 210);
+}
+.card-detail .inStock {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  font-size: 12px;
+  background: var(--whitsmoke1);
+  border-radius: var(--default_Radius);
+  padding: 0.25em 0.75em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blk);
+  gap: calc(var(--space) * 2);
+}
+.inStock .dot {
+  height: 5px;
+  aspect-ratio: 1;
+  background-color: rgb(0, 214, 0);
+  border-radius: 50em;
+}
+
+.shpping {
+  display: inline-block;
+  height: fit-content;
+  width: 200px;
+  list-style: none;
+  border-radius: var(--default_Radius);
+}
+.shpping > li {
+  margin-block: 0.5em;
+  height: 2.5em;
+  width: 100%;
+  background: var(--white);
+  border-radius: var(--default_Radius);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--space);
+
+  animation: var(--appear);
+  position: relative;
+  top: 15px;
+  opacity: 0;
+  transition: 250ms filter ease;
+}
+.shpping > li:hover {
+  filter: contrast(80%);
+}
+.shpping li:nth-child(1) {
+  animation-delay: 50ms;
+}
+.shpping li:nth-child(2) {
+  animation-delay: 100ms;
+}
+.shpping li:nth-child(3) {
+  animation-delay: 150ms;
+}
+.shpping li svg {
+  height: 100%;
+  width: 35px;
+}
+.shpping li p {
+  font-family: var(--normal);
+  font-size: 12px;
+  color: var(--blk);
+}
+
+/* ==== */
+.priceRange {
+  width: 300px;
+  max-width: 100%;
+  height: 100px;
+  border-radius: var(--default_Radius);
+  display: grid;
+  background-color: var(--white);
+  place-content: center;
+  position: relative;
+  top: 15px;
+  opacity: 0;
+  animation-delay: 100ms;
+  animation: var(--appear);
+}
+.range-container {
+  position: relative;
+  width: 100%;
+  margin: 0.25em auto;
+  font-family: var(--normal);
+  isolation: isolate;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  /* appearance: none; */
+  width: 100%;
+  position: absolute;
+  pointer-events: none;
+  height: 0.25em;
+  z-index: -1;
+  border-radius: var(--default_Radius);
+  background: transparent;
+  z-index: 2;
+}
+input[type="range"]:nth-child(2) {
+  z-index: 5;
+  /* background-color: red; */
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  /* appearance: none; */
+  pointer-events: all;
+  height: 1em;
+  aspect-ratio: 1;
+  background: var(--primary);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: var(--primary);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.slider-values {
+  position: relative;
+  top: -10px;
+  left: -30px;
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space);
+  opacity: 0;
+  color: var(--blk);
+  transition: 250ms ease all;
+}
+.range-container:hover .slider-values {
+  opacity: 1;
+  top: -20px;
+}
+.rangeCount p {
+  font-size: 12px;
+  position: relative;
+}
+.rangeCount p::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  background-color: var(--range);
+  height: 5px;
+  width: 2.5px;
+  border-radius: var(--default_Radius);
+}
+
+.rangeCount {
+  position: relative;
+  top: 20px;
+  gap: calc(var(--space) * 4);
+  color: var(--range);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+#min-value,
+#max-value {
+  position: absolute;
+  top: -25px;
+  left: -30px;
+  font-size: 16px;
+  background: var(--white);
+  padding: 5px 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.slider-track {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  height: 0.25em;
+  background: var(--primary);
+  z-index: 1;
+  border-radius: 5px;
+}
+
+.dropDown {
+  display: inline-block;
+  height: fit-content;
+  width: 300px;
+  list-style: none;
+  border-radius: var(--default_Radius);
+  display: flex;
+  gap: calc(var(--space) * 4);
+  color: var(--blk);
+}
+
+.dropDown li:not(.drop li) {
+  margin-block: 0.5em;
+  height: 2.5em;
+  width: fit-content;
+  border-radius: var(--default_Radius);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--space);
+  cursor: pointer;
+  position: relative;
+}
+
+.dropDown > li p:hover {
+  color: var(--primaryHover);
+}
+.dropDown li:hover img {
+  rotate: 180deg;
+}
+.dropDown li img {
+  transition: 250ms ease rotate;
+  height: 100%;
+  width: 15px;
+  mix-blend-mode: difference;
+  filter: invert(1);
+}
+.dropDown li p {
+  font-family: var(--normal);
+  font-size: 12px;
+  color: var(--blk);
+}
+.dropDown li:hover .drop {
+  opacity: 1;
+  display: block;
+  top: 2.5em;
+}
+.drop {
+  display: none;
+  color: var(--blk);
+  opacity: 0;
+  list-style: none;
+  position: absolute;
+  background-color: var(--white);
+  width: 100%;
+  height: fit-content;
+  border-radius: var(--default_Radius);
+}
+.drop li {
+  text-align: center;
+  margin-block: 0.5em;
+  height: 1.5em;
+  font-family: var(--normal);
+  font-size: 12px;
+  border-bottom: 1px solid rgb(239, 239, 239);
+  width: 100%;
+}
+.drop li:hover {
+  background: var(--primary);
+  color: var(--clr1);
+}

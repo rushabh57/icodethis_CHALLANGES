@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="sideImg">
+            <div class="img-container">
+                <img src="https://cdn.psychologytoday.com/sites/default/files/styles/image-article_inline_full/public/field_blog_entry_images/landscape-mountains-nature-man.jpg?itok=YCmEITQm"
+                    alt="">
+            </div>
+            <div class="img-container">
+                <img src="https://img.freepik.com/premium-photo/cartoon-style-luggage-with-travel-theme-3d-rendering_772449-12838.jpg?w=900"
+                    alt="">
+            </div>
+            <div class="img-container">
+                <img src="https://img.freepik.com/free-vector/young-man-jumping-celebrating-park-character_25030-39580.jpg?t=st=1715842117~exp=1715845717~hmac=7c581915eaa4982fb54c394e7fc4e6b9fa3e586745e689637c7bdf752e9d33c0&w=740"
+                    alt="">
+            </div>
+        </div>
+        <div class="sideForms">
+            <form action="">
+                <div class="oneStep box">
+                    <h2>Tell Us about yourself</h2>
+                    <div class="inputs">
+                        <div>
+                            <p>My name</p>
+                            <label for="name">
+                                <input type="text" placeholder="first name" />
+                                <input type="text" placeholder="last name" />
+                            </label>
+                        </div>
+                        <div>
+                            <p>gender</p>
+                            <label for="gender">
+                                <input type="text" placeholder="gender" />
+                            </label>
+                        </div>
+                        <div>
+                            <p>birthday</p>
+                            <label for="age">
+                                <input type="number" placeholder="day" />
+                                <input type="number" placeholder="month" />
+                                <input type="number" placeholder="year" />
+                            </label>
+                        </div>
+                        <div>
+                            <p>Live in</p>
+                            <label for="country">
+                                <input type="text" placeholder="country" />
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="secondStep box">
+                    <h2>Tell You'r Profesional detail</h2>
+                    <div class="inputs">
+                        <div>
+                            <p>Email</p>
+                            <label for="email">
+                                <input type="email" id="email" placeholder="email" style="max-width: 100%;" />
+                            </label>
+                        </div>
+                        <div>
+                            <p>Graduation</p>
+                            <label for="gradutaion">
+                                <input type="text" id="bgrad" placeholder="bachloer's Graduation" />
+                                <input type="text" id="mgrad" placeholder="Master's Graduation" />
+                            </label>
+                        </div>
+                        <div>
+                            <p>Phone</p>
+                            <label for="phone">
+                                <input type="tel" id="phone" placeholder="phone" />
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="ThirdStep box">
+                    <h2>Join Our Community</h2>
+                    <div class="inputs">
+                        <div>
+                            <p>Write Here Message</p>
+                            <label for="password">
+                                <input type="text" id="msg" placeholder="Message" />
+                            </label>
+                        </div>
+                        <div>
+                            <p>Future Goal</p>
+                            <label for="goal">
+                                <input type="text" id="fGoal" placeholder="Future Goal" />
+                            </label>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="btn-grp">
+                    <button id="submit">submit</button>
+                    <button id="skip">skip</button>
+                </div>
+                <div class="three-Dot">
+                    <div class="dot" id="one"></div>
+                    <div class="dot" id="two"></div>
+                    <div class="dot" id="three"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <script>
+        const submit = document.getElementById('submit');
+        const sideFormsForm = document.querySelector('.sideForms form ');
+        const skip = document.getElementById('skip');
+        let currentStep = 0;
+        let totalSteps = document.querySelectorAll('.box');
+        let imgContainers = document.querySelectorAll('.img-container');
+
+
+        sideFormsForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+        });
+
+        function showStep(step) {
+            totalSteps.forEach((element, index) => {
+                element.style.transform = `translateX(-${step * 100}%)`;
+            });
+            imgContainers.forEach((element, index) => {
+                element.style.transform = `translateX(-${step * 100}%)`;
+            });
+            if (step === totalSteps.length - 1) {
+                skip.style.display = 'none';
+            } else {
+                skip.style.display = 'inline-block';
+            }
+            currentStep = step;
+        }
+
+        skip.addEventListener('click', () => {
+            if (currentStep < totalSteps.length - 1 && currentStep < imgContainers.length - 1) {
+                currentStep++;
+                showStep(currentStep);
+            } else {
+                totalSteps.forEach((element, index) => {
+                    element.style.transform = `translateX(-100%)`;
+                });
+                imgContainers.forEach((element, index) => {
+                    element.style.transform = `translateX(-100%)`;
+                });
+                currentStep = 1;
+            }
+        });
+
+        showStep(currentStep);
+
+        const three = document.getElementById('three').addEventListener('click', () => {
+            totalSteps.forEach((element, index) => {
+                element.style.transform = `translateX(-200%)`;
+            });
+            imgContainers.forEach((element, index) => {
+                element.style.transform = `translateX(-200%)`;
+            });
+            skip.style.display = 'none';
+        })
+        const two = document.getElementById('two').addEventListener('click', () => {
+            totalSteps.forEach((element, index) => {
+                element.style.transform = `translateX(-100%)`;
+            });
+            imgContainers.forEach((element, index) => {
+                element.style.transform = `translateX(-100%)`;
+            });
+            skip.style.display = 'block';
+        });
+        const one = document.getElementById('one').addEventListener('click', () => {
+            skip.style.display = 'block';
+            totalSteps.forEach((element, index) => {
+                element.style.transform = `translateX(-0%)`;
+            });
+            imgContainers.forEach((element, index) => {
+                element.style.transform = `translateX(-0%)`;
+            });
+        });
+    </script>
+</body>
+
+</html>

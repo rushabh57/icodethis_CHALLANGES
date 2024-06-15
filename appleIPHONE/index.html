@@ -1,0 +1,80 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/draggable/1.0.0-beta.11/draggable.bundle.js"></script>
+
+</head>
+
+<body>
+    <div class="mobile-look">
+        <!-- ISLAND -->
+        <div class="iland">
+            <div class="iland-lloader"></div>
+            <div class="iland-content"></div>
+        </div>
+        <!-- loader -->
+        <div class="apple-start">
+            <div class="middle"></div>
+        </div>
+        <!-- pages -->
+        <div class="app-gallery">
+            <div class="app-container">
+                <div class="t-container"></div>
+                <div class="container" id="Container">
+                    <div class="app">
+                        <div class="logo"></div>
+                        <p class="name">Duolingo</p>
+                    </div>
+                    <div class="app"></div>
+                    <div class="app"></div>
+                    <div class="app"></div>
+                    <div class="app"></div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const container = document.getElementById('Container');
+
+        const draggable = new Draggable.Draggable(container, {
+            draggable: '.app',
+            delay: 200,
+            mirror: {
+                constrainDimensions: true
+            },
+            plugins: [Draggable.Plugins.Snappable],
+            classes: {
+                mirror: 'draggable-mirror',
+                dragging: 'dragging'
+            },
+            autoScroll: {
+                speed: 10,
+                sensitivity: 30
+            }
+        });
+    });
+
+
+    // Add JavaScript code here
+    const apps = [
+        {
+            id: 1,
+            appBg: '',
+            appLogo: '',
+            appName: '',
+        }
+    ]
+    const Container = document.getElementById('Container');
+
+</script>
+<!-- Change code above this line -->
+
+</html>

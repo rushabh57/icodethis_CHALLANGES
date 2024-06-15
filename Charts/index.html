@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <meta name="copyright" content="Rushabh" />
+    <title>I CODE THIS CHALLANGE 544</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="heading">
+            <h1>Recycled</h1>
+            <div class="more moreBtn">
+                <svg viewBox="0 0 24 24" fill="hsl(250deg 19.35% 87.84%)" xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <title></title>
+                        <g id="Complete">
+                            <g id="F-More">
+                                <path
+                                    d="M12,16a2,2,0,1,1-2,2A2,2,0,0,1,12,16ZM10,6a2,2,0,1,0,2-2A2,2,0,0,0,10,6Zm0,6a2,2,0,1,0,2-2A2,2,0,0,0,10,12Z"
+                                    id="Vertical"></path>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+            </div>
+        </div>
+        <div class="total">
+            <p>Total</p>
+            <h1>$47.1k</h1>
+        </div>
+        <canvas id="myDoughnutChart">
+        </canvas>
+        <button id="readFull">Read full report ></button>
+    </div>
+    <div class="readFullContainer">
+        <div class="heading">
+            <h1>Goals</h1>
+            <div class="detail">
+                <select name="" id="">
+                    <option value="thisMonth">this month</option>
+                    <option value="thisWeek">this week</option>
+                    <option value="thisYear">this year</option>
+                </select>
+                <div class="more" id="close">
+                    <img src="https://www.svgrepo.com/show/521106/close.svg" alt="">
+                </div>
+            </div>
+        </div>
+        <ul>
+            <li>
+                <p>Direct <span>3,183</span></p>
+                <div class="bar">
+                    <div class="inner-bar"></div>
+                </div>
+            </li>
+            <li>
+                <p>Organic <span>3,846</span></p>
+                <div class="bar">
+                    <div class="inner-bar"></div>
+
+                </div>
+            </li>
+            <li>
+                <p>Social <span>1,058</span></p>
+                <div class="bar">
+                    <div class="inner-bar"></div>
+
+                </div>
+            </li>
+            <li>
+                <p>Referral <span>174</span></p>
+                <div class="bar">
+                    <div class="inner-bar"></div>
+
+                </div>
+            </li>
+        </ul>
+
+    </div>
+</body>
+
+<script>
+    const ctx = document.getElementById('myDoughnutChart').getContext('2d');
+
+    const data = {
+        labels: ['Text', 'Images', 'Documents', 'Videos'],
+        datasets: [{
+            data: [32, 25, 22, 11],
+            backgroundColor: ['#000000', '#FF6600', '#FFCC00', '#FF0044'],
+            borderWidth: 5,
+            // borderColor: 'transparent',
+            borderRadius: 50,
+        }]
+    };
+
+    const options = {
+        responsive: true,
+        layout: {
+
+            font: {
+                family: 'Poppins'
+            },
+        },
+        plugins: {
+
+            legend: {
+                position: 'right',
+                labels: {
+                    textAlign: 'left',
+                    borderWidth: 1,
+                    usePointStyle: true,
+                    boxWidth: 10,
+                    boxHeight: 10,
+                    color: 'black',
+
+
+                },
+            },
+
+            tooltip: {
+                callbacks: {
+                    label: function (context) {
+                        let label = context.label || '';
+                        if (label) {
+                            label += ': ';
+                        }
+                        label += context.raw + '%';
+                        return label;
+                    }
+                },
+                backgroundColor: 'rgba(255, 255, 255)',
+                titleColor: 'black',
+                bodyColor: '#252525',
+                borderColor: '#252525',
+                borderWidth: 1,
+                usePointStyle: true,
+                boxHeight: 8,
+                boxWidth: 15,
+                titleFont: {
+                    family: 'Poppins',
+                    size: 15,
+                    weight: 'bold'
+                },
+                bodyFont: {
+                    family: 'Poppins',
+                    size: 10
+                }
+            },
+            roundedCorners: {
+                radius: 10,
+            },
+        },
+        cutout: '75%',
+    };
+
+    new Chart(ctx, {
+        type: 'doughnut',
+        data: data,
+        options: options
+    });
+
+
+    const container = document.querySelector('.container');
+    const readFull = document.getElementById('readFull');
+    const readContainer = document.querySelector('.readFullContainer');
+    readFull.addEventListener('click', () => {
+        readContainer.style.zIndex = '1';
+        readContainer.style.visibility = 'visible';
+        readContainer.style.opacity = '1';
+
+        container.style.transform = 'translate(-10%, -10%)';
+        container.style.filter = ' brightness(80%) opacity(0.5) blur(4px)';
+
+
+
+    })
+
+    const closeBtn = document.getElementById("close");
+    closeBtn.addEventListener('click', () => {
+        readContainer.style.zIndex = '-1';
+        readContainer.style.visibility = 'hidden';
+        readContainer.style.opacity = '0';
+
+        container.style.transform = 'translate(-0%, -0%)';
+        container.style.filter = ' brightness(100%) opacity(1) blur(0px)';
+
+    })
+
+
+</script>
+
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="copyright" content="Rushabh" />
+    <title>I CODE THIS CHALLANGE 546</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <style>
+
+    </style>
+    <div class="my_profile">
+        <img src="https://shismqklzntzxworibfn.supabase.co/storage/v1/object/public/avatars/1dd3dbc2-d0ac-43ed-b0b5-399935a4de6a.jpeg"
+            alt="">
+        <p>See my other work? <a href="https://icodethis.com/Rushabh" target="_blank">click here</a></p>
+
+    </div>
+
+    <div class="Phone-container">
+        <div class="bell-popup active">
+            <h1>Time to set <br> another Contraction
+            </h1>
+        </div>
+        <div class="upbar">
+            <div class="left">
+                <p class="time">2:13 PM</p>
+            </div>
+            <div class="right">
+                <svg class="Tower2 upper-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <path d="M4 20V19M8 20V16M12 20V12M16 20V8" stroke="#000000" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round"></path>
+                    </g>
+                </svg>
+                <svg class="battery upper-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <path stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 10.5v3M6 17h10a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2Z">
+                        </path>
+                        <path fill="#000000" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" d="M11 10H7v4h4v-4Z"></path>
+                    </g>
+                </svg>
+            </div>
+        </div>
+        <div class="iland"></div>
+
+        <div class="header">
+            <button>
+                <svg id="backarrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <path d="M9.5 11.5L7 14M17 14L12 9" stroke="#000000" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                    </g>
+                </svg>
+            </button>
+            <h3>Contraction timer</h3>
+            <button id="bellBtn ">
+                <svg class="bellIcon" id="bellIcon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <path
+                            d="M6 8C6 4.68629 8.68629 2 12 2C15.3137 2 18 4.68629 18 8V9.83095C18 11.2503 18.3857 12.6429 19.116 13.8599L19.6694 14.7823C20.0364 15.3941 20.22 15.7 20.2325 15.9497C20.252 16.3366 20.0463 16.6999 19.7045 16.8823C19.4839 17 19.1272 17 18.4138 17H5.5863C4.87286 17 4.51614 17 4.29549 16.8823C3.95374 16.6999 3.74803 16.3366 3.7675 15.9497C3.78006 15.7 3.96359 15.3941 4.33065 14.7823L4.88407 13.8599C5.61428 12.6429 6 11.2503 6 9.83098V8Z"
+                            fill="#402E7A" fill-opacity="0.24"></path>
+                        <path
+                            d="M14.35 18C14.4328 18 14.5007 18.0673 14.493 18.1498C14.4484 18.6254 14.1923 19.0746 13.7678 19.4142C13.2989 19.7893 12.663 20 12 20C11.337 20 10.7011 19.7893 10.2322 19.4142C9.80772 19.0746 9.55165 18.6254 9.50702 18.1498C9.49928 18.0673 9.56716 18 9.65 18L12 18L14.35 18Z"
+                            fill="#402E7A"></path>
+                    </g>
+                </svg>
+            </button>
+        </div>
+
+
+        <div class="time-form">
+            <div class="form-group">
+                <label for="start-time">Start Time</label>
+                <input type="time" id="start-time">
+            </div>
+            <div class="form-group">
+                <label for="end-time">End Time</label>
+                <input type="time" id="end-time">
+            </div>
+            <div class="form-group">
+                <button id="addContraction">Add Contraction</button>
+            </div>
+            <div class="error-msg">Please fill both input fileds</div>
+        </div>
+        <div class="time-container">
+            <div class="time-remain">00:00:11</div>
+            <p class="tagline">Time since last contractions</p>
+            <div class="main-time">7 min 32 sec</div>
+            <button class="stop" id="stop">stop timing</button>
+
+            <table class="shceduale-remain">
+                <thead>
+                    <tr>
+                        <th>Length</th>
+                        <th>Time Apart</th>
+                        <th>Start & End Time</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        const timeForm = document.querySelector('.time-form');
+        const bellPopup = document.querySelector('.bell-popup')
+        const timeContainer = document.querySelector('.time-container');
+
+        const backarrow = document.getElementById('backarrow');
+        const errorMsg = document.querySelector('.error-msg');
+
+
+        const contractions = [];
+        let isClick = false;
+        const bellIcon = document.querySelector('.bellIcon')
+
+        // next button
+        const addContractionBtn = document.getElementById('addContraction');
+        addContractionBtn.addEventListener('click', () => {
+            const startTime = document.getElementById('start-time').value;
+            const endTime = document.getElementById('end-time').value;
+            if (!startTime || !endTime) {
+                errorMsg.style.opacity = '1';
+                return;
+            }
+
+            bellIcon.classList.add('activeBell');
+            bellIcon.addEventListener('click', () => {
+                if (!isClick) {
+                    bellPopup.style.top = '70px';
+                    bellPopup.style.opacity = '1';
+                    bellIcon.classList.remove('activeBell');
+                    isClick = true
+                } else {
+
+                    isClick = false
+                    bellPopup.style.top = '-70px';
+                    bellPopup.style.opacity = '0';
+                    bellIcon.classList.add('activeBell');
+                }
+            })
+            errorMsg.style.opacity = '0';
+            addContraction(startTime, endTime);
+
+            timeForm.style.transform = 'translateY(10%)';
+            timeForm.style.scale = '.6';
+            timeForm.style.opacity = '.5';
+
+
+            timeContainer.style.transform = 'translateY(-100%)';
+            backarrow.style.visibility = 'visible';
+
+
+
+            backarrow.addEventListener('click', () => {
+                timeForm.style.transform = 'translateY(30px)';
+                timeForm.style.scale = '1';
+                timeForm.style.opacity = '1';
+
+
+                backarrow.style.visibility = 'hidden';
+                timeContainer.style.transform = 'translateY(-0%)';
+            })
+        })
+
+        function addContraction(startTime, endTime) {
+
+
+            console.log(startTime, endTime)
+            const start = new Date(`1970-01-01T${startTime}:00`);
+            const end = new Date(`1970-01-01T${endTime}:00`);
+
+            const length = (end - start) / 1000;
+            const lastContraction = contractions.length > 0 ? contractions[contractions.length - 1].end : null;
+            const timeApart = lastContraction ? (start - lastContraction) / 1000 : 0;
+
+
+            contractions.push({ start, end, length, timeApart });
+
+            renderContractions();
+        }
+
+        function renderContractions() {
+            const tbody = document.getElementById('table-body');
+            tbody.innerHTML = '';
+
+
+            // GENERATE HTML 
+            contractions.forEach((contraction, index) => {
+                const tr = document.createElement('tr');
+
+                const lengthTd = document.createElement('td');
+                lengthTd.textContent = `${contraction.length}s`;
+                tr.appendChild(lengthTd);
+
+                const timeApartTd = document.createElement('td');
+                timeApartTd.textContent = contraction.timeApart ? `${Math.floor(contraction.timeApart / 60)} min ${contraction.timeApart % 60} sec` : '0';
+                tr.appendChild(timeApartTd);
+
+                const timeTd = document.createElement('td');
+                timeTd.textContent = `${contraction.start.toTimeString().substring(0, 5)} - ${contraction.end.toTimeString().substring(0, 5)}`;
+                tr.appendChild(timeTd);
+
+                tbody.appendChild(tr);
+            });
+        }
+    </script>
+</body>
+
+</html>

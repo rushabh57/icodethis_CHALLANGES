@@ -1,0 +1,299 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  height: 100vh;
+  background: hsl(313, 64%, 5%);
+  --appear: appear 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes appear {
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+svg {
+  fill: hsl(358.75deg 87.8% 67.84%);
+}
+button {
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
+
+.sidebar {
+  display: flex;
+  z-index: 10;
+  flex-direction: column;
+  position: fixed;
+  inset: 0;
+  margin-left: auto;
+  align-items: end;
+  justify-content: end;
+  gap: 0.5em;
+  padding: 1em;
+  width: fit-content;
+}
+.sideBar-content {
+  width: fit-content;
+  background-color: hsl(256, 87%, 9%);
+
+  border-radius: 5em;
+  padding: 0.76em;
+  transition: 250ms ease all;
+}
+.sideBar-content > li {
+  background-color: hsl(256, 86%, 11%);
+
+  border-radius: 50em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25em;
+  margin: 0.5em auto;
+  height: 60px;
+  cursor: pointer;
+  aspect-ratio: 1;
+  transition: all cubic-bezier(0.175, 0.885, 0.32, 1.275) 250ms;
+}
+
+.sideBar-content li:hover {
+  background: white;
+}
+
+.sideBar-content li:hover img {
+  filter: invert(0);
+  scale: 0.8;
+}
+.sideBar-content li:hover p {
+  color: hsl(255, 54%, 19%);
+}
+.sideBar-content img,
+.sideBar-content svg {
+  height: 35px;
+  aspect-ratio: 1;
+  object-fit: cover;
+  filter: brightness(1000%) invert(1);
+  transition: 250ms cubic-bezier(0.19, 1, 0.22, 1) scale;
+}
+.import img {
+  filter: brightness(1000%);
+}
+.sideBar-content button {
+  background-color: hsl(55, 100%, 33%);
+  margin-block: 0.5em;
+  border-radius: 50em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  aspect-ratio: 1;
+  margin: 0.5em auto;
+}
+.sideBar-content button:hover {
+  background-color: hsl(55, 100%, 44%);
+}
+.sideBar-content p {
+  display: none;
+  color: white;
+}
+
+.plusIcon {
+  height: 80px;
+  aspect-ratio: 1;
+  border-radius: 5em;
+  background-color: hsl(256, 86%, 11%);
+
+  transition: 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275) rotate;
+}
+
+.plusIcon img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  filter: invert(1);
+  padding: 1.4em;
+}
+main::-webkit-scrollbar {
+  width: 5px;
+  background-color: transparent;
+}
+main::-webkit-scrollbar-thumb {
+  width: 5px;
+  background-color: hsl(256, 100%, 10%);
+}
+main {
+  height: 100%;
+  width: calc(100% - 120px);
+  margin-right: auto;
+  overflow-y: scroll;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: 0.5em;
+  padding: 0.5em;
+}
+main .card {
+  background-color: hsl(256, 86%, 11%);
+  border: 1.4px solid hsl(256, 93%, 16%);
+  height: 20rem;
+  width: 100%;
+  border-radius: 0.5em;
+  padding: 0.5em;
+  overflow: hidden;
+  position: relative;
+  top: 15px;
+  opacity: 0;
+  animation: var(--appear);
+}
+.card > img {
+  height: calc(100% - 3.5em);
+  width: 100%;
+  border-radius: inherit;
+  padding: 5em;
+  background-color: hsl(256, 85%, 13%);
+  object-fit: contain;
+}
+
+.card .more {
+  height: 3em;
+  width: 100%;
+  border-radius: inherit;
+  background-color: hsl(256, 85%, 13%);
+}
+.card .more > img {
+  height: 34px;
+  aspect-ratio: 1;
+  float: right;
+  border-radius: inherit;
+  position: relative;
+  top: 7.5px;
+  right: 7.5px;
+  filter: invert(1);
+  cursor: pointer;
+  background: hsl(55, 100%, 33%);
+  transition: 250ms ease background;
+}
+
+.card .more > img:hover {
+  background: hsl(55, 67%, 57%);
+}
+
+.checkbox-container {
+  background: hsl(253.71deg 42.17% 16.27%);
+  position: absolute;
+  width: calc(100% - 1em);
+  height: calc(80% - 0.5em);
+  border-radius: inherit;
+  color: white;
+  padding: 1em;
+  /* display: none; */
+  transition: all ease 250ms;
+}
+
+.checkbox-container > div {
+  margin-block: 0.5em;
+  line-height: 2;
+}
+
+.custom-checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.custom-checkbox input[type="checkbox"] {
+  display: none;
+}
+.custom-checkbox input[type="checkbox"]:checked + label {
+  color: white;
+}
+
+.custom-checkbox label {
+  position: relative;
+  padding-left: 25px;
+  cursor: pointer;
+  user-select: none;
+  color: hsl(233.91deg 38.12% 64.51%);
+}
+
+.custom-checkbox label::before {
+  content: "";
+  position: absolute;
+  left: -1%;
+  top: 50%;
+  transform: translateY(-39%);
+  width: 18px;
+  height: 18px;
+  border: 2px solid white;
+  border-radius: 4px;
+}
+
+.custom-checkbox input[type="checkbox"]:checked + label::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+}
+
+/* ================ */
+.my_profile {
+  position: fixed;
+  top: 1em;
+  z-index: 100;
+  left: 1em;
+  background-color: black;
+  height: 50px;
+  width: 50px;
+  opacity: 0.5;
+  border-radius: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  transition: 250ms ease all;
+}
+
+.my_profile:hover {
+  width: fit-content;
+  opacity: 1;
+}
+
+.my_profile:hover img {
+  scale: 0.7;
+}
+
+.my_profile:hover p {
+  display: block;
+}
+
+.my_profile > p {
+  display: none;
+  margin-right: 0.5em;
+  font-size: 10px;
+  white-space: var(--normal);
+  font-family: var(--normal);
+  color: #fff;
+}
+
+.my_profile > p a {
+  color: lavender;
+}
+
+.my_profile img {
+  height: 50px;
+  border-radius: 1em;
+  aspect-ratio: 1;
+  transition: 250ms ease scale;
+}
+
+/* ================ */

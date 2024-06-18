@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="copyright" content="Rushabh" />
+    <title>I CODE THIS CHALLANGE 547</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="my_profile">
+        <img src="https://shismqklzntzxworibfn.supabase.co/storage/v1/object/public/avatars/1dd3dbc2-d0ac-43ed-b0b5-399935a4de6a.jpeg"
+            alt="">
+        <p>See my other work? <a href="https://icodethis.com/Rushabh" target="_blank">click here</a></p>
+
+    </div>
+
+    <div class="sidebar">
+        <ul class="sideBar-content">
+            <button id="uploadNew">
+                <img src="https://www.svgrepo.com/show/532784/file-plus.svg" alt="">
+                <p>Add New</p>
+            </button>
+            <li>
+                <img src="https://www.svgrepo.com/show/532752/file-arrow-up-alt-1.svg" alt="">
+                <p>Upload Files</p>
+            </li>
+            <li>
+                <img src="https://www.svgrepo.com/show/532816/folder-arrow-up.svg" alt="">
+                <p>Upload Folder</p>
+            </li>
+            <li>
+                <img src="https://www.svgrepo.com/show/532824/folder-plus.svg" alt="">
+                <p>New Folder</p>
+            </li>
+            <li class="import">
+                <img src="https://www.svgrepo.com/show/525385/import.svg" alt="">
+                <p>Import Folder</p>
+            </li>
+        </ul>
+        <button class="plusIcon" id="plusIcon">
+            <img src="https://www.svgrepo.com/show/532994/plus.svg" alt="">
+        </button>
+    </div>
+    <main>
+
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const plusIconBtn = document.getElementById('plusIcon');
+            const uploadNew_p = document.querySelector('#uploadNew p');
+            const uploadNew = document.getElementById('uploadNew');
+            const sideBarContent = document.querySelectorAll('.sideBar-content li');
+            const sideBar_Content = document.querySelector('.sideBar-content');
+            const sideBarContent_p = document.querySelectorAll('.sideBar-content li p');
+            let isClick = false;
+            plusIconBtn.addEventListener('click', () => {
+                if (!isClick) {
+                    isClick = true;
+                    plusIconBtn.style.rotate = '45deg';
+                    uploadNew.style.width = '200px';
+                    uploadNew.style.justifyContent = 'start';
+                    uploadNew.style.paddingLeft = '.5em';
+                    uploadNew_p.style.display = 'block';
+                    sideBar_Content.style.borderRadius = '1em';
+                    sideBarContent.forEach(li => {
+                        li.style.width = '200px';
+                        li.style.justifyContent = 'start';
+                        li.style.paddingLeft = '.5em';
+                    })
+                    sideBarContent_p.forEach(p => {
+                        p.style.display = 'block';
+                    })
+
+                }
+                else {
+                    isClick = false;
+                    plusIconBtn.style.rotate = '0deg';
+                    sideBar_Content.style.borderRadius = '5em';
+                    uploadNew.style.width = '60px';
+                    uploadNew_p.style.display = 'none';
+                    uploadNew.style.justifyContent = 'center';
+                    uploadNew.style.paddingLeft = 'unset';
+                    sideBarContent.forEach(li => {
+                        li.style.width = '60px';
+                        li.style.justifyContent = 'center';
+                        li.style.paddingLeft = 'unset';
+                    })
+                    sideBarContent_p.forEach(p => {
+                        p.style.display = 'none';
+                    })
+
+                }
+            })
+
+            const folderPlaceholder = 'https://www.svgrepo.com/show/525890/folder-2.svg';
+            const filePlaceholder = 'https://www.svgrepo.com/show/525882/file-text.svg';
+            const main = document.querySelector('main');
+            const data = [
+                {
+                    id: 1,
+                    type: filePlaceholder,
+                },
+                {
+                    id: 2,
+                    type: filePlaceholder,
+                },
+                {
+                    id: 3,
+                    type: folderPlaceholder,
+                },
+                {
+                    id: 4,
+                    type: filePlaceholder,
+                },
+                {
+                    id: 5,
+                    type: folderPlaceholder,
+                },
+            ];
+
+            let delay = 50;
+            function generateCard(card) {
+                let animationDelay = delay += 25;
+                return `
+            <div class="card" animation-delay:${animationDelay} >
+                <div class="checkbox-container" style="display: none;">
+                    <h3>Who can see your content?</h3>
+                    <div class='custom-checkbox'>
+                        <input type="checkbox" id="checkbox-only-me-${card.id}">
+                        <label for="checkbox-only-me-${card.id}">Only me</label>
+                    </div>
+                    <div class='custom-checkbox'>
+                        <input type="checkbox" id="checkbox-everyone-${card.id}">
+                        <label for="checkbox-everyone-${card.id}">Everyone</label>
+                    </div>
+                    <div class='custom-checkbox'>
+                        <input type="checkbox" id="checkbox-customise-${card.id}">
+                        <label for="checkbox-customise-${card.id}">Customise</label>
+                    </div>
+                </div>
+                <img src="${card.type}" alt="">
+                <div class="more">
+                    <img src="https://www.svgrepo.com/show/521186/more-vertical.svg" alt="">
+                </div>
+            </div>
+        `;
+            }
+
+            data.forEach(card => {
+                main.innerHTML += generateCard(card);
+            });
+
+            document.querySelectorAll('.more img').forEach(moreImg => {
+                moreImg.addEventListener('click', (e) => {
+                    const card = moreImg.closest('.card');
+                    const checkboxContainer = card.querySelector('.checkbox-container');
+                    if (checkboxContainer) {
+                        checkboxContainer.style.display = checkboxContainer.style.display === 'block' ? 'none' : 'block';
+                    }
+                });
+            });
+        });
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>i code this Challenge 548 | rushabh</title>
+    <meta name="copyright" content="Rushabh" />
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <nav>
+        <div class="profile">
+            <img src="https://shismqklzntzxworibfn.supabase.co/storage/v1/object/public/avatars/1dd3dbc2-d0ac-43ed-b0b5-399935a4de6a.jpeg"
+                alt="">
+            <a href="https://icodethis.com/Rushabh"><img src="https://www.svgrepo.com/show/520938/share-2.svg"
+                    alt=""></a>
+        </div>
+        <ul>
+            <li>Home</li>
+            <li>Features</li>
+            <li>Pricing</li>
+            <li>Contact</li>
+            <li>Signup</li>
+        </ul>
+        <svg id="menu" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+                <path opacity="0.5"
+                    d="M3.46447 20.5355C4.92893 22 7.28595 22 12 22C16.714 22 19.0711 22 20.5355 20.5355C22 19.0711 22 16.714 22 12C22 7.28595 22 4.92893 20.5355 3.46447C19.0711 2 16.714 2 12 2C7.28595 2 4.92893 2 3.46447 3.46447C2 4.92893 2 7.28595 2 12C2 16.714 2 19.0711 3.46447 20.5355Z"
+                    fill="var(--primary)"></path>
+                <path
+                    d="M8 13C8.55228 13 9 12.5523 9 12C9 11.4477 8.55228 11 8 11C7.44772 11 7 11.4477 7 12C7 12.5523 7.44772 13 8 13Z"
+                    fill="var(--blk)"></path>
+                <path
+                    d="M12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13Z"
+                    fill="var(--dark)"></path>
+                <path
+                    d="M16 13C16.5523 13 17 12.5523 17 12C17 11.4477 16.5523 11 16 11C15.4477 11 15 11.4477 15 12C15 12.5523 15.4477 13 16 13Z"
+                    fill="var(--clr1)"></path>
+            </g>
+        </svg>
+    </nav>
+    <div class="grid">
+        <div class="col">
+            <div class="chart-container">
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
+        <div class="col">
+            <div class="range">
+                <div class="btn-grp">
+                    <button>Edit</button>
+                    <button id="options">Options</button>
+                </div>
+                <div class="options-list">
+                    <img id="closeBtn" src="https://www.svgrepo.com/show/522506/close.svg" alt="">
+                    <p>Sounds</p>
+                    <p>Effects</p>
+                    <p>Animations</p>
+                    <p>Perfferences</p>
+                </div>
+                <div class="range-container">
+                    <input type="range" class="custom-slider" min="0" max="100" name="" id="" />
+                    <div class="flex">
+                        <p>min</p>
+                        <p>max</p>
+                    </div>
+                </div>
+                <div class="range-container">
+                    <input type="range" class="custom-slider" min="0" max="100" name="" id="" />
+                    <div class="flex">
+                        <p>0</p>
+                        <p>100</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // Marcin Malecki's thumbnail hack
+            if (navigator.userAgent.includes("Headless")) {
+                document.body.style.setProperty("padding-block-end", "0");
+                document.body.style.setProperty("margin-block-start", "152px");
+                document.body.style.setProperty("min-block-size", "0");
+                document.body.style.setProperty("block-size", "calc(100vh - 304px)");
+                document.body.style.setProperty("position", "relative");
+            }
+            const ctx = document.getElementById('myChart').getContext('2d');
+            const myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['0', '1', '2', '3', '4', '5', '6', '7'],
+                    datasets: [{
+                        label: '',
+                        data: [10, 15, 33.4, 20, 18, 22, 25, 40],
+                        backgroundColor: 'rgba(113, 88, 226, 0.2)',
+                        borderColor: 'rgba(113, 88, 226, 1)',
+                        borderWidth: 2,
+                        pointBackgroundColor: 'rgba(113, 88, 226, 1)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgba(113, 88, 226, 1)',
+                        pointRadius: 5,
+                        pointHoverRadius: 7,
+                        tension: .45
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        x: {
+                            grid: {
+                                display: false,
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                display: false,
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            backgroundColor: 'hsl(241deg 66.67% 17.65%)',
+                            titleColor: 'white',
+                            bodyColor: 'white',
+                            borderColor: '#252525',
+                            borderWidth: 1,
+                            usePointStyle: true,
+                            boxHeight: 8,
+                            boxWidth: 15,
+                            titleFont: {
+                                family: 'Montserrat',
+                                size: 15,
+                                weight: 'bold'
+                            },
+                            bodyFont: {
+                                family: 'Poppins',
+                                size: 10
+                            },
+                            callbacks: {
+                                label: function (context) {
+                                    return context.raw.toFixed(1);
+                                }
+                            }
+
+                        }
+                    }
+                }
+            });
+
+            const options = document.getElementById('options');
+            let isClick = false;
+            const optionsList = document.querySelector('.options-list');
+            options.addEventListener('click', () => {
+                optionsList.style.clipPath = 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)'
+                optionsList.style.zIndex = '10'
+            }
+            )
+            const menu = document.getElementById('menu');
+            const navLinks = document.querySelector('nav ul')
+            menu.addEventListener('click', () => {
+                if (!isClick) {
+                    isClick = true;
+                    navLinks.style.right = '0';
+                    document.body.classList.
+                        add("stop-scrolling");
+
+
+                } else {
+                    document.body.classList
+                        .remove("stop-scrolling");
+                    isClick = false;
+                    navLinks.style.right = '-100%';
+                }
+            })
+            const closeBtn = document.getElementById('closeBtn');
+
+            closeBtn.addEventListener('click', () => {
+                optionsList.style.clipPath = 'polygon(0 0, 100% 0, 98% 0, 0 0)'
+                optionsList.style.zIndex = '0'
+            })
+        });
+    </script>
+</body>
+
+</html>

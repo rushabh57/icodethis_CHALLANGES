@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>i code this Challenge 539 | rushabh</title>
+    <meta name="copyright" content="Rushabh" />
+</head>
+<!-- border-[hsl(239deg 52.63% 22.35%)] -->
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+    .popins {
+        /* background-color: ; */
+        font-family: "Poppins", sans-serif;
+    }
+
+    .hading {
+        font-family: "Montserrat", sans-serif;
+
+    }
+
+    /* ===== */
+    .profile {
+        height: 3em;
+        position: fixed;
+        top: 1em;
+        left: 1em;
+        width: 3em;
+        overflow-y: scroll;
+        border: 1px solid;
+        display: flex;
+        align-items: start;
+        justify-content: start;
+        gap: 0.15em;
+        border-radius: 1em;
+        transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) all 250ms;
+    }
+
+    .profile:hover {
+        width: fit-content;
+        padding: 0.15em;
+    }
+
+    .profile::-webkit-scrollbar {
+        display: none;
+    }
+
+    .profile img {
+        height: 100%;
+        width: 100%;
+        background: whitesmoke;
+        border-radius: 1em;
+    }
+
+    .profile a {
+        height: 100%;
+        width: 100%;
+    }
+
+    .profile:hover a img {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+
+    .profile a img {
+        padding: 0.5em;
+        transform: translateX(-20%);
+        opacity: 0;
+        transition: ease all 250ms;
+    }
+
+    /* ===== */
+</style>
+
+<body class="grid place-items-center h-lvh">
+    <!-- =====  profile-->
+    <div class="profile">
+        <img src="https://shismqklzntzxworibfn.supabase.co/storage/v1/object/public/avatars/1dd3dbc2-d0ac-43ed-b0b5-399935a4de6a.jpeg"
+            alt="">
+        <a href="https://icodethis.com/Rushabh" target="_blank"><img
+                src="https://www.svgrepo.com/show/520938/share-2.svg" alt=""></a>
+    </div>
+    <!-- ===== -->
+    <div
+        class=" card h-[20em] w-[15em] border-2 bg-white border-gray-950 rounded-3xl p-5 relative before:content[''] before:bg-indigo-100 before:absolute before:top-[5%] before:left-[-12.5%] before:rounded-full before:z-[-1] before:h-[90%] before:w-[125%] ">
+
+        <h1 class="popins font-bold text-xl">Edit Availablity</h1>
+        <p class="text-sm my-4">Add a "hire me" button to let know that you're available for new opporyunites</p>
+        <div class="inline-flex items-center gap-1 my-1">
+            <label class="relative flex items-center  rounded-full cursor-pointer">
+                <input type="checkbox"
+                    class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-gray-900 checked:bg-gray-900 checked:before:bg-gray-900 hover:before:opacity-10"
+                    id="check" />
+                <span
+                    class="absolute text-white transition-opacity opacity-0 pointer-events-none top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 peer-checked:opacity-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"
+                        stroke="currentColor" stroke-width="1">
+                        <path fill-rule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </span>
+            </label>
+            <label class="mt-px font-semibold text-gray-700 cursor-pointer select-none" for="check">
+                Full Time
+            </label>
+        </div>
+        <div class="inline-flex items-center gap-1 my-1">
+            <label class="relative flex  items-center  rounded-full cursor-pointer">
+                <input type="checkbox"
+                    class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-gray-900 checked:bg-gray-900 checked:before:bg-gray-900 hover:before:opacity-10"
+                    id="check1" checked />
+                <span
+                    class="absolute text-white transition-opacity opacity-0 pointer-events-none top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 peer-checked:opacity-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"
+                        stroke="currentColor" stroke-width="1">
+                        <path fill-rule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </span>
+            </label>
+            <label class="mt-px font-semibold text-gray-700 cursor-pointer select-none" for="check1">
+                Freelance & Projects
+            </label>
+        </div>
+
+
+        <div class="btn-grp flex gap-1 mt-4">
+
+            <button class="mt-4 px-4 flex-1 py-2 bg-[#1b1c57] text-white font-semibold rounded">Done</button>
+            <button class="mt-4  flex-1 px-4 py-2 bg-gray-100 text-gray-950 font-semibold rounded">Cancel</button>
+        </div>
+
+
+    </div>
+</body>
+
+</html>

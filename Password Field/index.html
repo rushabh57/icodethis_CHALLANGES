@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>i code this Challenge 46 | rushabh</title>
+    <meta name="copyright" content="Rushabh" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- =====  profile-->
+    <div class="profile-my">
+        <img src="https://shismqklzntzxworibfn.supabase.co/storage/v1/object/public/avatars/1dd3dbc2-d0ac-43ed-b0b5-399935a4de6a.jpeg"
+            alt="">
+        <a href="https://icodethis.com/Rushabh" target="_blank">
+            <img class="profile-my-share-icon" src="https://www.svgrepo.com/show/520938/share-2.svg" alt=""></a>
+    </div>
+
+    <h1 class="msg">You Login <br> successfully</h1>
+    <div class="container">
+
+        <h2>Enter your <br> <span> password</span></h2>
+
+        <div class="profiles">
+            <div class="profile">
+                <img src="https://img.freepik.com/free-photo/young-beautiful-woman-pink-warm-sweater-natural-look-smiling-portrait-isolated-long-hair_285396-896.jpg?w=996&t=st=1718964827~exp=1718965427~hmac=ca7ceb0300a8c2dd0ec655ccf0311767e22f958b1bef0dab2eb6eebc04c67285"
+                    alt="">
+                <div class="detail">
+                    <p>Business Account</p>
+                    <h6>Sarah Bills</h6>
+                </div>
+            </div>
+        </div>
+        <div class="password">
+            <p>password</p>
+            <input type="password" name="" id="password" />
+            <div class="icon-box">
+                <svg id="passwordIcon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <path
+                            d="M9.60997 9.60714C8.05503 10.4549 7 12.1043 7 14C7 16.7614 9.23858 19 12 19C13.8966 19 15.5466 17.944 16.3941 16.3878M21 14C21 9.02944 16.9706 5 12 5C11.5582 5 11.1238 5.03184 10.699 5.09334M3 14C3 11.0069 4.46104 8.35513 6.70883 6.71886M3 3L21 21"
+                            stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </g>
+                </svg>
+            </div>
+        </div>
+        <div class="btn-grp">
+            <label for="styaSignIn">
+                <input type="checkbox" name="" id="styaSignIn">
+                <div class="toggle">
+                    <div class="circle"></div>
+                </div>
+                stay signed in
+            </label>
+            <button id="continue">Continue</button>
+        </div>
+        <a href="#">reset password</a>
+    </div>
+
+    <script>
+        const passwordField = document.getElementById("password");
+        const passwordIcon = document.querySelector("#passwordIcon");
+        const passwordIcon_path = document.querySelector("#passwordIcon path");
+
+
+        const CloseEye = 'M9.60997 9.60714C8.05503 10.4549 7 12.1043 7 14C7 16.7614 9.23858 19 12 19C13.8966 19 15.5466 17.944 16.3941 16.3878M21 14C21 9.02944 16.9706 5 12 5C11.5582 5 11.1238 5.03184 10.699 5.09334M3 14C3 11.0069 4.46104 8.35513 6.70883 6.71886M3 3L21 21';
+        const openEye = 'M3 14C3 9.02944 7.02944 5 12 5C16.9706 5 21 9.02944 21 14M17 14C17 16.7614 14.7614 19 12 19C9.23858 19 7 16.7614 7 14C7 11.2386 9.23858 9 12 9C14.7614 9 17 11.2386 17 14Z';
+
+        passwordIcon.addEventListener("click", function () {
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                passwordIcon_path.setAttribute('d', openEye);
+                passwordIcon.classList.add('aniTranRev');
+                passwordIcon.classList.remove('aniTran');
+            } else {
+                passwordField.type = "password";
+                passwordIcon_path.setAttribute('d', CloseEye)
+                passwordIcon.classList.remove('aniTranRev');
+                passwordIcon.classList.add('aniTran');
+            }
+        });
+
+        const continuee = document.getElementById('continue');
+        continuee.addEventListener('click', () => {
+            const msg = document.querySelector('.msg');
+            if (passwordField.value == '') {
+                alert('please fill input first');
+            }
+            else {
+                msg.style.top = '0%'
+                msg.style.opacity = '1'
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,264 @@
+@import url("https://fonts.googleapis.com/css2?family=DotGothic16&family=Poppins:wght@200;500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --dotGothic16: "DotGothic16", sans-serif;
+  --poppins: "Poppins", sans-serif;
+  --white: white;
+  --body_clr: rgb(223 228 255);
+  --bg_content_clr: rgb(210 212 255);
+  --blk: black;
+  --light: #f5f5f5;
+  /* animation & transitions */
+  --appear: appear 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes appear {
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+body {
+  font-family: var(--poppins);
+  height: 100vh;
+  background: var(--body_clr);
+}
+.dark-mode {
+  height: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 60px;
+  left: 1em;
+}
+.dark-mode label {
+  display: flex;
+  align-items: center;
+  justify-self: start;
+  gap: 0.25em;
+  font-size: 10px;
+}
+.dark-mode button {
+  height: 75%;
+  width: 65px;
+  border: 0;
+  outline: 0;
+  font-size: 12px;
+  background: rgb(228, 211, 255);
+  color: black;
+  font-weight: 550;
+  cursor: pointer;
+  border-radius: 1em;
+}
+.dark-mode button:hover {
+  background: rgb(136, 72, 255);
+  color: var(--white);
+}
+.dark-mode input[type="checkbox"] {
+  display: none;
+}
+
+.toggle {
+  cursor: pointer;
+  height: 3em;
+  border: 1px solid rgb(240, 231, 255);
+  border-radius: 50em;
+  width: 50px;
+  position: relative;
+  background: rgb(232, 218, 255);
+}
+.toggle .circle {
+  height: calc(3em - 7px);
+  aspect-ratio: 1;
+  border-radius: 50em;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) all 250ms;
+  background: rgb(136, 72, 255);
+}
+.btn-grp label:hover .circle {
+  scale: 0.9;
+}
+#styaSignIn:checked + .toggle .circle {
+  left: 48%;
+}
+#styaSignIn:checked + .toggle {
+  border: 1px solid transparent;
+}
+
+/* ===== */
+.profile-my {
+  height: 3em;
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  width: 3em;
+  overflow-y: scroll;
+  border: 1px solid;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  gap: 0.15em;
+  border-radius: 1em;
+  transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) all 250ms;
+}
+
+.profile-my:hover {
+  width: fit-content;
+  padding: 0.15em;
+}
+
+.profile-my::-webkit-scrollbar {
+  display: none;
+}
+
+.profile-my > img {
+  height: 100%;
+  width: 100%;
+  border-radius: 1em;
+}
+
+.profile-my a {
+  height: 100%;
+  width: 100%;
+  border-radius: 1em;
+  overflow: hidden;
+}
+
+.profile-my:hover a .profile-my-share-icon {
+  transform: translateX(0%);
+  opacity: 1;
+}
+.profile-my-share-icon:hover {
+  filter: invert(1);
+}
+
+.profile-my a .profile-my-share-icon {
+  border-radius: 1em;
+  padding: 0.5em;
+  transform: translateX(-20%);
+  opacity: 0;
+  transition: ease all 250ms;
+  height: 100%;
+  width: 100%;
+  background: rgb(226, 226, 226);
+}
+
+/* ==== */
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-content: center;
+  gap: 1em;
+  justify-content: center;
+  padding-top: 1em;
+  color: var(--blk);
+}
+
+.container .card {
+  height: 320px;
+  color: var(--blk);
+  width: 300px;
+  border-radius: 0.5em;
+  background-color: var(--light);
+  padding: 0.5em;
+  text-align: center;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.card svg {
+  height: 60px;
+  aspect-ratio: 1;
+  transition: 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275) transform;
+}
+
+.multi-ple {
+  background-color: var(--light);
+  height: fit-content;
+  width: fit-content;
+  border-radius: 0.5em;
+  padding: 0.5em;
+  margin-top: 1em;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.multi-ple .card {
+  height: 200px;
+  width: 350px;
+
+  display: flex;
+  align-items: stretch;
+  justify-content: start;
+  gap: 0.5em;
+  text-align: left;
+  box-shadow: unset;
+}
+.line {
+  height: 1px;
+  width: 80%;
+  margin: 0.5em auto;
+  background-color: rgb(240, 231, 255);
+}
+.card--heading {
+  line-height: 2;
+}
+.card--paragraph {
+  font-size: 12px;
+  font-weight: 200;
+  margin-bottom: 1em;
+}
+.card--button {
+  height: 3em;
+  width: 120px;
+  border-radius: 0.5em;
+  border: 0;
+  outline: 0;
+  background: rgb(240, 231, 255);
+  font-family: var(--poppins);
+  cursor: pointer;
+}
+
+.multi-ple .card .card--button {
+  border: 1.4px solid rgb(240, 231, 255);
+  background-color: transparent;
+  color: rgb(136, 72, 255);
+}
+.card .card--button:hover {
+  background: rgb(136, 72, 255);
+}
+.multi-ple .card .card--button:hover {
+  border: 1.4px solid rgb(136, 72, 255);
+  background-color: rgb(240, 231, 255);
+}
+.card:hover svg {
+  transform: translateY(-5%);
+}
+.recta {
+  background-color: var(--bg_content_clr);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  height: 400px;
+  width: 400px;
+  z-index: -1;
+}
+
+@media (max-width: 715px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+  }
+  .recta {
+    display: none;
+  }
+}

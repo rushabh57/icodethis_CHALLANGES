@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>i code this Challenge 56</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =====  profile-->
+    <div class="profile-my">
+        <img src="https://shismqklzntzxworibfn.supabase.co/storage/v1/object/public/avatars/1dd3dbc2-d0ac-43ed-b0b5-399935a4de6a.jpeg"
+            alt="">
+        <a href="https://icodethis.com/Rushabh" target="_blank">
+            <img class="profile-my-share-icon" src="https://www.svgrepo.com/show/520938/share-2.svg" alt=""></a>
+    </div>
+    <div class="dark-mode">
+        <label for="styaSignIn">
+            <input type="checkbox" name="" id="styaSignIn">
+            <div class="toggle">
+                <div class="circle"></div>
+            </div>
+        </label>
+    </div>
+    <!-- ----- -->
+
+    <div class="container">
+        <div class="header">
+            <div class="first">
+                <h3>Created on 11/02/2016</h3>
+                <p>updated 3hrs ago</p>
+            </div>
+            <div class="last">
+                <button>
+                    <img src="https://www.svgrepo.com/show/533701/refresh-cw.svg" alt="">
+                </button>
+                <button>
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <g id="Menu / More_Grid_Small">
+                                <g id="Vector">
+                                    <path
+                                        d="M14 15C14 15.5523 14.4477 16 15 16C15.5523 16 16 15.5523 16 15C16 14.4477 15.5523 14 15 14C14.4477 14 14 14.4477 14 15Z"
+                                        stroke="#000000" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                    <path
+                                        d="M8 15C8 15.5523 8.44772 16 9 16C9.55228 16 10 15.5523 10 15C10 14.4477 9.55228 14 9 14C8.44772 14 8 14.4477 8 15Z"
+                                        stroke="#000000" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                    <path
+                                        d="M14 9C14 9.55228 14.4477 10 15 10C15.5523 10 16 9.55228 16 9C16 8.44772 15.5523 8 15 8C14.4477 8 14 8.44772 14 9Z"
+                                        stroke="#000000" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                    <path
+                                        d="M8 9C8 9.55228 8.44772 10 9 10C9.55228 10 10 9.55228 10 9C10 8.44772 9.55228 8 9 8C8.44772 8 8 8.44772 8 9Z"
+                                        stroke="#000000" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="title">
+            <h1>Work On Netflix Redesign</h1>
+            <p>Host: <strong>Rush</strong></p>
+        </div>
+        <p class="detail">
+            I need 5 Examples of of the new card slider design which is good for user interactions and effient at
+            working.
+        </p>
+        <div class="progress-box">
+            <p>Task: <strong>30%</strong></p>
+            <div class="prgress">
+                <div class="bar"></div>
+            </div>
+        </div>
+        <div class="footer">
+            <img class="round" src="https://xsgames.co/randomusers/assets/avatars/male/20.jpg" alt="">
+            <img class="round"
+                src="https://img.freepik.com/free-photo/beautiful-woman-posing_144627-44122.jpg?t=st=1719125009~exp=1719128609~hmac=ff8d39b3e48152af48e3810cf69843b2f24418790eafd803e2d64e50cac91760&w=360"
+                alt="">
+            <img class="round" src="https://xsgames.co/randomusers/assets/avatars/male/35.jpg" alt="">
+            <div class="round">+3</div>
+        </div>
+    </div>
+    <!-- ----- -->
+
+
+    <script>
+        const root_theme = document.querySelector(':root');
+
+        const toggle = document.getElementById('styaSignIn');
+
+        toggle.addEventListener('change', function () {
+            if (toggle.checked) {
+                root_theme.style.setProperty('--white', '#111');
+                root_theme.style.setProperty('--body_clr', '  rgb(19, 21, 30)');
+                root_theme.style.setProperty('--bg_content_clr', ' rgb(22, 23, 40)');
+                root_theme.style.setProperty('--blk', '#fff');
+                root_theme.style.setProperty('--light', '#333');
+            } else {
+                root_theme.style.setProperty('--white', '#fff');
+                root_theme.style.setProperty('--body_clr', ' rgb(223 228 255)');
+                root_theme.style.setProperty('--bg_content_clr', ' rgb(210 212 255');
+                root_theme.style.setProperty('--blk', 'black');
+                root_theme.style.setProperty('--light', 'rgb(193, 193, 193)');
+
+            }
+        });
+        const refreshButton = document.querySelector('.header .last button:first-of-type');
+        refreshButton.addEventListener('click', () => {
+            setTimeout(() => {
+                window.location.reload();
+
+            }, 600);
+            refreshButton.classList.add('refresh')
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="copyright" content="Rushabh" />
+    <title>I CODE THIS CHALLANGE 83</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav>
+        <h1>Blog <br> Comps</h1>
+        <div class="detail_data_search">
+            <div class="searchComp">
+                <svg id="svgSrchTran" class="" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <path
+                            d="M16.6725 16.6412L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z"
+                            stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </g>
+                </svg>
+                <input type="text" id="srch" placeholder="your item.." />
+            </div>
+            <div class="userProfile">
+                <img src="https://shismqklzntzxworibfn.supabase.co/storage/v1/object/public/avatars/1dd3dbc2-d0ac-43ed-b0b5-399935a4de6a.jpeg"
+                    alt="">
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="card-container">
+        <div class="card" data-rank="1" data-featured='true'>
+            <div>
+                <h3 class="heading">Fade Song </h3>
+                <p class="date">2017</p>
+                <div class="creator">
+                    By Lewis Capaldi
+                </div>
+            </div>
+            <img class="blog-image" src='https://i.scdn.co/image/ab67616d0000b2732aa4715cbeb98b7f471d4807' alt="">
+        </div>
+        <div class="card" data-featured='false' data-rank="2">
+            <div>
+
+                <h3 class="heading">Why Is the Tesla CyberTruk Designed</h3>
+                <div class="creator">
+                    political history is enough to attract anyone to the region — but what brings tourists to Cappadocia
+                </div>
+            </div>
+            <img class="blog-image"
+                src='https://vendotic.com/public/uploads/small/mahindra-thar-parked-on-a-grassy-hill-with-a-mountain-in-the-background-292.jpg'
+                alt="">
+
+        </div>
+        <div class="card" data-featured='false' data-rank="3">
+            <div>
+                <h3 class="heading">Flying in a Hot Air Balloon</h3>
+                <div class="creator">
+                    A rocky landscape of natural wonders and human aptitude, Cappadocia is Turkey's very own fairy-tale
+                    kingdom
+                </div>
+
+            </div>
+            <img class="blog-image"
+                src='https://www.travelandleisure.com/thmb/dzCgS-d3ehE6V-OJD3o343WTQhU=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/hot-air-balloons-festival-cappadocia-turkey-HOTAIR0605-6d61318b9ac0462d9d20f387e5c7d1a9.jpg'
+                alt="">
+
+        </div>
+        <div class="card" data-featured='false' data-rank="4">
+            <div>
+                <h3 class="heading">Valour is here</h3>
+                <div class="creator">
+                    An extremely limited edition celebratory car commemorating 110 years of Aston Martin. With the
+                    intention to connect driver and machine again
+                </div>
+            </div>
+
+            <img class="blog-image" src='https://www.topgear.com/sites/default/files/2023/07/AV14.jpg?w=1784&h=1004'
+                alt="">
+
+        </div>
+        <div class="card" data-featured='false' data-rank="5">
+            <div>
+
+                <h3 class="heading">Much Easier to Trend</h3>
+                <div class="creator">
+                    to behold from the air. Luckily, it's fairly easy to book a trip to the area and see it for yourself
+                </div>
+            </div>
+            <img class="blog-image"
+                src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Bento_box_from_a_grocery_store.jpg/435px-Bento_box_from_a_grocery_store.jpg'
+                alt="">
+
+        </div>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+
+            // Marcin Malecki's thumbnail hack
+            if (navigator.userAgent.includes("Headless")) {
+                document.body.style.setProperty("padding-block-end", "0");
+                document.body.style.setProperty("margin-block-start", "152px");
+                document.body.style.setProperty("min-block-size", "0");
+                document.body.style.setProperty("block-size", "calc(100vh - 304px)");
+                document.body.style.setProperty("position", "relative");
+            }
+
+            const srch = document.getElementById('srch');
+            let svgSrchTran = document.querySelector('#svgSrchTran path');
+            let svgSrch = document.querySelector('#svgSrchTran');
+
+            let arrow = 'M6,12.4 L18,12.4 M12.6,7 L18,12.4 L12.6,17.8';
+            let ogSearchPath = 'M16.6725 16.6412L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z';
+
+            srch.addEventListener('input', () => {
+                if (srch.value.trim() !== "") {
+                    svgSrchTran.setAttribute('d', arrow);
+                    svgSrch.classList.add('aniTranRev');
+                    svgSrch.classList.remove('aniTran');
+                } else {
+                    svgSrchTran.setAttribute('d', ogSearchPath);
+                    svgSrch.classList.remove('aniTranRev');
+                    svgSrch.classList.add('aniTran');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

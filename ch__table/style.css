@@ -1,0 +1,195 @@
+@import url("https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --body: hsl(228deg 55.56% 98.24%);
+  --font1: "Poppins", sans-serif;
+  --font2: "Bona Nova SC", serif;
+}
+body {
+  background: var(--body);
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+.container {
+  height: fit-content;
+  max-width: 800px;
+  background: white;
+  padding: 1em;
+  border-radius: 0.5em;
+  width: 100%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.container h2 {
+  font-family: var(--font2);
+  margin-bottom: 0.25em;
+}
+.container #example {
+  height: 100%;
+  text-align: center;
+  font-family: var(--font1);
+  width: 100%;
+  border-bottom: 0;
+}
+#example th {
+  font-family: var(--font2);
+  border-bottom: 0;
+}
+#example td {
+  font-size: 12px;
+  background: white;
+}
+#example td:hover {
+  cursor: pointer;
+  background: hsl(226.15deg 76.47% 96.67%);
+}
+.dataTables_info {
+  font-family: var(--font1);
+  font-size: 12px;
+  line-height: 1.4;
+  padding-top: 0 !important;
+  margin-top: 0.5em;
+}
+#example_paginate {
+  padding-top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25em;
+  margin-top: 0.5em;
+}
+.paginate_button.previous,
+.paginate_button.next {
+  height: 35px;
+  aspect-ratio: 1;
+  border-radius: 0.5em !important;
+  overflow: hidden;
+  border: 1px solid black !important;
+  background: white !important;
+  position: relative;
+}
+.paginate_button.previous::after,
+.paginate_button.next::after {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  content: "<";
+  font-family: var(--font1);
+  font-size: 20px;
+  line-height: 1.8;
+  background: white;
+  color: black;
+  text-align: center;
+  top: 0;
+  left: 0;
+}
+.paginate_button.next::after {
+  rotate: 180deg;
+}
+
+.paginate_button.previous:hover,
+.paginate_button.next:hover {
+  cursor: pointer;
+  border: 1px solid hsl(226.15deg 76.47% 96.67%) !important;
+}
+
+.paginate_button.previous:hover::after,
+.paginate_button.next:hover::after {
+  cursor: pointer;
+  background: hsl(226.15deg 76.47% 96.67%);
+}
+.paginate_button.current {
+  background: white !important;
+  border: 1px solid black !important;
+  font-family: var(--font1);
+  height: 35px;
+  border-radius: 0.5em !important;
+  line-height: 1.3;
+}
+
+.dataTables_length {
+  font-family: var(--font1);
+  font-size: 12px;
+  margin-block: 0.5em;
+}
+.dataTables_length select {
+  width: 50px;
+  height: 25px;
+  border-radius: 0.5em;
+  border: 1px solid black !important;
+}
+#example_filter {
+  font-family: var(--font1);
+  font-size: 12px;
+  margin-block: 0.5em;
+}
+
+input[type="search" i] {
+  padding-block: 4px !important;
+  border: 1px solid black !important;
+  border-radius: 0.25em;
+  padding-inline: 2px;
+}
+#example_filter label {
+  position: relative;
+}
+#example_filter label::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0.1%;
+  background: white url("https://www.svgrepo.com/show/532555/search.svg")
+    no-repeat center right;
+  background-size: contain;
+  height: 20px;
+  width: 43px;
+}
+.table-row:hover {
+  width: 80% !important;
+  background: red !important;
+}
+th {
+  position: relative;
+}
+#example td:last-child {
+  background-color: rgb(110, 110, 255);
+  width: 0px;
+  color: rgb(54, 54, 255);
+  opacity: 0;
+  visibility: hidden;
+}
+#example tr:hover td:last-child {
+  opacity: 1;
+  visibility: visible;
+}
+#example td:last-child:hover {
+  color: white;
+}
+.arrowhide::before {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  font-family: var(--font1);
+  font-size: 20px;
+  line-height: 1.8;
+  background: white;
+  content: "";
+  top: 0;
+  left: 0;
+}
+
+@media (max-width: 650px) {
+  .container {
+    overflow-x: scroll;
+    width: 100%;
+    height: 100%;
+  }
+  .container table {
+    width: 700px;
+  }
+}

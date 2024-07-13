@@ -9,6 +9,21 @@ const ourSide = document.getElementById("our-side");
 const msgInput = document.getElementById("msgInput");
 const sendBtn = document.getElementById("sendBtn");
 
+const que_ans = [
+  {
+    que: "hi",
+    ans: "hi , how can i help you ?",
+  },
+  {
+    que: "What are you",
+    ans: "I am just simple chat bot , here for to give your questions answers!",
+  },
+  {
+    que: "i have product delivery issue",
+    ans: "I am just simple chat bot , here for to give your questions answers!",
+  },
+];
+
 const persons_list = [
   {
     id: 0,
@@ -31,7 +46,7 @@ const persons_list = [
 ];
 function generatePersons(person) {
   return `
-      <div class="p-card">
+      <div class="p-card" data-id='${person.id}'>
                     <img src="${person.profile}" alt="${person.name}">
                     <p>${person.name}</p>
                 </div>
@@ -88,7 +103,37 @@ sendBtn.addEventListener("click", (person) => {
       `;
 
     ourSide.appendChild(newMsg);
+
     msgInput.value = "";
+
+    // ============
+    const lastMsg = ourSide.querySelector(".message-container:last-child .msg");
+    // error here in lastMsg solve: it's catch first .msg so to solve that we have to use
+    // .message-container:last-child .msg
+    if (lastMsg) {
+      que_ans.forEach((q) => {
+        if (lastMsg.innerText.toLowerCase() === q.que.toLowerCase()) {
+          console.log("Match found:", q.que);
+
+          const responseMsg = document.createElement("div");
+          responseMsg.classList.add("message-container");
+          const person = persons_list.find(
+            (p) => p.id == lastMsg.getAttribute("data-id")
+          );
+
+          responseMsg.innerHTML = `
+             <img src="${person.profile}" alt="">
+             <p class="msg">${q.ans}</p>
+           `;
+
+          responseMsg.classList.add("opFlex");
+          ourSide.appendChild(responseMsg);
+        }
+      });
+    } else {
+      console.log("No message found.");
+    }
+    // ============
   } else {
     sendBtn.classList.add("disable");
   }

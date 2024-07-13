@@ -190,6 +190,11 @@ nav .person {
   object-fit: cover;
   border-radius: 50em;
 }
+.opFlex {
+  flex-direction: row !important;
+  justify-content: start !important;
+  width: 100%;
+}
 .msg {
   background: hsl(250, 19%, 26%);
   font-size: 12px;

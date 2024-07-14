@@ -13,7 +13,7 @@
 
 
 <body>
-    <div class="sub-popup">
+    <!-- <div class="sub-popup">
         <div class="popup">
             <img src="https://www.sattvicrecipe.com/wp-content/uploads/2022/10/veg-protein.jpeg" alt="">
             <strong>SUBSCRIBE TODAY</strong>
@@ -22,7 +22,29 @@
             <button id="subBtn">Subscribe</button>
             <p>We won't send you spam. <br> Unsubscribe at any time</p>
         </div>
+    </div> -->
+    <!-- added -->
+    <div class="wishListSection" id="wishConIcon">
+        <svg class="heart" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+                <path
+                    d="M15.7 4C18.87 4 21 6.98 21 9.76C21 15.39 12.16 20 12 20C11.84 20 3 15.39 3 9.76C3 6.98 5.13 4 8.3 4C10.12 4 11.31 4.91 12 5.71C12.69 4.91 13.88 4 15.7 4Z"
+                    stroke="" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </g>
+        </svg>
     </div>
+    <div class="wishListSection-container">
+        <div class="header">
+            <h4>Wish List</h4>
+            <div class="closeBtn">
+                <img src="https://www.svgrepo.com/show/500154/close-tab.svg" alt="">
+            </div>
+        </div>
+    </div>
+
+    <!-- added -->
     <div class="search-section">
         <h2>Search for the recipes</h2>
         <div class="serch-input">
@@ -154,6 +176,7 @@
 
         let arrow = 'M6,12.4 L18,12.4 M12.6,7 L18,12.4 L12.6,17.8';
         let ogSearchPath = 'M16.6725 16.6412L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z';
+        const wishListSectionContainer = document.querySelector('.wishListSection-container')
 
         srch.addEventListener('input', () => {
             if (srch.value.trim() !== "") {
@@ -185,7 +208,7 @@
 
 
                 return `
-    <div class="card" style='animation-delay:${animationDelay}ms'>
+    <div class="card" style='animation-delay:${animationDelay}ms' data-id="${item.idMeal}">
         <div class="sideImg">
         <img src='${item.strMealThumb}' alt=''/>    
         </div>
@@ -215,7 +238,6 @@
 
 
             }
-
             const cardContainer = document.getElementById('card-container');
             let cardHTML = '';
 
@@ -224,6 +246,7 @@
                 const limitedItems = items.slice(0, 5);
                 limitedItems.forEach(item => {
                     cardHTML += generateCard(item);
+
                 });
 
 
@@ -235,14 +258,22 @@
 
             let isClick = false;
 
+
             let heartIcons = document.querySelectorAll('.heart');
             heartIcons.forEach(icon => {
-                icon.addEventListener('click', () => {
+                const cards = document.querySelectorAll('.cards')
+                icon.addEventListener('click', (e) => {
+                    let card = e.target.closest('.card');
                     if (!isClick) {
                         icon.classList.add('toggle');
                         isClick = true;
+                        // cards.forEach(card => {
+
+                        // })
                     } else {
                         icon.classList.remove('toggle');
+                        // let cardId = card.getAttribute('data-id');
+
                         isClick = false;
                     }
                 });
@@ -250,16 +281,26 @@
 
         }
 
-        const subPopup = document.querySelector('.sub-popup');
-        const subBtn = document.querySelector('#subBtn');
-        setTimeout(() => {
-            subPopup.style.zIndex = '100';
-            subPopup.style.opacity = '1';
-        }, 2500);
-        subBtn.addEventListener('click', () => {
-            subPopup.style.zIndex = '-1';
-            subPopup.style.opacity = '0';
+        // const subPopup = document.querySelector('.sub-popup');
+        // const subBtn = document.querySelector('#subBtn');
+        // setTimeout(() => {
+        //     subPopup.style.zIndex = '100';
+        //     subPopup.style.opacity = '1';
+        // }, 2500);
+        // subBtn.addEventListener('click', () => {
+        //     subPopup.style.zIndex = '-1';
+        //     subPopup.style.opacity = '0';
 
+        // })
+
+        // new
+        const wishConIcon = document.getElementById('wishConIcon');
+        const wishListSec_Con_CloseBtn = document.querySelector('.wishListSection-container .closeBtn')
+        wishConIcon.addEventListener('click', () => {
+            wishListSectionContainer.style.right = '0%'
+        })
+        wishListSec_Con_CloseBtn.addEventListener('click', () => {
+            wishListSectionContainer.style.right = '100%'
         })
     </script>
 </body>

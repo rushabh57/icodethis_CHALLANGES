@@ -1,0 +1,239 @@
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Italiana&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --body: 248, 249, 255;
+  --poppins: "Poppins", sans-serif;
+  --EB: "EB Garamond", serif;
+  --Italiana: "Italiana", sans-serif;
+
+  --clr1: 255, 217, 184;
+  --radius: 0.5em;
+  --primary: 139, 130, 240;
+  --gap: 0.25em;
+}
+body {
+  height: 100vh;
+  background: linear-gradient(
+    30deg,
+    rgb(var(--clr1)) 10%,
+    rgb(var(--body)) 20%,
+    rgb(var(--clr1)) 200%
+  );
+  display: grid;
+  place-items: center;
+}
+.popup {
+  position: absolute;
+  top: 100%;
+  opacity: 0;
+  transition: top 250ms cubic-bezier(0.075, 0.82, 0.165, 1), opacity 250ms ease;
+  left: 0;
+  padding: 0.5em;
+  z-index: 10;
+  /* top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+  height: 100%;
+  background: rgba(255, 255, 255);
+  width: 100%;
+  border-radius: inherit;
+  display: grid;
+  place-items: center;
+}
+.inner-popup {
+  background: rgb(var(--clr1));
+  height: 90%;
+  width: 90%;
+  border-radius: inherit;
+  text-align: center;
+  padding-inline: 0.25em;
+}
+.inner-popup > h1 {
+  font-family: var(--Italiana);
+  margin-top: 3em;
+}
+.inner-popup input {
+  margin-top: 3em;
+  height: 3em;
+  outline: 0;
+  font-family: var(--poppins);
+  width: 100%;
+  border-radius: inherit;
+  border: 1.4px solid whitesmoke;
+}
+.inner-popup #sbmit,
+.inner-popup #cancle {
+  margin-top: 0.5em;
+  margin-bottom: 0.15em;
+  border: 0;
+  outline: 0;
+  font-family: var(--poppins);
+  cursor: pointer;
+  height: 3em;
+  width: 100%;
+  border-radius: inherit;
+  background: rgb(var(--primary));
+}
+#cancle {
+  margin-top: 0.15em !important;
+  background: rgb(255, 77, 112) !important;
+}
+
+.container {
+  background: white;
+  border: 1px solid whitesmoke;
+  height: 500px;
+  max-width: 400px;
+  width: 100%;
+  border-radius: var(--radius);
+  padding: 0.5em;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.head {
+  border-radius: inherit;
+  font-family: var(--EB);
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap);
+}
+
+.head h1 {
+  font-size: 2em;
+}
+
+.head > .addBtn {
+  height: 45px;
+  cursor: pointer;
+  border: 0;
+  outline: 0;
+  aspect-ratio: 1;
+}
+.head > .addBtn:hover svg #pathSearch {
+  fill: rgb(var(--primary));
+}
+.head > .addBtn svg {
+  height: 100%;
+  width: 100%;
+}
+.search-area {
+  height: 3em;
+  width: 100%;
+  border-radius: inherit;
+  border: 1.4px solid whitesmoke;
+  margin-block: 0.5em;
+  position: relative;
+  transition: 250ms ease border;
+}
+.search-area img {
+  height: 35px;
+  aspect-ratio: 1;
+  position: absolute;
+  top: 10%;
+  left: 0;
+  object-fit: contain;
+  filter: invert(0.7);
+  transition: 250ms ease filter;
+}
+
+.search-area input {
+  height: 100%;
+  width: 100%;
+  border-radius: inherit;
+  border: 0;
+  outline: 0;
+  font-family: var(--poppins);
+  font-size: 1.1em;
+  padding-left: 35px;
+}
+.search-area:has(input:focus-within) {
+  border: 1.4px solid black;
+}
+.search-area:has(input:focus-within) img {
+  filter: invert(0);
+}
+
+.createOrgBtn {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-bottom-right-radius: inherit;
+  border-bottom-left-radius: inherit;
+  width: 100%;
+  height: 0.012em;
+  visibility: hidden;
+  border: 0;
+  outline: 0;
+  background: rgb(var(--primary));
+  color: white;
+  font-family: var(--poppins);
+  cursor: pointer;
+  transition: height 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    visibility 250ms ease;
+}
+
+.container:hover .createOrgBtn {
+  height: 3.5em;
+  visibility: visible;
+}
+.container:hover .repoArea {
+  height: calc(100% - (3.5em * 2.85));
+}
+.repoArea {
+  height: calc(100% - (3.5em * 2.1));
+  width: 100%;
+  border-radius: inherit;
+  transition: 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275) height;
+}
+
+.repoArea li {
+  height: 3em;
+  width: 100%;
+  background: rgb(var(--primary), 0.08);
+  border-radius: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: var(--gap);
+  overflow: hidden;
+  margin-block: 0.25em;
+  cursor: pointer;
+  border: 1.4px solid transparent;
+}
+.repoArea li:hover {
+  background: rgb(var(--primary), 0.2);
+  border: 1.4px solid rgb(var(--primary), 0.2);
+}
+.repoArea li:hover .fileIcon {
+  background: rgb(var(--primary), 0.15);
+}
+li > .fileIcon {
+  height: 100%;
+  width: 3em;
+  padding: 0.5em;
+
+  background: rgb(var(--primary));
+  filter: hue-rotate(350deg);
+  mix-blend-mode: color-burn;
+}
+li > .link {
+  color: rgb(111, 111, 255);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 85%;
+  overflow: hidden;
+  font-family: var(--poppins);
+  font-size: 14px;
+}
+li > .link:visited {
+  color: rgb(127, 96, 251);
+}

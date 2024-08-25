@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Italiana&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --body: hsl(0, 0%, 93%);
+  --poppins: "Poppins", sans-serif;
+  --EB: "EB Garamond", serif;
+  --Italiana: "Italiana", sans-serif;
+
+  --clr1: 255, 196, 136;
+}
+body {
+  height: 100vh;
+  background: var(--body);
+  display: grid;
+  place-items: center;
+}
+.container {
+  background: hsl(0, 0%, 100%);
+  height: 400px;
+  max-width: 350px;
+  width: 100%;
+  border-radius: 1em;
+  padding: 0.5em;
+}
+.container h1 {
+  font-family: var(--EB);
+  font-size: 1.5em;
+}
+
+.accordian {
+  height: 5em;
+  width: 100%;
+  background: rgba(var(--clr1), 0.35);
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
+  border-top-left-radius: 0.5em;
+  border-bottom-left-radius: 0.5em;
+  position: relative;
+}
+.accordian::before {
+  height: 100%;
+  width: 10px;
+  background: rgba(var(--clr1));
+  border-top-left-radius: 1em;
+  border-bottom-left-radius: 1em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+}

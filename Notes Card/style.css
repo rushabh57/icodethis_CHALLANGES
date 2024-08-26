@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Italiana&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    --font1:"Poppins", sans-serif;
+    --font2:"Italiana", sans-serif;
+    --font3:font-family: "EB Garamond", serif;;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body > h1{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 30%;
+    font-family: var(--font2);
+    font-size: 7vw;
+    color: hsl(38, 100%, 71%, .5);
+
+}
+body {
+   display: grid;
+   place-items: center;
+   height: 100vh;
+   font-family: var(--font1);
+   background: linear-gradient(
+    hsl(38.32deg 96.27% 68.43%),
+    whitesmoke
+   );
+   overflow: hidden;
+}
+
+.swiper {
+    width: 240px;
+    height: 320px;
+}
+
+.card {
+
+    background: repeating-linear-gradient(hsl(38.32deg 96.27% 68.43%),
+            hsl(38.32deg 96.27% 68.43%) 24px,
+            hsl(38, 60%, 56%) 25px,
+            hsl(38, 60%, 56%) 25px);
+    border-radius: .5em;
+    font-size: 14px;
+    line-height: 1.7;
+
+    font-weight: bold;
+    color: #fff;
+    padding: .5em;
+    position: relative;
+
+}
+
+.head {
+    height: 30px;
+    background: hsl(38, 60%, 56%);
+    margin-bottom: 1.2em;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: .5em;
+    border-radius: inherit;
+    padding: 1em;
+    width: fit-content;
+    cursor: pointer;
+}
+
+svg {
+    height: 25px;
+    aspect-ratio: 1;
+    fill: hsl(38, 100%, 71%, .5);
+    transition: 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275) scale;
+
+}
+
+svg:hover {
+    fill: hsla(38, 100%, 71%, 0.596);
+    scale: .9;
+
+}
+
+svg:hover path {
+    stroke: rgb(255, 188, 63);
+}
+
+svg path {
+    fill: hsla(38, 100%, 71%, 0.223);
+    stroke: rgb(255, 198, 92);
+}
+
+.save {
+    position: absolute;
+    background: rgb(93, 133, 0);
+    top: .5em;
+    right: 1em;
+    height: 30px;
+    padding: .25em 1em;
+    border-radius: inherit;
+    cursor: pointer;
+    transition: 250ms ease background;
+}
+
+.save:hover {
+    background: rgb(120, 172, 0);
+
+}

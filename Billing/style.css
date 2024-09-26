@@ -1,0 +1,340 @@
+@import url("https://fonts.googleapis.com/css2?family=Italiana&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* animation & transitions */
+  --appear: appear 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes appear {
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
+:root {
+  --p: "Poppins", system-ui;
+  --m: "Montserrat", system-ui;
+  --i: "Italiana", system-ui;
+
+  --primary: hsl(6.96deg 83.41% 57.45%);
+}
+body {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  background-color: rgb(255, 237, 243);
+}
+.container {
+  background: white;
+  height: 100%;
+  width: 100%;
+  max-height: 88%;
+  max-width: 92%;
+  border-radius: 1em;
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  overflow: hidden;
+  gap: 0.5em;
+}
+
+.bar {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 0.5em;
+  padding-inline: 0.25em;
+}
+.bar > div {
+  width: 100%;
+  flex: 1;
+}
+.bar > .profile {
+  flex: 0.4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+}
+.profile > img {
+  height: 50px;
+  border-radius: 1em;
+}
+.profile > div h2 {
+  font-family: var(--m);
+  font-size: 1em;
+}
+.profile > div p {
+  font-family: var(--p);
+  font-size: 14px;
+  line-height: 0.99;
+  color: gray;
+}
+.bar > .links {
+  flex: 1;
+  width: 100%;
+}
+.links li {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 1em;
+  height: fit-content;
+  margin-block: 0.25em;
+  width: 100%;
+  cursor: pointer;
+  /* background: rgba(11, 11, 11, 0.105); */
+  padding: 0.5em 1em;
+  border-radius: 0.5em;
+}
+.links li img {
+  height: 25px;
+  aspect-ratio: 1;
+  filter: invert(0.5) brightness(50%) grayscale(0.5);
+  margin-left: 0.5em;
+}
+.links li p {
+  font-size: 14px;
+  font-family: var(--p);
+}
+.bar > .logout {
+  --size: 0.15;
+  flex: var(--size);
+  width: 100%;
+}
+.logout .flex-btn {
+  width: 100%;
+  height: var(--size);
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 1em;
+  padding: 0.25em;
+  border-radius: 0.5em;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  outline: 0;
+}
+.flex-btn:hover {
+  background: rgba(30, 24, 26, 0.139);
+}
+.links li:hover {
+  background: rgba(30, 24, 26, 0.139);
+}
+.links li:hover img {
+  filter: invert(0.5) grayscale(0);
+}
+.flex-btn img {
+  height: 25px;
+  aspect-ratio: 1;
+  filter: invert(0.5) brightness(50%) grayscale(0.5);
+  margin-left: 1.5em;
+}
+.flex-btn p {
+  font-family: var(--p);
+  font-size: 14px;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 250px;
+}
+.page1 {
+  height: 100%;
+  width: 100%;
+}
+.page1 h1 {
+  font-family: var(--i);
+  font-size: 2em;
+  margin-top: 1em;
+}
+.page1 .sub-heading {
+  height: fit-content;
+  width: 100%;
+  margin-block: 0.5em;
+}
+.page1 .sub-heading h6 {
+  font-size: 16px;
+  font-family: var(--m);
+}
+.page1 .sub-heading p {
+  font-size: 12px;
+  font-family: var(--p);
+  line-height: 1;
+  color: rgb(186, 186, 186);
+}
+
+.table {
+  height: fit-content;
+  width: 100%;
+  margin-top: 5em;
+}
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: fit-content;
+  border-radius: 0.5em;
+  margin-block: 0.25em;
+  font-family: var(--p);
+  text-align: center;
+}
+.card > .f-data {
+  text-align: left;
+}
+.card > div {
+  flex: 1;
+}
+.f-data img {
+  height: 4em;
+  width: 80px;
+  object-fit: contain;
+}
+.sub-heading:nth-child(1) {
+  margin-top: 2.5em;
+}
+.card:has(.f-data img) {
+  text-align: left;
+}
+.card:has(.f-data img) .f-data {
+  flex: 0.3;
+}
+.card:has(.f-data img) > .m-data {
+  text-align: left;
+  flex: 2.25;
+}
+
+.card .l-data button {
+  height: 2.5em;
+  width: 120px;
+  border-radius: 0.5em;
+  border: 1.4px solid black;
+  outline: 0;
+  cursor: pointer;
+  background: transparent;
+}
+.plans {
+  padding: 0.5em;
+}
+.plans .plan-1 {
+  background: var(--primary);
+  height: fit-content;
+  width: 100%;
+  border-radius: 0.5em;
+  padding: 1em;
+}
+.plan-1 p {
+  font-size: 14px;
+  font-family: var(--p);
+}
+.plan-1 h2 {
+  font-size: 1.6em;
+  font-family: var(--m);
+}
+.plan-1 p:nth-child(3) {
+  line-height: 1;
+  color: rgb(186, 186, 186);
+  margin-bottom: 1em;
+}
+.plan-1 button {
+  height: 3em;
+  width: 100%;
+  border-radius: inherit;
+  border: 1.4px solid white;
+  color: white;
+  background: transparent;
+  cursor: pointer;
+}
+.card:hover button {
+  font-weight: bold;
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1200px;
+  }
+}
+
+.content::-webkit-scrollbar {
+  width: 10px;
+  background-color: transparent;
+}
+.content::-webkit-scrollbar-thumb {
+  width: 10px;
+  background-color: var(--primary);
+}
+@media (max-width: 893px) {
+  .container .content {
+    grid-template-columns: 1fr;
+    overflow-y: scroll;
+  }
+}
+@media (max-width: 692px) {
+  .plans {
+    margin-bottom: 4em;
+  }
+  .container {
+    grid-template-columns: 1fr;
+    border-radius: 0.15em;
+  }
+  .bar {
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 1em;
+  }
+  .bar .profile {
+    flex: 1;
+    justify-content: start;
+  }
+  .bar .logout {
+    height: 100%;
+    padding-top: 0.5em;
+    border-radius: 0.5em;
+    border: 1.4px solid black;
+    text-align: center;
+    padding-inline: 0.5em;
+  }
+  .logout img {
+    margin-left: 0;
+  }
+
+  .bar .links {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background-color: white;
+    display: flex;
+    flex: 1;
+    gap: 0.5em;
+  }
+  li {
+    align-items: center;
+    padding: 0em 0em;
+    padding-left: 1.25em !important;
+  }
+
+  .links img {
+    padding-left: 0em;
+    margin-inline: auto;
+  }
+  .links p {
+    display: none;
+  }
+  .container {
+    max-width: 100% !important;
+    max-height: 100% !important;
+  }
+  .container .content .card {
+    flex-wrap: wrap;
+    width: 100%;
+    height: fit-content;
+    padding-block: 0.25em;
+    padding-inline: 0;
+  }
+  .card > div {
+    width: fit-content;
+    text-wrap: nowrap;
+  }
+}

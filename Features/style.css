@@ -1,0 +1,127 @@
+@import url("https://fonts.googleapis.com/css2?family=Italiana&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* animation & transitions */
+  --appear: appear 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes appear {
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
+:root {
+  --p: "Poppins", system-ui;
+  --m: "Montserrat", system-ui;
+  --i: "Italiana", system-ui;
+
+  --primary: hsl(6.96deg 83.41% 57.45%);
+}
+body {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(hsl(265, 100%, 69%), hsl(267, 100%, 78%));
+  color: white;
+  /* background: radial-gradient(#e66465, #9198e5); */
+}
+.cirlce-01 {
+  height: 150vh;
+  aspect-ratio: 1;
+  position: fixed;
+  top: -20%;
+  /* left: -105%; */
+  left: -25%;
+  rotate: 10deg;
+  border-radius: 5em;
+  background-color: hsl(225deg 38.1% 8.24%);
+  filter: blur(4px);
+  /* box-shadow: hsl(267, 100%, 78%) 0px 8px 30px; */
+  box-shadow: inset hsl(267, 100%, 78%) 0px 54px 55px,
+    hsl(267, 100%, 78%) 0px -12px 30px, inset hsl(266, 20%, 25%) 0px 4px 6px,
+    hsl(266, 23%, 21%) 0px 12px 13px, hsl(267, 30%, 29%) 0px -3px 5px;
+}
+
+.cirlce-02 {
+  height: 150vh;
+  aspect-ratio: 1;
+  position: fixed;
+  top: -20%;
+  right: -25%;
+  /* right: -105%; */
+  border-radius: 5em;
+  rotate: -10deg;
+  background-color: hsl(225deg 38.1% 8.24%);
+  filter: blur(4px);
+
+  box-shadow: inset hsl(267, 100%, 78%) 0px 54px 55px,
+    hsl(267, 100%, 78%) 0px -12px 30px, inset hsl(266, 20%, 25%) 0px 4px 6px,
+    hsl(266, 23%, 21%) 0px 12px 13px, hsl(267, 30%, 29%) 0px -3px 5px;
+}
+.conatainer {
+  background-color: red;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-color: transparent;
+  text-align: center;
+}
+.conatainer h1 {
+  font-family: var(--i);
+  font-size: 4em;
+  margin-bottom: 0.5em;
+}
+
+.flex {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1em;
+  text-align: left;
+  font-family: var(--p);
+  max-width: 750px;
+  margin: auto;
+}
+.flex .card {
+  background: hsla(264, 43%, 23%, 0.274);
+  backdrop-filter: blur(20px);
+  width: 200px;
+  height: 200px;
+  padding-block: 0.5em;
+  border-radius: 1em;
+  padding-inline: 1em;
+  border: 1.4px solid hsla(268, 14%, 21%, 0.132);
+  position: relative;
+}
+.card::before {
+  content: "";
+  position: absolute;
+  top: -2.5%;
+  left: -2.5%;
+  scale: 0.5;
+  background: hsla(264, 43%, 23%, 0.274);
+  height: 105%;
+  width: 105%;
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transform-origin: center;
+  transition: 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275) scale,
+    250ms cubic-bezier(0.175, 0.885, 0.32, 1) opacity;
+}
+.card:hover::before {
+  opacity: 1;
+  scale: 1;
+}
+.card h2 {
+  font-family: var(--m);
+}
+
+.card p {
+  font-size: 12px;
+}

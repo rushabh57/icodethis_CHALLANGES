@@ -1,0 +1,232 @@
+@import url("https://fonts.googleapis.com/css2?family=Italiana&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  display: grid;
+  place-content: center;
+}
+:root {
+  --fancy-font: "Italiana", sans-serif;
+  --body-font: "Poppins", sans-serif;
+  --text_color: red;
+  --text_bg_color: crimson;
+  /* animation & transitions */
+  --appear: appear 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+@keyframes appear {
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
+.screen {
+  height: 460px;
+  width: 300px;
+  /* border-radius: 0.5em; */
+
+  position: relative;
+  opacity: 0;
+  top: 5px;
+  animation: var(--appear);
+
+  padding: 0.5em;
+  background-color: whitesmoke;
+}
+.screen h2 {
+  font-size: 16px;
+  text-align: left;
+  margin-bottom: 0.5em;
+}
+
+.kaban-card--container {
+  background-color: transparent;
+  width: 100%;
+  height: calc(100% - 5em);
+  overflow-y: scroll;
+
+  position: relative;
+  opacity: 0;
+  top: 5px;
+  animation: var(--appear);
+}
+.screen::before {
+  content: "";
+  height: 3px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(
+    45deg,
+    #f17c58,
+    #e94584,
+    #24aadb,
+    #27dbb1,
+    #ffdc18,
+    #ff3706
+  );
+  background-size: 600% 100%;
+  animation: gradient 16s linear infinite;
+  animation-direction: alternate;
+}
+@keyframes gradient {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+
+.date-card {
+  position: absolute;
+  top: 0.1em;
+  font-size: 10px;
+  color: rgb(211, 211, 211);
+  right: 0.1em;
+}
+
+#addCard {
+  height: 3em;
+  width: 100%;
+  margin-block: 0.25em;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-family: var(--body-font);
+  cursor: pointer;
+  background: white;
+}
+
+.card {
+  height: 6em;
+  width: 100%;
+  background: white;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  padding: 0.25em;
+  gap: 0.25em;
+  flex-shrink: 0;
+  margin-block: 0.125em;
+
+  position: relative;
+  opacity: 0;
+  top: 5px;
+  animation: var(--appear);
+}
+.card--image {
+  height: 35px;
+  aspect-ratio: 1;
+  border-radius: 50em;
+  /* background-color: red; */
+  overflow: hidden;
+
+  position: relative;
+  opacity: 0;
+  top: 5px;
+  animation: var(--appear);
+}
+.card--image img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  padding: 0.125em;
+}
+.card--details {
+  /* background-color: green; */
+  height: calc(100% - 1.5em);
+  flex: 1;
+  text-align: left;
+
+  position: relative;
+  opacity: 0;
+  top: 5px;
+  animation: var(--appear);
+}
+.card .card---progress-level {
+  font-size: 12px;
+
+  width: fit-content;
+  padding: 0.125em 0.25em;
+  background-color: var(--text_bg_color);
+  color: var(--text_color);
+}
+.LOW {
+  --text_bg_color: rgb(255, 153, 153);
+  --text_color: rgb(255, 28, 28);
+}
+.HIGH {
+  --text_bg_color: rgb(147, 255, 147);
+  --text_color: rgb(0, 197, 13);
+}
+.MEDIUM {
+  --text_bg_color: rgb(239, 255, 159);
+  --text_color: rgb(166, 201, 9);
+}
+
+.card---title {
+  /* background-color: red; */
+  font-size: 14px;
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  position: relative;
+  opacity: 0;
+  top: 5px;
+  animation: var(--appear);
+}
+.card---task-type {
+  /* background-color: blue; */
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  gap: 0.5em;
+  margin-bottom: 0.25em;
+
+  position: relative;
+  opacity: 0;
+  top: 5px;
+  animation: var(--appear);
+}
+.card---task-type > p {
+  background: rgb(232, 232, 232);
+  padding: 0.125em 1em;
+  border-radius: 5em;
+}
+
+.card--comment_people {
+  height: 1.5em;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.125em;
+  padding-left: 42px;
+  /* background-color: blue; */
+}
+
+.card---people,
+.card---comment {
+  height: 100%;
+  width: 80px;
+  background: rgb(232, 232, 232);
+  border-radius: 10em;
+}
+
+.card:hover {
+  scale: 0.97;
+  cursor: pointer;
+}

@@ -1,0 +1,99 @@
+<!-- <!DOCTYPE html> -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="user-selection--container">
+        <div class="popup">
+            <h1>Add Player</h1>
+            <input type="file" placeholder="image" id="imgIn">
+            <input type="text" placeholder="name" id="nameIn">
+            <div class="btn-grp">
+                <button class="save">save</button>
+                <button class="close">close</button>
+            </div>
+        </div>
+        <h1>Who's Playing Now?</h1>
+        <div class="cards">
+            <div class="card">
+                <div class="deleteUserBtn">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path d="M10 11V17" stroke="#ec4b4b" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                            <path d="M14 11V17" stroke="#ec4b4b" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                            <path d="M4 7H20" stroke="#ec4b4b" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                            <path d="M6 7H12H18V18C18 19.6569 16.6569 21 15 21H9C7.34315 21 6 19.6569 6 18V7Z"
+                                stroke="#ec4b4b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z" stroke="#ec4b4b"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </g>
+                    </svg>
+                </div>
+                <img src="https://img.freepik.com/free-vector/man-profile-account-picture_24908-81754.jpg?t=st=1741925646~exp=1741929246~hmac=dab97f51e3c84a10d9eb8457d91ea423e7d21f9dc45291ab6bacb5eb597a18b1&w=826"
+                    alt="">
+                <p>William</p>
+            </div>
+            <div class="card">
+                <div class="deleteUserBtn">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path d="M10 11V17" stroke="#ec4b4b" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                            <path d="M14 11V17" stroke="#ec4b4b" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                            <path d="M4 7H20" stroke="#ec4b4b" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                            <path d="M6 7H12H18V18C18 19.6569 16.6569 21 15 21H9C7.34315 21 6 19.6569 6 18V7Z"
+                                stroke="#ec4b4b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z" stroke="#ec4b4b"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </g>
+                    </svg>
+                </div>
+                <img src="https://img.freepik.com/free-vector/woman-wearing-eyeglasses_24908-81919.jpg?t=st=1741925718~exp=1741929318~hmac=7bcbd80e8b902fe134d963b392cf602b235d7d9313182638a31e4cdaf29d7b5c&w=740"
+                    alt="">
+                <p>Lui</p>
+            </div>
+            <div id="addCardBtn" class="addCardBtn">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <path opacity="0.1"
+                            d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+                            fill="rgba(164, 73, 255, 0.672)"></path>
+                        <path d="M9 12H15" stroke="rgba(164, 73, 255, 0.672)" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        <path d="M12 9L12 15" stroke="rgba(164, 73, 255, 0.672)" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        <path
+                            d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+                            stroke="rgba(164, 73, 255, 0.672)" stroke-width="2"></path>
+                    </g>
+                </svg>
+                <p>Add User</p>
+            </div>
+            <div id="manageUserBtn">
+                <p> manage user</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

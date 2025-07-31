@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    
+    <div class="container">
+        <div class="col" data-ani="showanimde">
+            <div class="seen-animation">
+                <img src="https://img.freepik.com/free-vector/man-paying-online-receiving-cashback-wallet_88138-692.jpg?t=st=1753977486~exp=1753981086~hmac=6367c3d005f8e76743f0cb62b215bc0c35a0f1e5b1c82c555b84e4025854a951&w=826" alt="">
+            </div>
+            <div class="details">
+
+            <div class="preview" id="card-number-preview"></div>
+
+            <div class="preview" id="exp-preview"></div>
+        </div>
+
+        </div>
+        <div class="col" data-details="details-card-info">
+            <div class="step-count"><p>4/4</p></div>
+            <h1 class="card-step-label">Last Step!</h1>
+            <p class="card-label-subheading">Enter your payment info below</p>
+          
+            <div class="payment-selection-type-container">
+              <label class="card-pay">
+                  <img src="https://www.svgrepo.com/show/452179/card.svg" alt="">
+                  <p>Credit Card</p>
+                  <input type="radio" name="choose" hidden>
+                  <span class="custom-radio"></span>
+              </label>
+          
+              <label class="card-pay">
+                  <img src="https://www.svgrepo.com/show/452082/paypal.svg" alt="">
+                  <p>PayPal</p>
+                  <input type="radio" name="choose" hidden>
+                  <span class="custom-radio"></span>
+              </label>
+            </div>
+          
+            <div class="card-number">
+              <p>Card Number</p>
+              <input type="text" placeholder="**** **** **** ****" id="card-number-input">
+            </div>
+          
+            <div class="expire-date">
+              <p>Expire Date & CSV</p>
+              <div class="exp-csv">
+                <input type="text" placeholder="MM" maxlength="2" id="month">
+                <input type="text" placeholder="YY" maxlength="2" id="year">
+                <input type="text" placeholder="CSV" maxlength="3" id="csv">
+              </div>
+            </div>
+          
+            <p class="warn">
+              By creating an account, you agree to styudy.com 
+              <strong>Terms of use</strong> and <strong>privacy policy</strong>
+            </p>
+          
+            <button class="joinBtn">Join Now</button>
+          </div>
+          
+</div>
+
+
+    <script src="./scipt.js"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --normal: "Poppins", sans-serif;
+  --heading: "Montserrat", sans-serif;
+}
+body {
+  background: white;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+.custom-window {
+  border: 2px solid black;
+  border-radius: 0.15em;
+  height: 450px;
+  max-width: 850px;
+  width: 90%;
+  margin: auto;
+}
+.pages {
+  height: calc(100% - 4em);
+  /* background-color: red; */
+  width: 100%;
+  padding: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 0.15em;
+  overflow: hidden;
+}
+.page {
+  /* background-color: pink; */
+  height: 100%;
+  width: calc(100% - 0.25em);
+  flex-shrink: 0;
+  padding: 0.6em;
+}
+
+.pagination {
+  height: 3.5em;
+  margin-top: 0.5em;
+  padding-inline: 0.5em;
+  /* background-color: rebeccapurple; */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+}
+.pag-nums {
+  /* background-color: red; */
+  border-radius: 50em;
+  height: 2.5em;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.15em;
+}
+.pageNum {
+  border-radius: 50em;
+  background: rgba(0, 0, 0, 0.064);
+  height: 35px;
+  aspect-ratio: 1;
+  text-align: center;
+  line-height: 2.2;
+  font-family: var(--normal);
+}
+
+.pagination button {
+  font-family: var(--normal);
+  height: 39px;
+  width: 120px;
+  border-radius: 50em;
+  background: black;
+  color: white;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
+.pagination button:hover {
+  background: #252525;
+}
+.active {
+  background-color: black;
+  color: white;
+}
+.content {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  padding: 0.15em;
+  font-family: var(--heading);
+  background-color: red;
+  border-radius: 0.15em;
+}

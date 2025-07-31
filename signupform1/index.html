@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>i code this ch 503</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="glass"></div>
+    <div class="container">
+        <div class="closeBtn">x</div>
+        <h2>Sign up</h2>
+        <p>Create an account to unloack all the benefits to easily save, like or submit your favorite content.</p>
+
+        <button class="sub-btn">
+            <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="">
+            <p>Signup with google</p>
+        </button>
+
+        <button class="sub-btn">
+            <img src="https://www.svgrepo.com/show/475647/facebook-color.svg" alt="">
+            <p>Signup with facebook</p>
+        </button>
+
+        <button class="sub-btn">
+            <img src="https://www.svgrepo.com/show/475689/twitter-color.svg" alt="">
+            <p>Signup with twitter</p>
+        </button>
+        <label for="terms">
+            <input type="checkbox" name="" id="terms" />
+            <p>i'm not intrested in update about products and services.</p>
+        </label>
+        <button id="submit">sign in</button>
+
+    </div>
+    <script>
+        const closeBtn = document.querySelector('.closeBtn');
+        closeBtn.addEventListener('click', () => {
+            document.querySelector('.container').classList.add('close');
+
+            setTimeout(() => {
+                document.querySelector('.container').classList.remove('close');
+
+            }, 1000);
+        })
+    </script>
+</body>
+
+</html>

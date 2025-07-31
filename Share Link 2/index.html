@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>i code this ch 436</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <img id="BG-IMG"
+        src="https://cdn.dribbble.com/userupload/10336064/file/original-7f59b2650a27f8f5ace414cd41908f88.png?resize=1200x900"
+        alt="">
+    <div class="container">
+        <div class="silde-one" id="slide-1">
+
+            <h2>Share something awesome</h2>
+            <p>new and awesome design content will be added to our website and may even end up in our weekly newsletter
+            </p>
+
+            <div class="search">
+                <div class="search-icon"></div>
+                <input type="text" id="search" placeholder="Search for something">
+            </div>
+            <div class="permissions-persons">
+                <div class="user">
+                    <img class="profile"
+                        src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+                    <h2 class="name">
+                        Joe
+                    </h2>
+                    <select class="permission">
+                        <option value="">Editor</option>
+                        <option value="">View</option>
+                    </select>
+                </div>
+                <div class="user">
+
+                    <img class="profile"
+                        src='https://images.unsplash.com/photo-1619895862022-09114b41f16f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' />
+                    <h2 class="name">
+                        Lara
+                    </h2>
+                    <select class="permission">
+                        <option value="">Editor</option>
+                        <option value="">View</option>
+                    </select>
+                </div>
+                <div class="user">
+                    <img class="profile"
+                        src="https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?q=80&w=1856&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+                    <h2 class="name">
+                        Lupin
+                    </h2>
+                    <select class="permission">
+                        <option value="">Editor</option>
+                        <option value="">View</option>
+                    </select>
+                </div>
+
+            </div>
+
+
+            <div class="btn-grp">
+                <button>Cancle</button>
+                <button id="nxt">Next</button>
+            </div>
+        </div>
+        <div class="silde-one" id="slide2">
+
+            <h2>Share something awesome</h2>
+            <p>new and awesome design content will be added to our website and may even end up in our weekly newsletter
+            </p>
+
+            <div class="share-box">
+                <div class="shareText">https:</div>
+                <input type="text" id="share-input" placeholder="Share something awesome">
+                <div class="share-btn">Share</div>
+            </div>
+            <div class="guide-lines">
+                <h6>Sharing guidelines</h6>
+                <p>We accept quality design/visual projects, animations, 3D, UI/UX prototypes, or any other visual
+                    design project. <a href="#">
+                        Read more
+                    </a></p>
+            </div>
+            <div class="btn-grp">
+                <button>Cancle</button>
+                <button id="bck">back</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const nxt = document.getElementById('nxt');
+        const slide2 = document.getElementById('slide2');
+        const container = document.querySelector('.container');
+        nxt.addEventListener('click', () => {
+            container.scrollLeft += 450;
+        })
+        bck.addEventListener('click', () => {
+            container.scrollLeft -= 450;
+        })
+    </script>
+</body>
+
+</html>

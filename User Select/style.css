@@ -1,0 +1,212 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+  background: rgb(13, 0, 26);
+
+  display: grid;
+  place-items: center;
+}
+
+:root {
+  /* animation & transitions */
+  --appear: appear 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes appear {
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
+.user-selection--container {
+  height: 360px;
+  width: 470px;
+  background: rgb(21, 0, 42);
+  padding: 1em;
+  position: relative;
+
+  overflow: hidden;
+  z-index: 1;
+}
+
+h1 {
+  color: white;
+  margin-bottom: 0.25em;
+  text-align: center;
+  font-size: 1.7em;
+}
+.cards {
+  height: calc(100% - 6em);
+  width: 100%;
+  /* background-color: red; */
+  overflow-y: auto;
+
+  gap: 0.15em;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(139px, 1fr));
+}
+.card {
+  height: 160px;
+  width: 100%;
+  background-color: rgb(33, 5, 61);
+  /* background-color: rgba(164, 73, 255, 0.672); */
+  text-align: center;
+  padding: 0.5em;
+  display: grid;
+  place-content: center;
+  position: relative;
+  top: 14px;
+  opacity: 0;
+  animation: var(--appear);
+}
+.card img {
+  height: 60px;
+  aspect-ratio: 1;
+  border-radius: 50em;
+  object-fit: cover;
+  margin-bottom: 0.25em;
+  /* background: red; */
+  /* mix-blend-mode: difference;
+  filter: invert(1); */
+}
+.card p {
+  color: white;
+  /* background: red; */
+}
+#addCardBtn {
+  height: fit-content;
+  position: absolute;
+  bottom: 0.5em;
+  right: 0.5em;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  justify-content: space-between;
+  border: 1.4px solid rgba(164, 73, 255, 0.672);
+  border-radius: 50em;
+  padding: 0.15em 0.15em;
+  cursor: pointer;
+}
+#addCardBtn p {
+  color: rgba(164, 73, 255, 0.672);
+  padding-right: 0.5em;
+}
+#addCardBtn svg {
+  width: 32px;
+  height: 100%;
+}
+#addCardBtn:hover,
+#manageUserBtn :hover {
+  background-color: rgba(164, 73, 255, 0.089);
+}
+#manageUserBtn {
+  height: fit-content;
+
+  position: absolute;
+  bottom: 0.5em;
+  left: 0.5em;
+
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  justify-content: space-between;
+
+  border: 1.4px solid rgba(164, 73, 255, 0.672);
+  border-radius: 50em;
+  cursor: pointer;
+  color: rgba(164, 73, 255, 0.672);
+}
+#manageUserBtn p {
+  padding: 0.45em 0.75em;
+  border-radius: inherit;
+  height: 100%;
+  width: 100%;
+}
+
+.card:hover {
+  background-color: rgb(30, 15, 46);
+  cursor: pointer;
+}
+
+.deleteUserBtn {
+  position: absolute;
+  right: 0.5em;
+  top: 0.5em;
+  height: 26px;
+  aspect-ratio: 1;
+  border-radius: 50em;
+  padding: 0.25em;
+  cursor: pointer;
+
+  display: none;
+}
+.deleteUserBtn:hover {
+  background: #ec4b4b3d;
+}
+.deleteUserBtn svg {
+  height: 100%;
+  width: 100%;
+}
+
+.popup {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: -100%;
+  background-color: rgb(33, 5, 61);
+  padding: 1em;
+  transition: 250ms ease left;
+}
+
+.popup input {
+  height: 3em;
+  font-family: "Poppins", sans-serif;
+  padding-left: 0.15em;
+  width: 100%;
+  margin-block: 0.5em;
+  border-radius: 1em;
+  border: 1.4px solid rgba(164, 73, 255, 0.672);
+  background-color: transparent;
+  background: rgba(164, 73, 255, 0.168);
+  columns: white;
+}
+
+.popup .btn-grp {
+  margin-top: 7.5em;
+  height: 3em;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  border-radius: 50em;
+  margin-left: auto;
+}
+.btn-grp button {
+  height: 100%;
+  width: 100%;
+  border-radius: inherit;
+  border: 0;
+  outline: 0;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+}
+.btn-grp button:first-child {
+  background-color: rgb(95, 95, 255);
+  color: white;
+}
+.btn-grp button:last-child {
+  background-color: rgb(255, 76, 76);
+  color: white;
+}

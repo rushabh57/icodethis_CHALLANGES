@@ -1,0 +1,216 @@
+@import url("https://fonts.googleapis.com/css2?family=Italiana&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  display: grid;
+  place-content: center;
+}
+:root {
+  --fancy-font: "Italiana", sans-serif;
+  --body-font: "Poppins", sans-serif;
+}
+.arrow-p-b {
+  position: fixed;
+  bottom: -0%;
+  left: 24%;
+  height: 20vw;
+  width: 20vw;
+  z-index: -1;
+  scale: 0.7;
+  rotate: -54deg;
+}
+.main-heading {
+  font-family: var(--fancy-font);
+  font-size: 2em;
+  margin-bottom: 1em;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: fit-content;
+  /* background-color: red; */
+}
+nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25em;
+  list-style: none;
+  padding: 0.5em;
+}
+nav ul li {
+  background-color: rgb(234, 234, 234);
+  border-radius: 50em;
+  height: 100%;
+  width: fit-content;
+  padding: 0.35em 0.75em;
+  cursor: pointer;
+}
+nav ul li.active {
+  background: black;
+  color: white;
+}
+nav ul li:hover {
+  background: black;
+  color: white;
+}
+
+.popup {
+  position: fixed;
+  bottom: 0.5em;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  width: 100%;
+  max-width: 320px;
+  height: 3em;
+  color: azure;
+  border-radius: 50em;
+  line-height: 3;
+  height: fit-content;
+  font-size: 14px;
+}
+#genBtn {
+  height: 4em;
+  width: 220px;
+  margin-inline: auto;
+  border: 0;
+  outline: 0;
+  background: black;
+  color: white;
+  border-radius: 0.5em;
+  margin-top: 0.5em;
+  font-family: var(--body-font);
+  cursor: pointer;
+}
+.overlay {
+  position: fixed;
+  background-color: whitesmoke;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  padding-top: 5em;
+}
+.overlay h2 {
+  position: absolute;
+  left: 1em;
+  top: 1em;
+}
+
+.overlay img {
+  height: 45px;
+  aspect-ratio: 1;
+  border-radius: 50em;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+}
+.overlay img:hover {
+  background: white;
+  filter: invert(1) grayscale(1);
+  cursor: pointer;
+}
+/* p2 */
+.input_btn_wrapper {
+  background-color: red;
+  height: 5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.input_btn_wrapper > button {
+  height: 100%;
+  width: 100%;
+  max-width: 200px;
+  border: 0;
+  outline: 0;
+  background: black;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  font-size: 1.3em;
+}
+.input_btn_wrapper > button:hover {
+  filter: invert(0.15);
+}
+.input_btn_wrapper > input {
+  height: 100%;
+  width: 100%;
+  border: 0;
+  outline: 0;
+  padding-left: 0.25em;
+  font-family: var(--body-font);
+  font-size: 1.5em;
+}
+
+/* p1 */
+.palette-one {
+  display: flex;
+  gap: 0.125em;
+  align-items: start;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.palette-one-color-box {
+  border-radius: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 0.25em;
+  padding: 0.5em;
+  background: rgb(244, 244, 244);
+  margin-bottom: 0.125em;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  width: 120px;
+}
+.palette-one-color-box:hover {
+  background: rgb(233, 233, 233);
+  /* width: 120px; */
+}
+.palette-one-color-child-box {
+  width: 30px;
+  aspect-ratio: 1;
+  border-radius: 50em;
+}
+
+.palette-one-color-box:hover .palette-one-color-child-box {
+  position: relative;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  scale: 10;
+  transition: scale cubic-bezier(0.175, 0.885, 0.32, 1.275) 550ms;
+}
+.palette-one-color-child-box p {
+  transition: right ease 550ms;
+}
+.palette-one-color-box:hover p {
+  z-index: 1;
+  position: relative;
+  right: 0.75em;
+  filter: invert(1);
+}
+
+.hexBox_wrapper {
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid red;
+}
+
+.hexaBox_color {
+  height: 100px;
+  aspect-ratio: 1;
+}

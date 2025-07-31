@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  background: whitesmoke;
+  display: grid;
+  place-items: center;
+}
+
+.N {
+  height: 300px;
+  aspect-ratio: 1;
+  background: white;
+  padding: 2em;
+}
+.N label {
+  height: 80px;
+  width: 100%;
+  border-radius: 50em;
+  display: block;
+  border: 1.4px solid black;
+  background: red;
+  position: relative;
+}
+.N .N_circle {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  height: 70px;
+  aspect-ratio: 1;
+  border-radius: 50em;
+  background: rebeccapurple;
+}

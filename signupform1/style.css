@@ -1,0 +1,234 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --normal: "Poppins", sans-serif;
+  --heading: "Montserrat", sans-serif;
+  /* animation & transitions */
+  --appear: appear 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes appear {
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
+body {
+  background: radial-gradient(at top, black, rgb(43, 43, 255), lightblue);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+@keyframes Closing {
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    opacity: 0;
+  }
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    opacity: 1;
+  }
+}
+@keyframes Opening {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    opacity: 0;
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    opacity: 1;
+  }
+}
+@keyframes gradient {
+  0%,
+  100% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+}
+.closeBtn {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  z-index: 1;
+  font-family: var(--heading);
+  color: #333;
+  cursor: pointer;
+  text-align: center;
+  line-height: 1.8;
+  font-weight: 600;
+  font-size: 18px;
+  height: 35px;
+  aspect-ratio: 1;
+  border-radius: 0.5em;
+}
+.closeBtn:hover {
+  background: rgba(255, 0, 0, 0.157);
+  color: red;
+}
+.glass {
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.085);
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+.container.close {
+  animation: Closing 750ms cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+.container {
+  animation: Opening 750ms cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  z-index: 2;
+  position: relative;
+  height: 450px;
+  width: 400px;
+  background: black;
+  color: white;
+  padding: 1em;
+  border-radius: 1em;
+}
+.container h2 {
+  font-family: var(--heading);
+  font-size: 2em;
+  margin-bottom: 0.5em;
+  position: relative;
+  top: 15px;
+  opacity: 0;
+  animation: var(--appear);
+}
+.sub-btn {
+  height: 4em;
+  width: 100%;
+  border-radius: inherit;
+  border: 1.4px solid #333;
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: stretch;
+  margin-block: 0.5em;
+  gap: 0.5em;
+  font-family: var(--normal);
+  color: white;
+
+  position: relative;
+  top: 15px;
+  opacity: 0;
+  animation: var(--appear);
+}
+.sub-btn:first-of-type {
+  animation-delay: 50ms;
+}
+.sub-btn:nth-child(5) {
+  animation-delay: 100ms;
+}
+.sub-btn:nth-child(6) {
+  animation-delay: 150ms;
+}
+
+.container > p {
+  font-family: var(--normal);
+  font-size: 15px;
+  margin-bottom: 1em;
+  position: relative;
+  top: 15px;
+  opacity: 0;
+  animation: var(--appear);
+  animation-delay: 25ms;
+}
+.sub-btn img {
+  height: 100%;
+  width: 3em;
+  padding: 0.5em;
+}
+label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  font-family: var(--normal);
+  font-size: 12px;
+  line-height: 1.6;
+  margin-block: 1em;
+  border-radius: inherit;
+  position: relative;
+  top: 15px;
+  opacity: 0;
+  animation: var(--appear);
+  animation-delay: 175ms;
+}
+label input {
+  appearance: var(--normal);
+  border: #333 1.4px solid;
+  height: 15px;
+  aspect-ratio: 1;
+  border-radius: 0.25em;
+  position: relative;
+  transition: 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275) border,
+    250ms ease background;
+}
+label input:checked {
+  background-color: rgb(94, 94, 255);
+  border: 0;
+}
+label input::before {
+  content: "";
+  opacity: 0;
+  background: url("https://www.svgrepo.com/show/505267/tick.svg") center / cover,
+    no-repeat;
+  border-radius: inherit;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 15px;
+  width: 15px;
+  filter: invert(1);
+  transition: 250ms ease opacity;
+}
+label input:checked:before {
+  opacity: 1;
+}
+#submit {
+  height: 2.5em;
+  width: 100%;
+  margin-block: 1.5em;
+  background: transparent;
+  border-radius: inherit;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  color: rgb(94, 94, 255);
+  font-size: 18px;
+
+  position: relative;
+  top: 15px;
+  opacity: 0;
+  animation: var(--appear);
+  animation-delay: 200ms;
+}
+
+button:hover,
+#submit:hover {
+  background: rgba(94, 94, 255, 0.177);
+}
+
+@media (max-width: 350px) {
+  .container {
+    height: 100%;
+    width: 100%;
+    border-radius: 0em;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+  }
+}

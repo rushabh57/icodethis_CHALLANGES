@@ -1,0 +1,228 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+:root {
+  /* animation & transitions */
+  --appear: appear 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+@keyframes appear {
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+body {
+  height: 100vh;
+  background: rgb(242, 242, 242);
+}
+/* button,
+input {
+  font-family: "Poppins", sans-serif;
+} */
+
+nav {
+  height: 80px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.15px;
+  /* background-color: red; */
+  padding: 0.25em 0.5em;
+}
+nav ul {
+  /* background-color: wheat; */
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 0.75em;
+  list-style: none;
+}
+ul > li {
+  cursor: pointer;
+  font-size: 14px;
+  position: relative;
+  /* background-color: red; */
+}
+ul > li::before {
+  content: "";
+  position: absolute;
+  bottom: -5%;
+  left: 0;
+  height: 1.4px;
+  width: 0%;
+  border-radius: 50em;
+  background-color: black;
+  transition: 250ms width cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+ul > li:hover::before {
+  width: 100%;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.75em;
+  justify-content: center;
+  height: 60px;
+  /* background-color: red; */
+  width: 100%;
+  padding: 0.25em 0.5em;
+}
+.search-bar .search-box {
+  height: 100%;
+  width: 100%;
+  /* background-color: rebeccapurple; */
+}
+.search-box > input {
+  padding-left: 0.5em;
+  font-size: 16px;
+  font-weight: bold;
+  height: 100%;
+  width: 100%;
+  border-radius: 1em;
+  border: 1.4px solid whitesmoke;
+}
+.search-box > input:placeholder-shown {
+  font-weight: normal;
+}
+.uploadBtn {
+  color: white;
+  height: 100%;
+  width: 200px;
+  background: black;
+  border-radius: 1em;
+  font-size: 16px;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
+.uploadBtn:hover {
+  filter: invert(0.2);
+}
+.overLay_popup {
+  height: fit-content;
+  width: 450px;
+  background-color: white;
+  border-radius: 1em;
+  padding: 1em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.overLay_popup_h1 {
+  font-size: 24px;
+  margin-bottom: 0.75em;
+}
+
+.btngrp_popup {
+  height: 3em;
+  width: 100%;
+
+  /* background-color: red; */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25em;
+  border-radius: 0.75em;
+}
+.btngrp_popup > button {
+  border-radius: 0.75em;
+  height: 100%;
+  width: 100%;
+  border: unset;
+}
+.btngrp_popup > .saveBtn_popup {
+  background: rgb(47, 137, 255);
+  font-size: 16px;
+  font-weight: bold;
+}
+.btngrp_popup > .closeBtn_popup {
+  background: rgb(255, 47, 88);
+  font-size: 16px;
+  font-weight: bold;
+}
+.preview_popup {
+  height: 200px;
+  width: 100%;
+  border-radius: 0.75em;
+  margin-inline: auto;
+  object-fit: cover;
+}
+.img_caption {
+  height: 3em;
+  width: 100%;
+  margin-block: 0.25em;
+  border-radius: 0.75em;
+  border: 1.4px solid rgb(239, 239, 239);
+  outline: 0;
+  padding-left: 0.25em;
+  font-size: 14px;
+  background: rgb(249, 249, 249);
+}
+.img_caption:focus-within {
+  border: 1.4px solid rgb(0, 0, 0);
+}
+.uploaded_img_wrapper {
+  height: fit-content;
+  /* background-color: red; */
+  padding: 0.25em 0.75em;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 0.25em;
+}
+
+.img_card {
+  height: 200px;
+  width: 100%;
+  border-radius: 0.5em;
+  background: white;
+  /* padding: 0.25em; */
+  position: relative;
+}
+.img_card img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 1em;
+  transition: 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275) height,
+    250ms cubic-bezier(0.175, 0.885, 0.32, 1.275) padding;
+}
+/* amazing picture of new place */
+.img_card > p {
+  font-weight: bold;
+  padding-left: 0.25em;
+  line-height: 1;
+}
+.img_card > p {
+  opacity: 0;
+  transition: 250ms ease opacity;
+}
+.img_card:hover > img {
+  height: 160px;
+  padding: 0.25em;
+}
+.img_card:hover > p {
+  opacity: 1;
+}
+.img_card:hover {
+  cursor: pointer;
+}
+
+.img_card {
+  position: relative;
+  top: 14px;
+  opacity: 0;
+  animation: var(--appear);
+}

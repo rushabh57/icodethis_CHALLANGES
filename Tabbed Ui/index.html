@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>i code this ch 433</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <ul class="tabb">
+            <li>Details</li>
+            <li>Tutorials</li>
+            <li>Code Snippets</li>
+        </ul>
+        <div class="data">
+            <div class="data-details">
+                <h1>Color Palette</h1>
+                <p>Click on the color to copy code</p>
+                <ul>
+                    <li>#bcc5e2</li>
+                    <li>#eceef9</li>
+                    <li>#5783f3</li>
+                    <li>#a8ffe5</li>
+                    <li>#d0fff1</li>
+                    <li>#c0aeff</li>
+                </ul>
+                <h2>Fonts </h2>
+                <p style="font-weight: 200;">Muli Thin</p>
+                <p style="font-weight: 500;">Muli Regular</p>
+                <p style="font-weight: bold;">Muli SemiBold</p>
+                <p style="font-weight: bolder;">Muli Bold</p>
+            </div>
+            <div class="data-Tuts">
+                <h1>Tutorials</h1>
+                <p>Learn how to build this component</p>
+
+                <h4>HTML & CSS</h4>
+                <div class="link">
+                    <h3>Joe James</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, sint doloribus amet
+                        reiciendis quod reprehenderit.</p>
+                </div>
+                <div class="link">
+                    <h3>Kait Doe</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, sint doloribus amet
+                        reiciendis quod reprehenderit.</p>
+                </div>
+            </div>
+            <div class="data-CS">
+                <h1>Code Snippets</h1>
+                <p>inspect the solution others implements</p>
+                <div class="link">
+                    <h3>Mia Jam</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, sint doloribus amet
+                        reiciendis quod reprehenderit.</p>
+                </div>
+
+            </div>
+        </div>
+        <div class="footer">
+            Do you want to see my other works ? <a href="https://icodethis.com/Rushabh"> Click Here</a>
+        </div>
+    </div>
+</body>
+
+<script>
+    const tabs = document.querySelectorAll('.tabb li');
+    const dataContainer = document.querySelector('.data');
+    const dataSections = document.querySelectorAll('.data > div');
+
+    tabs[0].addEventListener('click', () => {
+        dataContainer.style.justifyContent = 'start'
+    })
+    tabs[1].addEventListener('click', () => {
+        dataContainer.style.justifyContent = 'center'
+    })
+    tabs[2].addEventListener('click', () => {
+        dataContainer.style.justifyContent = 'end'
+    })
+
+</script>
+
+</html>

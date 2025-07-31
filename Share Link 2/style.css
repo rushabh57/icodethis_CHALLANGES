@@ -1,0 +1,272 @@
+@import url("https://fonts.googleapis.com/css2?family=Italiana&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* animation & transitions */
+  --appear: appear 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+.user {
+  transition: 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275) background,
+    250ms cubic-bezier(0.175, 0.885, 0.32, 1.275) color,
+    250ms cubic-bezier(0.175, 0.885, 0.32, 1.275) padding-inline;
+}
+.user:hover {
+  background: black;
+  color: white;
+  padding-inline: 0.5em;
+}
+.user:hover .permission {
+  color: white;
+}
+.user:hover .permission:hover {
+  background: #222;
+}
+.btn-grp button:hover {
+  filter: brightness(80%);
+}
+.share-btn:hover {
+  filter: brightness(80%);
+}
+
+@keyframes appear {
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
+:root {
+  --p: "Poppins", system-ui;
+  --m: "Montserrat", system-ui;
+  --i: "Italiana", system-ui;
+
+  --primary: hsl(6.96deg 83.41% 57.45%);
+}
+.menu {
+  display: none;
+}
+body {
+  height: 100vh;
+  background: white;
+  scroll-behavior: smooth;
+}
+#BG-IMG {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  height: 70%;
+  width: fit-content;
+  object-fit: contain;
+}
+.container {
+  height: 99.75%;
+  width: 450px;
+  z-index: 1;
+  border-radius: 0.5em;
+  border: 1.4px solid rgb(255, 255, 255);
+  background: white;
+  padding: 0.5em;
+  display: flex;
+  gap: 0.5em;
+  overflow-x: hidden;
+}
+.container > div {
+  flex-shrink: 0;
+}
+.silde-one {
+  background-color: white;
+  height: 100%;
+  width: 100%;
+  border-radius: inherit;
+  position: relative;
+}
+.permissions-persons {
+  height: fit-content;
+  width: 100%;
+  border-radius: inherit;
+}
+.search {
+  height: 3em;
+  width: 100%;
+  background: rgb(249, 249, 249);
+  border-radius: inherit;
+}
+.search > input {
+  height: 100%;
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+  font-family: var(--p);
+  font-size: 13px;
+}
+.btn-grp > button:last-child {
+  background: hsl(212, 100%, 70%);
+}
+.btn-grp {
+  height: 3em;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  position: absolute;
+  bottom: 0;
+}
+.btn-grp > button {
+  height: 100%;
+  width: 80px;
+  border-radius: 0.5em;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  font-family: var(--p);
+  font-size: 14px;
+}
+.user {
+  margin-block: 0.15em;
+  height: 5em;
+  width: 100%;
+  border-radius: inherit;
+  background: rgb(249, 249, 249);
+  display: flex;
+  align-items: center;
+  justify-items: start;
+  gap: 0.5em;
+  position: relative;
+}
+.user .permission {
+  border-radius: inherit;
+  position: absolute;
+  top: 25%;
+  right: 1%;
+  height: 50%;
+  width: 60px;
+  border: 0;
+  outline: 0;
+  padding-left: 0.15em;
+  font-family: var(--p);
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.permission:hover {
+  background-color: white;
+}
+.user .profile {
+  height: 55px;
+  aspect-ratio: 1;
+  background-color: rgb(238, 238, 238);
+  border-radius: 50em;
+  object-fit: cover;
+}
+.container h2 {
+  font-family: var(--m);
+  font-size: 1.25em;
+}
+.container p {
+  line-height: 1;
+  font-family: var(--p);
+  font-size: 14px;
+  margin-bottom: 2em;
+}
+
+.share-box {
+  height: 3em;
+  width: 100%;
+  border-radius: 0.5em;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.share-box > .shareText {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: rgb(249, 249, 249);
+  height: 100%;
+  width: fit-content;
+  padding: 0.5em;
+  font-family: var(--p);
+  line-height: 2.3;
+  font-size: 14px;
+  color: rgb(213, 213, 213);
+}
+.share-box > input::placeholder {
+  color: rgb(213, 213, 213);
+}
+.share-box > input {
+  height: 100%;
+  width: 100%;
+  border: 0;
+  outline: 0;
+  padding-left: 4em;
+  font-size: 14px;
+  background-color: rgb(249, 249, 249);
+}
+.share-btn {
+  background-color: hsl(212.12deg 100% 47.25%);
+  height: 100%;
+  width: fit-content;
+  padding: 0.5em 1em;
+  font-family: var(--p);
+  line-height: 2.3;
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+}
+.guide-lines {
+  background: rgb(249, 249, 249);
+  height: fit-content;
+  padding: 0.5em;
+  margin-top: 1em;
+  border-radius: inherit;
+}
+
+.guide-lines h6 {
+  font-size: 16px;
+  font-family: var(--m);
+}
+.guide-lines p {
+  font-family: var(--p);
+  font-size: 12px;
+}
+.guide-lines p > a {
+  color: hsl(212.12deg 100% 47.25%);
+}
+
+#slide2 .btn-grp button:last-child {
+  background-color: hsl(6.96deg 83.41% 57.45%);
+}
+
+@media (max-width: 650px) {
+  #BG-IMG {
+    display: none;
+  }
+  .container {
+    width: 100%;
+  }
+}
+@media (max-width: 450px) {
+  .container > div {
+    padding: 0.5em;
+  }
+  .container h2 {
+    font-size: 16px;
+  }
+  .container p {
+    font-size: 12px;
+  }
+  .container .user {
+    padding-inline: 0.5em;
+  }
+}
+@media (min-width: 1250px) {
+  .container {
+    height: 580px;
+    width: 450px;
+  }
+}
